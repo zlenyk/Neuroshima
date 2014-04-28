@@ -1,20 +1,28 @@
 package gui;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.GridBagLayout;
-import javax.swing.SpringLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
+import java.awt.event.ActionListener;
 
-public class App {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import con.StartMenuController;
+
+public class StartMenu {
 
 	private JFrame frmNeuroshima;
-
+	private StartMenuController controller;
+	
+	public JFrame getFrame(){
+		return frmNeuroshima;
+	}
+	public void show(){
+		frmNeuroshima.setVisible(true);
+	}
+	public void hide(){
+		frmNeuroshima.setVisible(false);
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -22,7 +30,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					App window = new App();
+					StartMenu window = new StartMenu();
 					window.frmNeuroshima.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +42,7 @@ public class App {
 	/**
 	 * Create the application.
 	 */
-	public App() {
+	public StartMenu() {
 		initialize();
 	}
 
@@ -49,7 +57,13 @@ public class App {
 		frmNeuroshima.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNeuroshima.getContentPane().setLayout(null);
 		
+		controller = new StartMenuController(this);
 		JButton newGameButton = new JButton("New Game");
+		newGameButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.startNewGame();
+			}
+		});
 		newGameButton.setBounds(56, 30, 117, 25);
 		frmNeuroshima.getContentPane().add(newGameButton);
 		
