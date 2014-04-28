@@ -17,12 +17,6 @@ public class StartMenu {
 	public JFrame getFrame(){
 		return frmNeuroshima;
 	}
-	public void show(){
-		frmNeuroshima.setVisible(true);
-	}
-	public void hide(){
-		frmNeuroshima.setVisible(false);
-	}
 	/**
 	 * Launch the application.
 	 */
