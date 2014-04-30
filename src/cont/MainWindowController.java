@@ -1,4 +1,4 @@
-package con;
+package cont;
 
 import gui.MainWindow;
 

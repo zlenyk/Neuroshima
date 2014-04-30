@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import con.MainWindowController;
+import cont.MainWindowController;
 
 public class MainWindow extends JFrame {
 

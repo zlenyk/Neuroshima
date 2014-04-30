@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import con.StartMenuController;
+import cont.StartMenuController;
 
 public class StartMenu {
 
