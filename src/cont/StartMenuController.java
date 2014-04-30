@@ -19,7 +19,7 @@ public class StartMenuController {
 	 * Obtains new MainWindow in which game will be played.
 	 * @return obtained MainWindow
 	 */
-	private MainWindow getNewMainWindow(){
+	private MainWindowController getNewMainWindowController(){
 		return MainWindow.getInstance(appMenu.getFrame());
 	}
 	
@@ -27,7 +27,7 @@ public class StartMenuController {
 	 * Starts game in new game window.
 	 */
 	public void startNewGame(){
-		MainWindow newGameWindow = getNewMainWindow();
-		newGameWindow.initMainWindow();
+		MainWindowController newGameWindowController = getNewMainWindowController();
+		newGameWindowController.initMainWindow();
 	}
 }

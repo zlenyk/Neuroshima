@@ -30,10 +30,10 @@ public class MainWindow extends JFrame {
 		});
 	}
 	/**
-	 * Launch and returns new MainWindow.
+	 * Launch and returns controller to new MainWindow.
 	 */
-	public static MainWindow getInstance(final JFrame _parent){
-		return new MainWindow(_parent);
+	public static MainWindowController getInstance(final JFrame _parent){
+		return new MainWindow(_parent).controller;
 	}
 	
 	public void showWindow(){

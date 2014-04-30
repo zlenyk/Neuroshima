@@ -25,5 +25,9 @@ public class MainWindowController {
 	public void closeGame(){
 		mainWindow.hideWindow();
 	}
+	
+	public void initMainWindow(){
+		mainWindow.initMainWindow();
+	}
 
 }
