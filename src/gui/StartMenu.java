@@ -1,13 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-import cont.StartMenuController;
 
 public class StartMenu {
 
@@ -71,5 +64,13 @@ public class StartMenu {
 		networkGameButton.setEnabled(false);
 		networkGameButton.setBounds(56, 129, 117, 25);
 		frmNeuroshima.getContentPane().add(networkGameButton);
+		
+		JButton btnNewButton = new JButton("Close");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setBounds(56, 175, 117, 25);
+		frmNeuroshima.getContentPane().add(btnNewButton);
 	}
 }
