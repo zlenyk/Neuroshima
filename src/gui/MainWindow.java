@@ -3,6 +3,7 @@ package gui;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,8 +33,8 @@ public class MainWindow extends JFrame {
 	/**
 	 * Launch and returns controller to new MainWindow.
 	 */
-	public static MainWindowController getInstance(final JFrame _parent){
-		return new MainWindow(_parent).controller;
+	public static MainWindowController getInstance(final JFrame _parent,List<String> armies){
+		return new MainWindow(_parent,armies).controller;
 	}
 	
 	public void showWindow(){
@@ -47,7 +48,7 @@ public class MainWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private MainWindow(JFrame _parent) {
+	private MainWindow(JFrame _parent,List<String> armies) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,6 +65,10 @@ public class MainWindow extends JFrame {
 		});
 		btnClose.setBounds(319, 12, 117, 25);
 		contentPane.add(btnClose);
+		
+		Board board = new Board(200,armies);
+		board.setBounds(12, 0, 262, 259);
+		contentPane.add(board);
 		
 		parent = _parent;
 		controller = new MainWindowController(this);

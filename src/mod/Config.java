@@ -1,11 +1,26 @@
 package mod;
 
+import javax.swing.DefaultListModel;
+
 /**
  * @author zygmunt
  *	Stores main configuration for the game.
  */
 public class Config {
 	private static int PLAYERS;
+	private static DefaultListModel<String> armiesList;
+	
+	static {
+		armiesList = new DefaultListModel<String>();
+		armiesList.addElement("Borgo");
+		armiesList.addElement("Hegemonia");
+		armiesList.addElement("Moloch");
+		armiesList.addElement("Posterunek");
+	}
+	
+	public static DefaultListModel<String> getArmies(){
+		return armiesList;
+	}
 	/**
 	 * @return number of players.
 	 */
