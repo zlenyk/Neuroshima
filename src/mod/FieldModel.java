@@ -1,3 +1,5 @@
+package mod;
+
 
 public class FieldModel {
 	FieldModel neibours[];

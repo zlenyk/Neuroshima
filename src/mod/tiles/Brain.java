@@ -1,3 +1,5 @@
+package mod.tiles;
+
 
 public class Brain extends Modul {
 	Brain(int rotation){

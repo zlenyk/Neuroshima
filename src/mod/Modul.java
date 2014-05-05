@@ -1,3 +1,5 @@
+package mod;
+
 
 public class Modul extends Field {
 //	void work(){}
