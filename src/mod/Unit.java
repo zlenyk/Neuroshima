@@ -5,18 +5,18 @@ import java.util.List;
 
 public class Unit extends Field {
 //	FieldModel position;
-	List<Integer> initiative;
+	public List<Integer> initiative;
 //	int rotation;
 //	int hp;
 	public void attack(){}
 //	boolean shield[];
 //	boolean isNetted;
-	int shootBonus;
-	int hitBonus;
-	int initiativeBonus;
+	public int shootBonus;
+	public int hitBonus;
+	protected int initiativeBonus;
 //	final int directions[] = {-5, -2, 2, 5, 3, -3};
 	
-	void shoot(int direction,int power){
+	protected void shoot(int direction,int power){
 		while(position.neibours[direction]!=null){
 			if(position.neibours[direction].tile!=null){
 				if(position.neibours[direction].tile.shield[(direction+3)%6]==false) 
@@ -26,7 +26,7 @@ public class Unit extends Field {
 			}
 		}
 	}
-	void hit(int direction, int power){
+	protected void hit(int direction, int power){
 		if(position.neibours[direction]!=null&&position.neibours[direction].tile!=null){
 			position.neibours[direction].tile.hp-=power;
 		}

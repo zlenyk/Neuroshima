@@ -2,13 +2,13 @@ package mod;
 
 
 public class Field {
-	int rotation;
+	public int rotation;
 	FieldModel position;
-	boolean shield[];
-	int hp;
-	boolean isNetted;
-	void work(int direction){}
+	public boolean shield[];
+	protected int hp;
+	protected int isNetted;
+	protected void work(int direction){}
 	void put(){}
-	Field pick(){return this;}
+	protected Field pick(){return this;}
 	
 }

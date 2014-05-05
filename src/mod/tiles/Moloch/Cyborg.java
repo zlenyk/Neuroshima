@@ -1,6 +1,8 @@
-package mod.tiles;
+package mod.tiles.Moloch;
 
 import java.util.LinkedList;
+
+import mod.Unit;
 
 
 public class Cyborg extends Unit{
@@ -9,11 +11,12 @@ public class Cyborg extends Unit{
 		hp=1;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
-		isNetted = false;
+		isNetted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(3);
 		shootBonus = 0;
 		hitBonus = 0;
+		initiativeBonus = 0;
 		
 	}
 	

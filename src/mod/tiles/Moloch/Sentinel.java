@@ -1,21 +1,25 @@
-package mod.tiles;
+package mod.tiles.Moloch;
 
 import java.util.LinkedList;
 
-public class Ripper extends Unit {
-	Ripper(int rotation){
+import mod.Unit;
+
+public class Sentinel extends Unit {
+	Sentinel(int rotation){
 		this.rotation = rotation;
 		hp = 1;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;
-		isNetted = false;
+		isNetted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
 		shootBonus = 0;
 		hitBonus = 0;
+		initiativeBonus = 0;
 	}
 	
 	public void attack(){
-		hit(0+rotation, 2+hitBonus);
+		shoot(0+rotation, 1+shootBonus);
+		shoot(5+rotation, 1+shootBonus);
 	}
 }

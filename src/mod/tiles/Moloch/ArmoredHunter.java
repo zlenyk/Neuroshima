@@ -1,20 +1,23 @@
-package mod.tiles;
+package mod.tiles.Moloch;
 
 import java.util.LinkedList;
+
+import mod.Unit;
 
 public class ArmoredHunter extends Unit {
 	ArmoredHunter(int rotation){
 		this.rotation = rotation;
 		hp = 1;
 		shield = new boolean[6];
-		for(int i=0; i<6; i++)	shield[i] = false;
-			shield[0+rotation] = true;
-			shield[5+rotation] = true;
-		isNetted = false;
+		for(int i=1; i<5; i++)	shield[i] = false;
+		shield[0] = true;
+		shield[5] = true;
+		isNetted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
 		shootBonus = 0;
 		hitBonus = 0;
+		initiativeBonus = 0;
 	}
 	
 	public void attack(){

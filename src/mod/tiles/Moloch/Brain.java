@@ -1,4 +1,7 @@
-package mod.tiles;
+package mod.tiles.Moloch;
+
+import mod.Modul;
+import mod.Unit;
 
 
 public class Brain extends Modul {

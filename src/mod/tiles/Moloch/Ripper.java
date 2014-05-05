@@ -1,22 +1,24 @@
-package mod.tiles;
+package mod.tiles.Moloch;
 
 import java.util.LinkedList;
 
-public class GaussCannon extends Unit {
-	GaussCannon(int rotation){
+import mod.Unit;
+
+public class Ripper extends Unit {
+	Ripper(int rotation){
 		this.rotation = rotation;
-		hp = 2;
+		hp = 1;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;
-		isNetted = false;
+		isNetted = 0;
 		initiative = new LinkedList<Integer>();
-		initiative.add(1);
+		initiative.add(2);
 		shootBonus = 0;
 		hitBonus = 0;
+		initiativeBonus = 0;
 	}
 	
 	public void attack(){
-		shoot(rotation,1+shootBonus);
+		hit(0+rotation, 2+hitBonus);
 	}
-	// Dzialo Gaussa strzela do wszystkich celow na swojej linii
 }

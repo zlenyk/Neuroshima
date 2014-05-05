@@ -1,4 +1,6 @@
-package mod.tiles;
+package mod.tiles.Moloch;
+
+import mod.Modul;
 
 
 public class Officer extends Modul {

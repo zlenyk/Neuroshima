@@ -1,6 +1,8 @@
-package mod.tiles;
+package mod.tiles.Moloch;
 
 import java.util.LinkedList;
+
+import mod.Unit;
 
 
 public class Juggernaut extends Unit{
@@ -12,11 +14,12 @@ public class Juggernaut extends Unit{
 			if(i%2==1)shield[i] = false;
 			else shield[i] = true;
 		}
-		isNetted = false;
+		isNetted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(1);
 		shootBonus = 0;
 		hitBonus = 0;
+		initiativeBonus = 0;
 	}
 	public void attack(){
 		shoot(1+rotation,1+shootBonus);
