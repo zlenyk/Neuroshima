@@ -2,32 +2,32 @@ package cont;
 
 import gui.MainWindow;
 
+import java.util.List;
+
 /**
  * @author zygmunt
  *	Class controls main game window behavior. Implements its button actions and provides couple of functions
  *	to modify main window appearance.
  */
 public class MainWindowController {
-	MainWindow mainWindow;
+	final MainWindow mainWindow;
+	final GUIController guiController;
 	
-	public MainWindowController(MainWindow m){
+	public MainWindowController(MainWindow m,GUIController gui){
 		mainWindow = m;
-	}
-	/**
-	 * @return MainWindow object which this class works for.
-	 */
-	public MainWindow getMainWindow(){
-		return mainWindow;
-	}
-	/**
-	 * Implements button "Close game". Makes current MainWindow hide, and show start menu.
-	 */
-	public void closeGame(){
-		mainWindow.hideWindow();
+		guiController = gui;
 	}
 	
-	public void initMainWindow(){
-		mainWindow.initMainWindow();
+	public static MainWindowController openNewMainWindow(GUIController gui,List<String> armies){
+		MainWindow mw = new MainWindow(gui,armies);
+		mw.setVisible(true);
+		return mw.getController();
+	}
+	public void hideWindow(){
+		mainWindow.setVisible(false);
+	}
+	public void closeGame(){
+		guiController.closeGame();
 	}
 
 }

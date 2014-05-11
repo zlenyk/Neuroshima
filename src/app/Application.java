@@ -2,7 +2,7 @@ package app;
 
 import java.awt.EventQueue;
 
-import cont.StartMenuController;
+import cont.GUIController;
 
 public class Application {
 
@@ -15,7 +15,8 @@ public class Application {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StartMenuController controller = StartMenuController.openNewStartMenu();
+					GUIController gui = new GUIController();
+					gui.showNewStartMenu();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

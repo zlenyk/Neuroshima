@@ -1,9 +1,6 @@
 package cont;
 
-import gui.MainWindow;
 import gui.StartMenu;
-
-import java.util.List;
 
 /**
  * @author zygmunt
@@ -11,34 +8,29 @@ import java.util.List;
  */
 public class StartMenuController {
 	
-	StartMenu appMenu;
+	final StartMenu appMenu;
+	final GUIController guiController;
 	
-	public StartMenuController(StartMenu a){
+	public StartMenuController(StartMenu a,GUIController gui){
 		appMenu = a;
+		guiController = gui;
 	}
-	
-	/**
-	 * Obtains new MainWindow in which game will be played.
-	 * @return obtained MainWindow
-	 */
-	private MainWindowController getNewMainWindowController(List<String> armies){
-		return MainWindow.getInstance(appMenu.getFrame(),armies);
-	}
-	
 	/**
 	 * Starts game in new game window.
 	 */
-	public void startNewGame(List<String> armiesList){
-		MainWindowController newGameWindowController = getNewMainWindowController(armiesList);
-		newGameWindowController.initMainWindow();
+	public void chooseArmies(){
+		guiController.chooseArmies();
 	}
 	
 	/**
 	 * @return StartMenuController to the newly opened StartMenus
 	 */
-	public static StartMenuController openNewStartMenu(){
-		StartMenu startMenu = new StartMenu();
+	public static StartMenuController openNewStartMenu(GUIController gui){
+		StartMenu startMenu = new StartMenu(gui);
 		startMenu.getFrame().setVisible(true);
 		return startMenu.getController();
+	}
+	public void hideMenu(){
+		appMenu.getFrame().setVisible(false);
 	}
 }

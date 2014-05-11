@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
 
-import mod.Config;
+import cont.GUIController;
 import cont.StartMenuController;
 
 public class StartMenu {
@@ -26,18 +25,11 @@ public class StartMenu {
 	/**
 	 * Create the application.
 	 */
-	public StartMenu() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public StartMenu(GUIController gui) {
 		frmNeuroshima = new JFrame();
 		frmNeuroshima.setTitle("Neuroshima");
 		frmNeuroshima.setResizable(false);
-		frmNeuroshima.setBounds(100, 100, 275, 300);
+		frmNeuroshima.setBounds(100, 100, 237, 281);
 		frmNeuroshima.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNeuroshima.getContentPane().setLayout(null);
 
@@ -59,36 +51,26 @@ public class StartMenu {
 		btnNewButton.setBounds(56, 180, 117, 25);
 
 		networkGameButton.setEnabled(false);
-		
-		JList<String> armiesList = createList();
-		
-		newGameButton.addActionListener(newGameAction(armiesList));
+				
+		newGameButton.addActionListener(newGameAction());
 
 		
-		frmNeuroshima.getContentPane().add(armiesList);
 		
 		frmNeuroshima.getContentPane().add(btnNewButton);
 		frmNeuroshima.getContentPane().add(newGameButton);
 		frmNeuroshima.getContentPane().add(somethingElseButton);
 		frmNeuroshima.getContentPane().add(networkGameButton);
 
-		controller = new StartMenuController(this);
+		controller = new StartMenuController(this,gui);
 
 	}
 	
-	private ActionListener newGameAction(final JList<String> armiesList){
+	private ActionListener newGameAction(){
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.startNewGame(armiesList.getSelectedValuesList());
+				controller.chooseArmies();
 			}
 		};
 	}
 	
-	private JList<String> createList(){
-
-		JList<String> list = new JList<String>(Config.getArmies());
-		list.setBounds(185, 34, 74, 78);
-		
-		return list;
-	}
 }
