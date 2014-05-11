@@ -2,20 +2,34 @@ package gui;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Polygon;
+
+import javax.swing.JPanel;
 
 
-public class Field extends Hexagon{
+public class Field extends JPanel{
 
+	//Image image;
+	Polygon polygon;
 	Image image;
-	int height;
-	int width;
-	public Field(int side,Image img) {
-		super(side);
+	public Field(Image img,int[] pointsX,int[] pointsY) {
+		super();
+		setSize(124,108);
+		polygon = new Polygon(pointsX,pointsY,pointsX.length);
 		image = img;
-		height = img.getHeight(null);
-		width = img.getWidth(null);
 	}
-	public void paobserverintComponent(Graphics g){
-		g.drawImage(image,50,50,height,width,null);
+	public Field(Image img){
+		super();
+		setSize(126,110);
+		image = img;
+	}
+	
+	/*@Override
+	public boolean contains(int x,int y){
+		return polygon.contains(new Point(x,y));
+	}*/
+	@Override
+	public void paintComponent(Graphics g){
+		g.drawImage(image,-14,-14,null);
 	}
 }

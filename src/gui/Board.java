@@ -1,22 +1,24 @@
 package gui;
 
+import java.awt.Color;
 import java.util.List;
-import javax.swing.JTextField;
+
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+import cont.board.BoardGenerator;
 
 
-public class Board extends Hexagon{
+public class Board extends JPanel{
 
 	List<Field> fieldList;
 	List<String> armies;
-	private JTextField textField;
-	public Board(int side,List<String> armies) {
-		super(side);
+	public Board (List<String> armies) {
+		setBorder(new LineBorder(new Color(0, 0, 0)));
 		this.armies = armies;
-		
-		textField = new JTextField();
-		add(textField);
-		textField.setColumns(20);
-		textField.setText(armies.get(0) +" "+ armies.get(1));
+		setLayout(null);
+		BoardGenerator bg = new BoardGenerator(this);
+		bg.generateBoard();
 	}
 
 }
