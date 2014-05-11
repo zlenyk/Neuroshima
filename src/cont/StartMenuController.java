@@ -32,4 +32,13 @@ public class StartMenuController {
 		MainWindowController newGameWindowController = getNewMainWindowController(armiesList);
 		newGameWindowController.initMainWindow();
 	}
+	
+	/**
+	 * @return StartMenuController to the newly opened StartMenus
+	 */
+	public static StartMenuController openNewStartMenu(){
+		StartMenu startMenu = new StartMenu();
+		startMenu.getFrame().setVisible(true);
+		return startMenu.getController();
+	}
 }

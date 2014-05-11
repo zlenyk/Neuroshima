@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,20 +18,9 @@ public class StartMenu {
 	public JFrame getFrame(){
 		return frmNeuroshima;
 	}
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StartMenu window = new StartMenu();
-					window.frmNeuroshima.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	
+	public StartMenuController getController(){
+		return controller;
 	}
 
 	/**
