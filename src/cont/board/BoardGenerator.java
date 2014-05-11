@@ -6,19 +6,19 @@ import gui.Field;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author zygmunt
+ *	Class with methods to display game-board.
+ */
 public class BoardGenerator {
-	Board board;
-	List<Field> fieldList;
-	public BoardGenerator(Board b){
-		fieldList = new ArrayList<Field>();
-		board = b;
-	}
-	public void generateBoard(){
+	public BoardGenerator(){}
+	/**
+	 * Methods generates fields for a given board and places them on it.
+	 */
+	public static void generateBoard(Board board){
         File imageFile = new File("graphics/borgo/borgo01-sztab.png");
         File selImageFile = new File("graphics/borgo/selected/borgo01-sztab.png");
 
@@ -45,7 +45,7 @@ public class BoardGenerator {
 
 			}
 			Field field = new Field(image,selImage,_hexX,_hexY);
-			fieldList.add(field);
+			board.addField(field);
 			field.setLocation(X, Y[i]);
 			board.add(field);
 		}
@@ -60,7 +60,7 @@ public class BoardGenerator {
 
 			}
 			Field field = new Field(image,selImage,_hexX,_hexY);
-			fieldList.add(field);
+			board.addField(field);
 			field.setLocation(X, Y1[i]);
 			board.add(field);
 		}
@@ -75,7 +75,7 @@ public class BoardGenerator {
 
 			}
 			Field field = new Field(image,selImage,_hexX,_hexY);
-			fieldList.add(field);
+			board.addField(field);
 			field.setLocation(X, Y2[i]);
 			board.add(field);
 		}
@@ -89,7 +89,7 @@ public class BoardGenerator {
 
 			}
 			Field field = new Field(image,selImage,_hexX,_hexY);
-			fieldList.add(field);
+			board.addField(field);
 			field.setLocation(X, Y1[i]);
 			board.add(field);
 		}
@@ -103,7 +103,7 @@ public class BoardGenerator {
 
 			}
 			Field field = new Field(image,selImage,_hexX,_hexY);
-			fieldList.add(field);
+			board.addField(field);
 			field.setLocation(X, Y[i]);
 			board.add(field);
 		}

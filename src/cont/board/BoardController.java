@@ -7,17 +7,16 @@ import java.awt.Point;
 
 public class BoardController {
 	Board board;
-	BoardGenerator bg;
+	
 	public BoardController(Board b){
 		board = b;
-		bg = new BoardGenerator(board);
 	}
 	public void generateBoard(){
-		bg.generateBoard();
+		BoardGenerator.generateBoard(board);
 	}
 	public void mouseAction(int x,int y){
 		Point p = new Point(x,y);
-		for(Field f : bg.fieldList){
+		for(Field f : board.getFields()){
 			if(f.contains(p)){
 				f.changeSelect();
 			}
