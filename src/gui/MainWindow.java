@@ -52,7 +52,7 @@ public class MainWindow extends JFrame {
 	private MainWindow(JFrame _parent,List<String> armies) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 650, 590);
+		setBounds(100, 100, 650, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,12 +64,11 @@ public class MainWindow extends JFrame {
 				controller.closeGame();
 			}
 		});
-		btnClose.setBounds(480, 0, 117, 25);
+		btnClose.setBounds(531, 12, 117, 25);
 		contentPane.add(btnClose);
 		
 		Board board = new Board(armies);
 		board.setBounds(12, 12, 496, 550);
-		board.setBorder(BorderFactory.createTitledBorder("Board"));
 		contentPane.add(board);
 		
 		parent = _parent;

@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Polygon;
 
 import javax.swing.JPanel;
@@ -9,14 +10,17 @@ import javax.swing.JPanel;
 
 public class Field extends JPanel{
 
-	//Image image;
 	Polygon polygon;
 	Image image;
-	public Field(Image img,int[] pointsX,int[] pointsY) {
+	Image selectedImage;
+	boolean selected;
+	public Field(Image img,Image selectImg,int[] pointsX,int[] pointsY) {
 		super();
 		setSize(124,108);
 		polygon = new Polygon(pointsX,pointsY,pointsX.length);
 		image = img;
+		selectedImage = selectImg;
+		selected = false;
 	}
 	public Field(Image img){
 		super();
@@ -24,12 +28,21 @@ public class Field extends JPanel{
 		image = img;
 	}
 	
-	/*@Override
+	@Override
 	public boolean contains(int x,int y){
 		return polygon.contains(new Point(x,y));
-	}*/
+	}
 	@Override
 	public void paintComponent(Graphics g){
-		g.drawImage(image,-14,-14,null);
+		if(selected){
+			g.drawImage(selectedImage,-14,-14,null);
+		}
+		else{
+			g.drawImage(image,-14,-14,null);
+		}
+	}
+	public void changeSelect(){
+		selected = !selected;
+		repaint();
 	}
 }
