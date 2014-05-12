@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class Webb extends Unit {
-	Webb(int rotation){
-		this.rotation = rotation;
+	Webb(mod.FieldModel[] board){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp = 1;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;

@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class ArmoredHunter extends Unit {
-	ArmoredHunter(int rotation){
-		this.rotation = rotation;
+	ArmoredHunter(mod.FieldModel[] board){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp = 1;
 		shield = new boolean[6];
 		for(int i=1; i<5; i++)	shield[i] = false;

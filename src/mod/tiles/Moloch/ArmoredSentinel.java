@@ -6,8 +6,10 @@ import mod.Unit;
 
 
 public class ArmoredSentinel extends Unit{
-	ArmoredSentinel(int rotation){
-		this.rotation = rotation;
+	ArmoredSentinel(mod.FieldModel[] board){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp=1;
 		shield = new boolean[6];
 		for(int i=1; i<6; i++)	shield[i] = false;

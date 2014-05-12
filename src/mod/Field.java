@@ -1,14 +1,22 @@
 package mod;
 
+import java.util.LinkedList;
+
 
 public class Field {
+	public FieldModel board[];
 	public int rotation;
-	FieldModel position;
+	public int owner;
+	protected int position;
 	public boolean shield[];
-	protected int hp;
+	public int hp;
 	protected int isNetted;
 	protected void work(int direction){}
-	void put(){}
-	protected Field pick(){return this;}
+	public void put(int position, int rotation){}
+	public LinkedList<Integer> pick(){return null;}
+	public void takeDmg(int power){
+		
+		hp-=power;
+	}
 	
 }

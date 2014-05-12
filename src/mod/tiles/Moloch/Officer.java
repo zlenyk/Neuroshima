@@ -14,10 +14,10 @@ public class Officer extends Modul {
 		}
 		
 	}
-	void work(int direction){
+	protected void work(int direction){
 		if(ifWorks[(direction+rotation)%6]==true){
-			if(position.neibours[(direction+rotation)%6].tile instanceof Unit){
-				((Unit)position.neibours[(direction+rotation)%6].tile).shootBonus++;
+			if(board[position].neibours[(direction+rotation)%6].tile instanceof mod.Unit){
+				((mod.Unit)board[position].neibours[(direction+rotation)%6].tile).shootBonus++;
 			}
 		}
 	}

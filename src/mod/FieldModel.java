@@ -2,8 +2,9 @@ package mod;
 
 
 public class FieldModel {
-	FieldModel neibours[];
-	Field tile;
+	public FieldModel neibours[];
+	public Field tile;
+	public int position;
 	FieldModel(){
 		neibours = new FieldModel[6];
 	}

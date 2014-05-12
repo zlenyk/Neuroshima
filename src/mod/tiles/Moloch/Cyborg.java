@@ -6,8 +6,10 @@ import mod.Unit;
 
 
 public class Cyborg extends Unit{
-	Cyborg(int rotation){
-		this.rotation = rotation;
+	Cyborg(mod.FieldModel board[]){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp=1;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;

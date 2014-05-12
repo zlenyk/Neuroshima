@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class GaussCannon extends Unit {
-	GaussCannon(int rotation){
-		this.rotation = rotation;
+	GaussCannon(mod.FieldModel board[]){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp = 2;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;
@@ -19,7 +21,16 @@ public class GaussCannon extends Unit {
 	}
 	
 	public void attack(){
-		shoot(rotation,1+shootBonus);
+		//shoot(rotation,1+shootBonus);
+		int direction = rotation, power = 1;
+		while(board[position].neibours[direction]!=null){
+			if(board[position].neibours[direction].tile!=null){
+				if(board[position].neibours[direction].tile.shield[(direction+3)%6]==false) 
+					board[position].neibours[direction].tile.hp-=power;
+				else board[position].neibours[direction].tile.hp-=(power-1);
+				
+			}
+		}
 	}
 	// Dzialo Gaussa strzela do wszystkich celow na swojej linii
 }

@@ -6,8 +6,10 @@ import mod.Unit;
 
 
 public class Bomber extends Unit {
-	Bomber(int rotation){
-		this.rotation = rotation;
+	Bomber(mod.FieldModel board[]){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp=2;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
@@ -19,15 +21,6 @@ public class Bomber extends Unit {
 		hitBonus = 0;
 		initiativeBonus = 0;
 		
-	}
-	void put(int rotation){
-		
-	}
-	protected Unit pick(){
-		shootBonus=0;
-		hitBonus=0;
-		initiativeBonus=0;
-		return this;
 	}
 	
 	public void attack(){

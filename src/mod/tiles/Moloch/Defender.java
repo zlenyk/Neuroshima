@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class Defender extends Unit {
-	Defender(int rotation){
-		this.rotation = rotation;
+	Defender(mod.FieldModel board[]){
+		this.board = board;
+		position = -1;
+		//this.rotation = rotation;
 		hp = 2;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;

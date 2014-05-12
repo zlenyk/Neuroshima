@@ -14,10 +14,10 @@ public class Scout extends Modul {
 		}
 		
 	}
-	void work(int direction){
+/*	void work(int direction){
 		if(ifWorks[(direction+rotation)%6]==true){
-			if(position.neibours[(direction+rotation)%6].tile instanceof Unit){
-/*				int size =  ((Unit)position.neibours[(direction+rotation)%6].tile).initiative.size;
+			if(board[position].neibours[(direction+rotation)%6].tile instanceof mod.Unit){
+				int size =  ((Unit)position.neibours[(direction+rotation)%6].tile).initiative.size;
 				if (size == 1){
 					int temp = ((Unit)position.neibours[(direction+rotation)%6].tile).initiative.poll;
 					temp++;
@@ -29,9 +29,9 @@ public class Scout extends Modul {
 					temp2++; temp++;
 					((Unit)position.neibours[(direction+rotation)%6].tile).initiative.add(temp2);
 					((Unit)position.neibours[(direction+rotation)%6].tile).initiative.add(temp);
-*/	// To do something better	
+	// To do something better	
 				}
 			}
 		}
-	}
+	}*/
 }
