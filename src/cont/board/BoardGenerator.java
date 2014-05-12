@@ -19,8 +19,8 @@ public class BoardGenerator {
 	 * Methods generates fields for a given board and places them on it.
 	 */
 	public static void generateBoard(Board board){
-        File imageFile = new File("graphics/borgo/borgo01-sztab.png");
-        File selImageFile = new File("graphics/borgo/selected/borgo01-sztab.png");
+        File imageFile = new File("graphics/empty.png");
+        File selImageFile = new File("graphics/selected_empty.png");
 
         Image image = null;
         Image selImage = null;
