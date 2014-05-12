@@ -1,5 +1,7 @@
 package cont;
 
+import gui.Message;
+
 import java.util.List;
 
 /**
@@ -14,8 +16,11 @@ public class GUIController {
 	StartMenuController startMenuController;
 	ArmiesChoiceController armiesChoiceController;
 	MainWindowController mainWindowController;
+	Message message;
 	
-	public GUIController(){}
+	public GUIController(){
+		message = new Message(this);
+	}
 	
 	/**
 	 * Opens new start menu.
@@ -27,7 +32,7 @@ public class GUIController {
 	 * Closes start menu and opens armies-choice menu.
 	 */
 	public void chooseArmies(){
-		startMenuController.hideMenu();
+		startMenuController.hide();
 		armiesChoiceController = ArmiesChoiceController.openNewArmiesChoice(this);
 	}
 	/**
@@ -35,17 +40,32 @@ public class GUIController {
 	 * Hides armies-choice menu, opens main window and passes armies chosen by players.
 	 */
 	public void openNewGameWindow(List<String>armies){
-		armiesChoiceController.hideMenu();
+		armiesChoiceController.hide();
 		mainWindowController = MainWindowController.openNewMainWindow(this,armies);
+	}
+	public void startGame(){
+		//GameLoop loop = new GameLoop(this);
 	}
 	/**
 	 * Closes game window. Make GUIController forget currently held references and opens new start menu.
 	 */
 	public void closeGame(){
-		mainWindowController.hideWindow();
+		mainWindowController.hide();
 		mainWindowController = null;
 		armiesChoiceController = null;
 		
 		showNewStartMenu();
+	}
+	public void reportError(String message,WindowController windowController){
+		showMessage(message);
+		windowController.repaint();
+	}
+	public void showMessage(String text){
+		message.setText(text);
+		System.out.println("FAEAE");
+		message.show();
+	}
+	public void closeMessage(){
+		message.hide();
 	}
 }

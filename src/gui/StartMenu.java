@@ -9,14 +9,9 @@ import javax.swing.JFrame;
 import cont.GUIController;
 import cont.StartMenuController;
 
-public class StartMenu {
+public class StartMenu extends Window{
 
-	private JFrame frmNeuroshima;
 	private StartMenuController controller;
-	
-	public JFrame getFrame(){
-		return frmNeuroshima;
-	}
 	
 	public StartMenuController getController(){
 		return controller;
@@ -26,12 +21,12 @@ public class StartMenu {
 	 * Create the application.
 	 */
 	public StartMenu(GUIController gui) {
-		frmNeuroshima = new JFrame();
-		frmNeuroshima.setTitle("Neuroshima");
-		frmNeuroshima.setResizable(false);
-		frmNeuroshima.setBounds(100, 100, 237, 281);
-		frmNeuroshima.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmNeuroshima.getContentPane().setLayout(null);
+		super(gui);
+		frame.setTitle("Neuroshima");
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 237, 281);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 
 		JButton somethingElseButton = new JButton("Something Else");
 		JButton networkGameButton = new JButton("Network Game");
@@ -56,10 +51,10 @@ public class StartMenu {
 
 		
 		
-		frmNeuroshima.getContentPane().add(btnNewButton);
-		frmNeuroshima.getContentPane().add(newGameButton);
-		frmNeuroshima.getContentPane().add(somethingElseButton);
-		frmNeuroshima.getContentPane().add(networkGameButton);
+		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(newGameButton);
+		frame.getContentPane().add(somethingElseButton);
+		frame.getContentPane().add(networkGameButton);
 
 		controller = new StartMenuController(this,gui);
 

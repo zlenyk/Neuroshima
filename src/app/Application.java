@@ -2,12 +2,14 @@ package app;
 
 import java.awt.EventQueue;
 
+import mod.Config;
 import cont.GUIController;
 
 public class Application {
 
 	public static void main(String[]  args){
 		Application app = new Application();
+		Config.setPLAYERS(2);
 		app.openNewMainMenu();
 	}
 	
