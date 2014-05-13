@@ -4,6 +4,7 @@ import gui.MessageWindow;
 
 import java.util.List;
 
+import mod.Player;
 import cont.game.GameController;
 
 /**
@@ -41,14 +42,24 @@ public class GUIController {
 	/**
 	 * @param armies
 	 * Hides armies-choice menu, opens main window and passes armies chosen by players.
+	 * Starts new game.
 	 */
 	public void startNewGame(List<String>armies,List<String> playersNames){
 		armiesChoiceController.hide();
-		mainWindowController = MainWindowController.openNewMainWindow(this,armies,playersNames);
-		gameController = new GameController(this,playersNames);
+		
+		gameController = new GameController(this,playersNames);		
+		mainWindowController = MainWindowController.openNewMainWindow(this,armies);
+		
+		List<Player> playersList = gameController.getPlayers();
+		mainWindowController.fillPlayersInfo(playersList);
+		
 		gameController.startNewGame();
 		showMessage(MessageBuilder.nextTurnMessage(gameController.getActivePlayerName()));
 	}
+	
+	/**
+	 * Ends current turn and starts next one.
+	 */
 	public void nextTurn(){
 		gameController.nextTurn();
 		showMessage(MessageBuilder.nextTurnMessage(gameController.getActivePlayerName()));
@@ -63,10 +74,19 @@ public class GUIController {
 		
 		showNewStartMenu();
 	}
+	/**
+	 * @param message
+	 * @param windowController
+	 * Displays MessageWindow with error. Repaints window, from which the error came.
+	 */
 	public void reportError(String message,WindowController windowController){
 		messageWindow.showMessage(message);
 		windowController.repaint();
 	}
+	/**
+	 * @param message
+	 * Displays MessageWindow with message.
+	 */
 	private void showMessage(String message){
 		messageWindow.showMessage(message);
 	}

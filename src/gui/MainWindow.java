@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mod.Player;
 import cont.GUIController;
 import cont.MainWindowController;
 
@@ -28,7 +29,7 @@ public class MainWindow implements Window{
 	/**
 	 * Create the frame.
 	 */
-	public MainWindow(GUIController gui,List<String> armies,List<String> playersNames) {
+	public MainWindow(GUIController gui,List<String> armies) {
 		
 		controller = new MainWindowController(this,gui);
 		frame = new JFrame();
@@ -63,10 +64,12 @@ public class MainWindow implements Window{
 		newxtTurnButton.setBounds(536, 24, 117, 25);
 		contentPane.add(newxtTurnButton);
 		
+	}
+	public void fillPlayersList(List<Player>playersList){
 		List<PlayerInfo> playerInfoList = new ArrayList<PlayerInfo>();
 		int[] Y = {150,250};
-		for(int i = 0; i < playersNames.size(); i++){
-			PlayerInfo pi = new PlayerInfo(playersNames.get(i));
+		for(int i = 0; i < playersList.size(); i++){
+			PlayerInfo pi = new PlayerInfo(playersList.get(i));
 			playerInfoList.add(pi);
 			pi.setBounds(510, Y[i],180,50);
 			contentPane.add(pi);

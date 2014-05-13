@@ -8,6 +8,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * @author zygmunt
+ * Window for displaying information to players.
+ */
 public class MessageWindow {
 	GUIController guiController;
 	private JFrame frmMessage;

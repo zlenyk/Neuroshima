@@ -11,10 +11,13 @@ import mod.InvalidConfigException;
  * @author zygmunt
  * Controls behavior and apperance of armies-choice-window.
  */
-public class ArmiesChoiceController extends WindowController{
+public class ArmiesChoiceController implements WindowController{
 		
+	GUIController guiController;
+	ArmiesChoice armiesChoice;
 	public ArmiesChoiceController(ArmiesChoice ac,GUIController gui){
-		super(ac,gui);
+		guiController = gui;
+		armiesChoice = ac;
 	}
 	/**
 	 * @param gui
@@ -23,7 +26,6 @@ public class ArmiesChoiceController extends WindowController{
 	 */
 	public static ArmiesChoiceController openNewArmiesChoice(GUIController gui){
 		ArmiesChoice ac = new ArmiesChoice(gui);
-		System.out.println("FAE");
 		ac.getFrame().setVisible(true);
 		return ac.getController();
 	}
@@ -34,7 +36,6 @@ public class ArmiesChoiceController extends WindowController{
 	 */
 	public void startNewGame(List<String> armies,List<String> playersNames){
 		String check = checkConfig(armies,playersNames);
-		System.out.println("FE");
 
 		if(check.equals("OK")){
 			guiController.startNewGame(armies,playersNames);
@@ -44,18 +45,36 @@ public class ArmiesChoiceController extends WindowController{
 		}
 	}
 
+	/**
+	 * @param armies
+	 * @param playersNames
+	 * @return message about the result of checking
+	 * Checks whether input provided by player(chosen armies and players' names) meets configuration rules.
+	 */
 	private String checkConfig(List<String>armies,List<String>playersNames){
 		if(armies.size() != 2){
-			return "You must choose exactly 2 armies.";
+			return MessageBuilder.armiesErrorMessage();
 		}
 		if(playersNames.size() != Config.getPLAYERS()){
-			return "There must be " + Config.getPLAYERS() + "players.";
+			return MessageBuilder.playersCountErrorMessage();
 		}
 		for(int i = 0; i<playersNames.size(); i++){
 			if(playersNames.get(i).length() > 20 || playersNames.get(i).length() < 2){
-				return "Name must have between 2 and 20 characters";
+				return MessageBuilder.lettersErrorMessage();
 			}
 		}
 		return "OK";
+	}
+	@Override
+	public void show() {
+		armiesChoice.getFrame().setVisible(true);
+	}
+	@Override
+	public void hide() {
+		armiesChoice.getFrame().setVisible(false);		
+	}
+	@Override
+	public void repaint() {
+		armiesChoice.getFrame().repaint();
 	}
 }

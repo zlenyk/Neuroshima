@@ -6,6 +6,10 @@ import java.util.List;
 import mod.Player;
 import cont.GUIController;
 
+/**
+ * @author zygmunt
+ * Class controls game-flow.
+ */
 public class GameController {
 	private GUIController guiController;
 	private List<Player> players;
@@ -34,5 +38,8 @@ public class GameController {
 	}
 	public String getActivePlayerName(){
 		return getActivePlayer().getName();
+	}
+	public List<Player> getPlayers(){
+		return players;
 	}
 }

@@ -6,6 +6,9 @@ import gui.Field;
 import java.awt.Point;
 
 public class BoardController {
+	/**
+	 * Controls board behavior.
+	 */
 	Board board;
 	
 	public BoardController(Board b){
