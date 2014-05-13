@@ -21,8 +21,9 @@ public class MainWindowController extends WindowController {
 	 * @return controller to a new MainWindow
 	 * Creates and displays new MainWindow.
 	 */
-	public static MainWindowController openNewMainWindow(GUIController gui,List<String> armies){
-		MainWindow mw = new MainWindow(gui,armies);
+	public static MainWindowController openNewMainWindow(GUIController gui,
+								List<String> armies,List<String>playersNames){
+		MainWindow mw = new MainWindow(gui,armies,playersNames);
 		mw.getFrame().setVisible(true);
 		return mw.getController();
 	}
@@ -31,7 +32,7 @@ public class MainWindowController extends WindowController {
 	 * Implementation of start-game-button. Calls method from GUIController.
 	 */
 	public void startGame(){
-		
+		guiController.startGame();
 	}
 	/**
 	 * Implementation of close-game-button. Calls method from GUIController.

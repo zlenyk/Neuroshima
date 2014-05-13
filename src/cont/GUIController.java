@@ -39,12 +39,13 @@ public class GUIController {
 	 * @param armies
 	 * Hides armies-choice menu, opens main window and passes armies chosen by players.
 	 */
-	public void openNewGameWindow(List<String>armies){
+	public void openNewGameWindow(List<String>armies,List<String> playersNames){
 		armiesChoiceController.hide();
-		mainWindowController = MainWindowController.openNewMainWindow(this,armies);
+		mainWindowController = MainWindowController.openNewMainWindow(this,armies,playersNames);
 	}
 	public void startGame(){
 		//GameLoop loop = new GameLoop(this);
+		
 	}
 	/**
 	 * Closes game window. Make GUIController forget currently held references and opens new start menu.
@@ -62,7 +63,6 @@ public class GUIController {
 	}
 	public void showMessage(String text){
 		message.setText(text);
-		System.out.println("FAEAE");
 		message.show();
 	}
 	public void closeMessage(){

@@ -37,7 +37,7 @@ public class ArmiesChoiceController extends WindowController{
 		System.out.println("FE");
 
 		if(check.equals("OK")){
-			guiController.openNewGameWindow(armies);
+			guiController.openNewGameWindow(armies,playersNames);
 		}
 		else{
 			guiController.reportError(check, this);

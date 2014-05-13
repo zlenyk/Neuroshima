@@ -15,22 +15,23 @@ import mod.Config;
 import cont.ArmiesChoiceController;
 import cont.GUIController;
 
-public class ArmiesChoice extends Window{
+public class ArmiesChoice implements Window{
 	
+	private JFrame frame;
 	private ArmiesChoiceController controller;
 	private JTextField player1Name;
 	private JTextField player2Name;
 	
 	
 	public ArmiesChoice(GUIController gui){
-		super(gui);
+		controller = new ArmiesChoiceController(this,gui);
+
+		frame = new JFrame();
 		frame.setTitle("Neuroshima");
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 200, 287);
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		controller = new ArmiesChoiceController(this,gui);
 		
 		JLabel lblPleaseChoose = new JLabel("Please choose 2 armies");
 		lblPleaseChoose.setBounds(12, 10, 180, 15);
@@ -74,5 +75,10 @@ public class ArmiesChoice extends Window{
 	}
 	public ArmiesChoiceController getController(){
 		return controller;
+	}
+	
+	@Override
+	public JFrame getFrame() {
+		return frame;
 	}
 }

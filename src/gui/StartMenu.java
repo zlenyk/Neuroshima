@@ -9,10 +9,10 @@ import javax.swing.JFrame;
 import cont.GUIController;
 import cont.StartMenuController;
 
-public class StartMenu extends Window{
+public class StartMenu implements Window{
 
 	private StartMenuController controller;
-	
+	private JFrame frame;
 	public StartMenuController getController(){
 		return controller;
 	}
@@ -21,7 +21,9 @@ public class StartMenu extends Window{
 	 * Create the application.
 	 */
 	public StartMenu(GUIController gui) {
-		super(gui);
+		controller = new StartMenuController(this,gui);
+		
+		frame = new JFrame();
 		frame.setTitle("Neuroshima");
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 237, 281);
@@ -55,9 +57,6 @@ public class StartMenu extends Window{
 		frame.getContentPane().add(newGameButton);
 		frame.getContentPane().add(somethingElseButton);
 		frame.getContentPane().add(networkGameButton);
-
-		controller = new StartMenuController(this,gui);
-
 	}
 	
 	private ActionListener newGameAction(){
@@ -66,6 +65,11 @@ public class StartMenu extends Window{
 				controller.chooseArmies();
 			}
 		};
+	}
+
+	@Override
+	public JFrame getFrame() {
+		return frame;
 	}
 	
 }
