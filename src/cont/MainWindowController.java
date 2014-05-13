@@ -28,6 +28,9 @@ public class MainWindowController extends WindowController {
 		return mw.getController();
 	}
 
+	public void nextTurn(){
+		guiController.nextTurn();
+	}
 	/**
 	 * Implementation of close-game-button. Calls method from GUIController.
 	 */

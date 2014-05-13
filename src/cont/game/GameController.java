@@ -21,6 +21,13 @@ public class GameController {
 	public void startNewGame(){
 		activePlayer = 0;
 	}
+	public void nextTurn(){
+		activePlayer++;
+		activePlayer %= players.size();
+	}
+	public void endGame(){}
+	public void endGameManually(){}
+	
 	
 	private Player getActivePlayer(){
 		return players.get(activePlayer);

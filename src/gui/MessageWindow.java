@@ -8,11 +8,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Message {
+public class MessageWindow {
 	GUIController guiController;
 	private JFrame frmMessage;
 	private JLabel messageLabel;
-	public Message(GUIController gui){
+	public MessageWindow(GUIController gui){
 		guiController = gui;
 		frmMessage = new JFrame();
 		frmMessage.setTitle("Message");
@@ -26,7 +26,7 @@ public class Message {
 		JButton okButton = new JButton("OK");
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				guiController.closeMessage();
+				hide();
 			}
 		});
 		okButton.setBounds(105, 39, 90, 25);
@@ -35,8 +35,11 @@ public class Message {
 	public void setText(String text){
 		messageLabel.setText(text);
 	}
+	public void showMessage(String s){
+		messageLabel.setText(s);
+		frmMessage.setVisible(true);
+	}
 	public void show(){
-		System.out.println("DUPA");
 		frmMessage.setVisible(true);
 	}
 	public void hide(){

@@ -1,6 +1,6 @@
 package cont;
 
-import gui.Message;
+import gui.MessageWindow;
 
 import java.util.List;
 
@@ -19,10 +19,10 @@ public class GUIController {
 	ArmiesChoiceController armiesChoiceController;
 	MainWindowController mainWindowController;
 	GameController gameController;
-	Message message;
+	MessageWindow messageWindow;
 	
 	public GUIController(){
-		message = new Message(this);
+		messageWindow = new MessageWindow(this);
 	}
 	
 	/**
@@ -47,7 +47,11 @@ public class GUIController {
 		mainWindowController = MainWindowController.openNewMainWindow(this,armies,playersNames);
 		gameController = new GameController(this,playersNames);
 		gameController.startNewGame();
-
+		showMessage(MessageBuilder.nextTurnMessage(gameController.getActivePlayerName()));
+	}
+	public void nextTurn(){
+		gameController.nextTurn();
+		showMessage(MessageBuilder.nextTurnMessage(gameController.getActivePlayerName()));
 	}
 	/**
 	 * Closes game window. Make GUIController forget currently held references and opens new start menu.
@@ -60,14 +64,10 @@ public class GUIController {
 		showNewStartMenu();
 	}
 	public void reportError(String message,WindowController windowController){
-		showMessage(message);
+		messageWindow.showMessage(message);
 		windowController.repaint();
 	}
-	public void showMessage(String text){
-		message.setText(text);
-		message.show();
-	}
-	public void closeMessage(){
-		message.hide();
+	private void showMessage(String message){
+		messageWindow.showMessage(message);
 	}
 }

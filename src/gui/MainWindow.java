@@ -53,7 +53,15 @@ public class MainWindow implements Window{
 		Board board = new Board(armies);
 		board.setBounds(12, 12, 496, 550);
 		contentPane.add(board);
-
+		
+		JButton newxtTurnButton = new JButton("Next Turn!");
+		newxtTurnButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.nextTurn();
+			}
+		});
+		newxtTurnButton.setBounds(536, 24, 117, 25);
+		contentPane.add(newxtTurnButton);
 		
 		List<PlayerInfo> playerInfoList = new ArrayList<PlayerInfo>();
 		int[] Y = {150,250};
