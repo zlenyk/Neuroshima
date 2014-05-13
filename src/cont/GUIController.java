@@ -4,6 +4,8 @@ import gui.Message;
 
 import java.util.List;
 
+import cont.game.GameController;
+
 /**
  * @author zygmunt
  * Manages gui in whole application. Holds references to specific windows controllers.
@@ -16,6 +18,7 @@ public class GUIController {
 	StartMenuController startMenuController;
 	ArmiesChoiceController armiesChoiceController;
 	MainWindowController mainWindowController;
+	GameController gameController;
 	Message message;
 	
 	public GUIController(){
@@ -39,13 +42,12 @@ public class GUIController {
 	 * @param armies
 	 * Hides armies-choice menu, opens main window and passes armies chosen by players.
 	 */
-	public void openNewGameWindow(List<String>armies,List<String> playersNames){
+	public void startNewGame(List<String>armies,List<String> playersNames){
 		armiesChoiceController.hide();
 		mainWindowController = MainWindowController.openNewMainWindow(this,armies,playersNames);
-	}
-	public void startGame(){
-		//GameLoop loop = new GameLoop(this);
-		
+		gameController = new GameController(this,playersNames);
+		gameController.startNewGame();
+
 	}
 	/**
 	 * Closes game window. Make GUIController forget currently held references and opens new start menu.

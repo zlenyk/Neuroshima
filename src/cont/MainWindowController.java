@@ -29,12 +29,6 @@ public class MainWindowController extends WindowController {
 	}
 
 	/**
-	 * Implementation of start-game-button. Calls method from GUIController.
-	 */
-	public void startGame(){
-		guiController.startGame();
-	}
-	/**
 	 * Implementation of close-game-button. Calls method from GUIController.
 	 */
 	public void closeGame(){

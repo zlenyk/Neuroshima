@@ -63,15 +63,6 @@ public class MainWindow implements Window{
 			pi.setBounds(510, Y[i],180,50);
 			contentPane.add(pi);
 		}
-		
-		JButton startGameButton = new JButton("Start Game!");
-		startGameButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.startGame();
-			}
-		});
-		startGameButton.setBounds(536, 12, 117, 25);
-		contentPane.add(startGameButton);
 	}
 	@Override
 	public JFrame getFrame() {
