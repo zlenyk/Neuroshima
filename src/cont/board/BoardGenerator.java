@@ -3,17 +3,18 @@ package cont.board;
 import gui.Board;
 import gui.Field;
 
+import java.util.List;
+
 /**
  * @author zygmunt
  *	Class with methods to display game-board.
  */
 public class BoardGenerator {
-	public BoardGenerator(){}
 	/**
 	 * Methods generates fields for a given board and places them on it.
 	 */
-	public static void generateBoard(Board board){
-
+	public static void generateBoard(Board board,List<Field> fieldList){
+		int index = 0;
 		int move = 93;
 		int[] hexX = {31,0,31,31+62,62*2,31+62};
 		int[] hexY = {0,54,108,108,54,0};
@@ -27,8 +28,8 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y[i];
 
 			}
-			Field field = new Field(ImageLoader.Borgo.bitwa(),ImageLoader.Borgo.bitwaSelected(),_hexX,_hexY);
-			board.addField(field);
+			Field field = fieldList.get(index++);
+			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y[i]);
 			board.add(field);
 		}
@@ -42,8 +43,8 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y1[i];
 
 			}
-			Field field = new Field(ImageLoader.Borgo.bitwa(),ImageLoader.Borgo.bitwaSelected(),_hexX,_hexY);
-			board.addField(field);
+			Field field = fieldList.get(index++);
+			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y1[i]);
 			board.add(field);
 		}
@@ -57,8 +58,8 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y2[i];
 
 			}
-			Field field = new Field(ImageLoader.Borgo.bitwa(),ImageLoader.Borgo.bitwaSelected(),_hexX,_hexY);
-			board.addField(field);
+			Field field = fieldList.get(index++);
+			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y2[i]);
 			board.add(field);
 		}
@@ -71,8 +72,8 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y1[i];
 
 			}
-			Field field = new Field(ImageLoader.Borgo.bitwa(),ImageLoader.Borgo.bitwaSelected(),_hexX,_hexY);
-			board.addField(field);
+			Field field = fieldList.get(index++);
+			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y1[i]);
 			board.add(field);
 		}
@@ -85,8 +86,8 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y[i];
 
 			}
-			Field field = new Field(ImageLoader.Borgo.bitwa(),ImageLoader.Borgo.bitwaSelected(),_hexX,_hexY);
-			board.addField(field);
+			Field field = fieldList.get(index++);
+			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y[i]);
 			board.add(field);
 		}

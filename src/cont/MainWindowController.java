@@ -1,5 +1,6 @@
 package cont;
 
+import gui.Board;
 import gui.MainWindow;
 
 import java.util.List;
@@ -26,8 +27,8 @@ public class MainWindowController implements WindowController {
 	 * @return controller to a new MainWindow
 	 * Creates and displays new MainWindow.
 	 */
-	public static MainWindowController openNewMainWindow(GUIController gui,List<String> armies){
-		MainWindow mw = new MainWindow(gui,armies);
+	public static MainWindowController openNewMainWindow(GUIController gui){
+		MainWindow mw = new MainWindow(gui);
 		mw.getFrame().setVisible(true);
 		return mw.getController();
 	}
@@ -46,6 +47,10 @@ public class MainWindowController implements WindowController {
 	 */
 	public void closeGame(){
 		guiController.closeGame();
+	}
+	
+	public void addBoard(Board b){
+		mainWindow.addBoard(b);
 	}
 
 	@Override

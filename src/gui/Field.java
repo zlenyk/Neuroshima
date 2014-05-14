@@ -14,13 +14,15 @@ public class Field extends JPanel{
 	Image image;
 	Image selectedImage;
 	boolean selected;
-	public Field(Image img,Image selectImg,int[] pointsX,int[] pointsY) {
+	public Field(Image img,Image selectImg) {
 		super();
 		setSize(124,108);
-		polygon = new Polygon(pointsX,pointsY,pointsX.length);
 		image = img;
 		selectedImage = selectImg;
 		selected = false;
+	}
+	public void setShape(int[] pointsX,int[] pointsY){
+		polygon = new Polygon(pointsX,pointsY,pointsX.length);
 	}
 	public Field(Image img){
 		super();

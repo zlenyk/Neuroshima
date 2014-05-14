@@ -1,7 +1,13 @@
 package mod;
 
+import gui.Field;
 
-public class Modul extends Field {
+import java.awt.Image;
+
+
+public class Modul extends Tile {
+
+
 	protected int hp;
 	protected int rotation;
 	protected boolean ifWorks[];
@@ -14,5 +20,19 @@ public class Modul extends Field {
 		for(int i=0;i<6;i++){
 			if(ifWorks[i]==true) work(i);
 		}
+	}
+
+
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Image getSelectedImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

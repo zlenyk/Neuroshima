@@ -1,5 +1,6 @@
 package mod.tiles.Moloch;
 
+import java.awt.Image;
 import java.util.LinkedList;
 
 import mod.Unit;
@@ -17,6 +18,18 @@ public class Blocker extends Unit {
 		shield[0] = true;
 		isNetted = 0;
 		initiative = new LinkedList<Integer>();
+	}
+
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Image getSelectedImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

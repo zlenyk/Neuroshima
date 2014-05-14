@@ -1,8 +1,9 @@
 package mod.tiles.Moloch;
 
+import java.awt.Image;
 import java.util.LinkedList;
 
-public class Move extends mod.Field {
+public class Move extends mod.Tile {
 	
 	
 	public LinkedList<Integer> pick(){
@@ -12,12 +13,22 @@ public class Move extends mod.Field {
 		return whereCanPut;
 	}
 	public void put(int position, int rotation){
-		mod.Field tileToMove = board[position].tile;
+		mod.Tile tileToMove = board[position].tile;
 		board[position].tile.pick();
 		
 		//choosePosition();
 		
 		tileToMove.put(position,rotation);
 		
+	}
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Image getSelectedImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

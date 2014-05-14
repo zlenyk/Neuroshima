@@ -102,4 +102,13 @@ public class ImageLoader {
 			return getImage("graphics/borgo/selected/borgo14-zwiadowca.png");
 		}
 	}
+	public static class Moloch{
+		static File imageFile;
+		public static Image bomba(){
+			return getImage("graphics/moloch/moloch05-bomba.png");
+		}
+		public static Image bombaSelected(){
+			return getImage("graphics/moloch/selected/moloch05-bomba.png");
+		}
+	}
 }

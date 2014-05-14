@@ -1,5 +1,6 @@
 package mod.tiles.Moloch;
 
+import java.awt.Image;
 import java.util.LinkedList;
 
 import mod.Unit;
@@ -26,6 +27,16 @@ public class Juggernaut extends Unit{
 	public void attack(){
 		shoot(1+rotation,1+shootBonus);
 		hit(0+rotation,2+hitBonus);
+	}
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Image getSelectedImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

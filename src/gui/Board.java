@@ -3,7 +3,6 @@ package gui;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -15,22 +14,24 @@ import cont.board.BoardController;
 public class Board extends JPanel{
 
 	List<Field> fieldList;
-	List<String> armies;
 	BoardController controller;
-	public Board (List<String> armies) {
+	public BoardController getController(){
+		return controller;
+	}
+	public Board (List<Field> fList) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setLayout(null);
 		controller = new BoardController(this);
-		this.armies = armies;
-		fieldList = new ArrayList<Field>();
+		fieldList = fList;
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controller.mouseAction(e.getX(),e.getY());
 			}
 		});
+	}
+	public void placeFieldAtPosition(int position,Field Field){
 		
-		controller.generateBoard();
 	}
 	public void addField(Field field){
 		fieldList.add(field);

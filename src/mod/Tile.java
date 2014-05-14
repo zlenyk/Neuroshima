@@ -1,9 +1,25 @@
 package mod;
 
+import gui.Field;
+
+import java.awt.Image;
 import java.util.LinkedList;
 
 
-public class Field {
+public abstract class Tile {
+	
+	public Field field;
+	
+	public void setField(Field f){
+		field = f;
+	}
+	public Field getField(){
+		return field;
+	}
+	public abstract Image getImage();
+	public abstract Image getSelectedImage();
+	
+	
 	public FieldModel board[];
 	public int rotation;
 	public int owner;

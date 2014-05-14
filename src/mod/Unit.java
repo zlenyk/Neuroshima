@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class Unit extends Field {
+public abstract class Unit extends Tile {
+
 	public List<Integer> initiative;
 	public void attack(){}
 	public int shootBonus;

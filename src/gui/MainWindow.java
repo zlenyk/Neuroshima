@@ -29,7 +29,7 @@ public class MainWindow implements Window{
 	/**
 	 * Create the frame.
 	 */
-	public MainWindow(GUIController gui,List<String> armies) {
+	public MainWindow(GUIController gui) {
 		
 		controller = new MainWindowController(this,gui);
 		frame = new JFrame();
@@ -51,9 +51,9 @@ public class MainWindow implements Window{
 		btnClose.setBounds(536, 78, 117, 25);
 		contentPane.add(btnClose);
 		
-		Board board = new Board(armies);
-		board.setBounds(12, 12, 496, 550);
-		contentPane.add(board);
+		//Board board = new Board(armies);
+		//board.setBounds(12, 12, 496, 550);
+		//contentPane.add(board);
 		
 		JButton newxtTurnButton = new JButton("Next Turn!");
 		newxtTurnButton.addActionListener(new ActionListener() {
@@ -64,6 +64,10 @@ public class MainWindow implements Window{
 		newxtTurnButton.setBounds(536, 24, 117, 25);
 		contentPane.add(newxtTurnButton);
 		
+	}
+	public void addBoard(Board b){
+		b.setBounds(12, 12, 496, 550);
+		contentPane.add(b);
 	}
 	public void fillPlayersList(List<Player>playersList){
 		List<PlayerInfo> playerInfoList = new ArrayList<PlayerInfo>();

@@ -1,10 +1,13 @@
 package cont;
 
+import gui.Board;
+import gui.Field;
 import gui.MessageWindow;
 
 import java.util.List;
 
 import mod.Player;
+import cont.board.BoardController;
 import cont.game.GameController;
 
 /**
@@ -19,6 +22,7 @@ public class GUIController {
 	StartMenuController startMenuController;
 	ArmiesChoiceController armiesChoiceController;
 	MainWindowController mainWindowController;
+	BoardController boardController;
 	GameController gameController;
 	MessageWindow messageWindow;
 	
@@ -39,6 +43,13 @@ public class GUIController {
 		startMenuController.hide();
 		armiesChoiceController = ArmiesChoiceController.openNewArmiesChoice(this);
 	}
+	public void createBoard(List<Field>fieldList){
+		boardController = BoardController.createNewBoard(fieldList);
+		addBoard(boardController.getBoard());
+	}
+	private void addBoard(Board b){
+		mainWindowController.addBoard(b);
+	}
 	/**
 	 * @param armies
 	 * Hides armies-choice menu, opens main window and passes armies chosen by players.
@@ -47,8 +58,9 @@ public class GUIController {
 	public void startNewGame(List<String>armies,List<String> playersNames){
 		armiesChoiceController.hide();
 		
-		gameController = new GameController(this,playersNames);		
-		mainWindowController = MainWindowController.openNewMainWindow(this,armies);
+		mainWindowController = MainWindowController.openNewMainWindow(this);
+
+		gameController = new GameController(this,playersNames,armies);
 		
 		List<Player> playersList = gameController.getPlayers();
 		mainWindowController.fillPlayersInfo(playersList);

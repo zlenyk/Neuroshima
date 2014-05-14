@@ -1,5 +1,6 @@
 package mod.tiles.Moloch;
 
+import java.awt.Image;
 import java.util.LinkedList;
 
 import mod.Unit;
@@ -29,5 +30,17 @@ public class ArmoredHunter extends Unit {
 		hit(3, 1+hitBonus);
 		hit(4, 1+hitBonus);
 		hit(5, 1+hitBonus);
+	}
+
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Image getSelectedImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

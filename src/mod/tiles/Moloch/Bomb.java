@@ -1,10 +1,17 @@
 package mod.tiles.Moloch;
 
+import gui.Field;
+
+import java.awt.Image;
 import java.util.LinkedList;
 
-public class Bomb extends mod.Field {
-	Bomb(){}
-	
+import cont.board.ImageLoader;
+
+public class Bomb extends mod.Tile {
+	public Bomb(){
+		field = new Field(getImage(),getSelectedImage());
+	}
+
 public LinkedList<Integer> pick(){
 	LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 	whereCanPut.add(5);
@@ -19,5 +26,15 @@ public LinkedList<Integer> pick(){
 public void put(int position){
 	board[position].tile.takeDmg(1);
 	for(int i=0;i<6;i++) if(board[position].tile!=null) board[position].tile.takeDmg(1);
+}
+
+@Override
+public Image getImage() {
+	return ImageLoader.Moloch.bomba();
+}
+
+@Override
+public Image getSelectedImage() {
+	return ImageLoader.Moloch.bombaSelected();
 }
 }

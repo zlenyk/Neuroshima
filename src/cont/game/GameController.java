@@ -1,8 +1,11 @@
 package cont.game;
 
+import gui.Field;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import mod.BoardModel;
 import mod.Player;
 import cont.GUIController;
 import cont.MessageBuilder;
@@ -13,17 +16,21 @@ import cont.MessageBuilder;
  */
 public class GameController {
 	private GUIController guiController;
+	private BoardModel boardModel;
 	private List<Player> players;
 	private int activePlayer;
 	private int turns;
-	public GameController(GUIController gui,List<String>playersNames){
+	public GameController(GUIController gui,List<String>playersNames,List<String> armies){
 		guiController = gui;
+		boardModel = new BoardModel(this,armies);
 		players = new ArrayList<Player>();
 		for(int i = 0; i<playersNames.size(); i++){
 			players.add(new Player(playersNames.get(i)));
 		}
 	}
-	
+	public void createBoard(List<Field> fieldList){
+		guiController.createBoard(fieldList);
+	}
 	public void startNewGame(){
 		activePlayer = 0;
 		turns = 0;

@@ -3,10 +3,16 @@ package mod;
 
 public class FieldModel {
 	public FieldModel neibours[];
-	public Field tile;
+	public Tile tile;
 	public int position;
-	FieldModel(){
+	public Tile getTile(){
+		return tile;
+	}
+	FieldModel(){}
+	FieldModel(Tile t,int pos){
 		neibours = new FieldModel[6];
+		tile = t;
+		position = pos;
 	}
 	
 }
