@@ -62,7 +62,6 @@ public class GUIController {
 	 */
 	public void nextTurn(){
 		gameController.nextTurn();
-		showMessage(MessageBuilder.nextTurnMessage(gameController.getActivePlayerName()));
 	}
 	/**
 	 * Closes game window. Make GUIController forget currently held references and opens new start menu.
@@ -71,7 +70,7 @@ public class GUIController {
 		mainWindowController.hide();
 		mainWindowController = null;
 		armiesChoiceController = null;
-		
+		gameController = null;
 		showNewStartMenu();
 	}
 	/**
@@ -87,7 +86,7 @@ public class GUIController {
 	 * @param message
 	 * Displays MessageWindow with message.
 	 */
-	private void showMessage(String message){
+	public void showMessage(String message){
 		messageWindow.showMessage(message);
 	}
 }
