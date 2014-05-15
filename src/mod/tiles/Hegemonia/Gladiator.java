@@ -1,14 +1,17 @@
 package mod.tiles.Hegemonia;
 
+import gui.Field;
+
 import java.awt.Image;
 import java.util.LinkedList;
 
 import mod.Unit;
-
 import cont.board.ImageLoader;
 
 public class Gladiator extends Unit {
 	Gladiator(mod.FieldModel[] board){
+		field = new Field(getImage(),getSelectedImage());
+
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;

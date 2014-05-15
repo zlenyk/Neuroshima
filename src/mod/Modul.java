@@ -1,7 +1,5 @@
 package mod;
 
-import gui.Field;
-
 import java.awt.Image;
 
 

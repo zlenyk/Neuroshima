@@ -31,7 +31,7 @@ public class BoardGenerator {
 			Field field = fieldList.get(index++);
 			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y[i]);
-			board.add(field);
+			board.addField(field);
 		}
 		int[] Y1 = {54,162,270,378};
 		X = move;
@@ -46,7 +46,8 @@ public class BoardGenerator {
 			Field field = fieldList.get(index++);
 			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y1[i]);
-			board.add(field);
+			board.addField(field);
+
 		}
 		int[] Y2 = {0,108,216,324,432};
 		X = 2*move;
@@ -61,7 +62,8 @@ public class BoardGenerator {
 			Field field = fieldList.get(index++);
 			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y2[i]);
-			board.add(field);
+			board.addField(field);
+
 		}
 		X = 3*move;
 		for(int i = 0; i<4; i++){
@@ -75,7 +77,8 @@ public class BoardGenerator {
 			Field field = fieldList.get(index++);
 			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y1[i]);
-			board.add(field);
+			board.addField(field);
+
 		}
 		X = 4*move;
 		for(int i = 0; i<3; i++){
@@ -89,7 +92,8 @@ public class BoardGenerator {
 			Field field = fieldList.get(index++);
 			field.setShape(_hexX,_hexY);
 			field.setLocation(X, Y[i]);
-			board.add(field);
+			board.addField(field);
+
 		}
 	}
 }

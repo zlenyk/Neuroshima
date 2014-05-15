@@ -18,13 +18,10 @@ public class BoardController {
 		return board;
 	}
 	public static BoardController createNewBoard(List<Field> fieldList){
-		Board b = new Board(fieldList);
-		b.getController().generateBoard(fieldList);
+		Board b = new Board();
+		BoardGenerator.generateBoard(b,fieldList);
 		return b.getController();
 		
-	}
-	private void generateBoard(List<Field> fieldList){
-		BoardGenerator.generateBoard(board,fieldList);
 	}
 	public void mouseAction(int x,int y){
 		Point p = new Point(x,y);

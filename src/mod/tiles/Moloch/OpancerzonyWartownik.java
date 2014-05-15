@@ -1,5 +1,7 @@
 package mod.tiles.Moloch;
 
+import gui.Field;
+
 import java.awt.Image;
 
 import cont.board.ImageLoader;
@@ -11,6 +13,8 @@ import mod.Unit;
 
 public class OpancerzonyWartownik extends Unit{
 	OpancerzonyWartownik(mod.FieldModel[] board){
+		field = new Field(getImage(),getSelectedImage());
+
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class Field extends JPanel{
 
-	Polygon polygon;
+	public Polygon polygon;
 	Image image;
 	Image selectedImage;
 	boolean selected;
@@ -29,9 +29,18 @@ public class Field extends JPanel{
 		setSize(126,110);
 		image = img;
 	}
-	
+	public Image getImage(){
+		return image;
+	}
+	public Image getSelectedImage(){
+		return selectedImage;
+	}
 	@Override
 	public boolean contains(int x,int y){
+		if(polygon == null){
+			System.out.println("DUPA");
+			return false;
+		}
 		return polygon.contains(new Point(x,y));
 	}
 	@Override

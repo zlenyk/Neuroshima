@@ -1,10 +1,13 @@
 package mod.tiles.Moloch;
 
+import gui.Field;
 import mod.Modul;
 
 
 public class Oficer extends Modul {
 	Oficer(int rotation){
+		field = new Field(getImage(),getSelectedImage());
+
 		hp = 1;
 		this.rotation = rotation;
 		ifWorks = new boolean[6];

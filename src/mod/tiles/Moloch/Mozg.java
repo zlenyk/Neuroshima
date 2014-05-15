@@ -1,13 +1,14 @@
 package mod.tiles.Moloch;
 
-import java.awt.Image;
-
+import gui.Field;
 import mod.Modul;
 import mod.Unit;
 
 
 public class Mozg extends Modul {
 	Mozg(int rotation){
+		field = new Field(getImage(),getSelectedImage());
+
 		hp = 1;
 		this.rotation = rotation;
 		ifWorks = new boolean[6];

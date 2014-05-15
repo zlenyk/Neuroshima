@@ -6,13 +6,13 @@ import java.util.List;
 
 public abstract class Unit extends Tile {
 
+
 	public List<Integer> initiative;
 	public void attack(){}
 	public int shootBonus;
 	public int hitBonus;
 	protected int initiativeBonus;
-	
-	
+		
 	protected void shoot(int direction,int power){
 		while(board[position].neibours[direction]!=null){
 			if(board[position].neibours[direction].tile!=null){

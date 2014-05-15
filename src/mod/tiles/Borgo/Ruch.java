@@ -1,14 +1,17 @@
 package mod.tiles.Borgo;
 
+import gui.Field;
+
 import java.awt.Image;
+import java.util.LinkedList;
 
 import cont.board.ImageLoader;
 
-import java.util.LinkedList;
-
 public class Ruch extends mod.Tile {
 	
-	
+	public Ruch(){
+		field = new Field(getImage(),getSelectedImage());
+	}
 	public LinkedList<Integer> pick(){
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<21;i++) if(board[i]!=null&&board[i].tile!=null&&board[i].tile.owner==this.owner) whereCanPut.add(board[position].neibours[i].position);
