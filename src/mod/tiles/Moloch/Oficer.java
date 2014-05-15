@@ -2,8 +2,6 @@ package mod.tiles.Moloch;
 
 import mod.Modul;
 
-import cont.board.ImageLoader;
-
 
 public class Oficer extends Modul {
 	Oficer(int rotation){

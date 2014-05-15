@@ -3,7 +3,6 @@ package mod.tiles.Moloch;
 import java.awt.Image;
 
 import mod.Modul;
-import cont.board.ImageLoader;
 import mod.Unit;
 
 

@@ -1,4 +1,4 @@
-package mod.tiles.Moloch;
+package mod.tiles.Hegemonia;
 
 import java.awt.Image;
 import java.util.LinkedList;
@@ -7,27 +7,36 @@ import mod.Unit;
 
 import cont.board.ImageLoader;
 
-public class Bloker extends Unit {
-	Bloker(mod.FieldModel[] board){
+public class Bydlak extends Unit {
+	Bydlak(mod.FieldModel[] board){
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
-		hp=2;
+		hp=1;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
-		shield[0] = true;
 		isNetted = 0;
 		initiative = new LinkedList<Integer>();
+		initiative.add(2);
+		shootBonus = 0;
+		hitBonus = 0;
+		initiativeBonus = 0;
 	}
 
+	public void attack(){
+		hit(0+rotation,2+hitBonus);
+		hit(1+rotation,1+hitBonus);
+		hit(5+rotation,1+hitBonus);
+	}
+	
 	@Override
 	public Image getImage() {
-		return ImageLoader.Moloch.bloker();
+		return ImageLoader.Hegemonia.bydlak();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		return ImageLoader.Moloch.blokerSelected();
+		return ImageLoader.Hegemonia.bydlakSelected();
 	}
 	
 }
