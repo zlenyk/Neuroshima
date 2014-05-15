@@ -2,9 +2,11 @@ package mod.tiles.Moloch;
 
 import mod.Modul;
 
+import cont.board.ImageLoader;
 
-public class Officer extends Modul {
-	Officer(int rotation){
+
+public class Oficer extends Modul {
+	Oficer(int rotation){
 		hp = 1;
 		this.rotation = rotation;
 		ifWorks = new boolean[6];

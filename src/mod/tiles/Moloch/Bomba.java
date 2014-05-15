@@ -7,8 +7,8 @@ import java.util.LinkedList;
 
 import cont.board.ImageLoader;
 
-public class Bomb extends mod.Tile {
-	public Bomb(){
+public class Bomba extends mod.Tile {
+	public Bomba(){
 		field = new Field(getImage(),getSelectedImage());
 	}
 

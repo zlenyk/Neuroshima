@@ -1,6 +1,9 @@
 package mod.tiles.Moloch;
 
 import java.awt.Image;
+
+import cont.board.ImageLoader;
+
 import java.util.LinkedList;
 
 import mod.Unit;
@@ -30,13 +33,11 @@ public class Juggernaut extends Unit{
 	}
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.juggernaut();
 	}
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.juggernautSelected();
 	}
 	
 	

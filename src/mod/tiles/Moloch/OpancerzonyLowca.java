@@ -1,20 +1,23 @@
 package mod.tiles.Moloch;
 
 import java.awt.Image;
+
+import cont.board.ImageLoader;
+
 import java.util.LinkedList;
 
 import mod.Unit;
 
-
-public class ArmoredSentinel extends Unit{
-	ArmoredSentinel(mod.FieldModel[] board){
+public class OpancerzonyLowca extends Unit {
+	OpancerzonyLowca(mod.FieldModel[] board){
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
-		hp=1;
+		hp = 1;
 		shield = new boolean[6];
-		for(int i=1; i<6; i++)	shield[i] = false;
+		for(int i=1; i<5; i++)	shield[i] = false;
 		shield[0] = true;
+		shield[5] = true;
 		isNetted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
@@ -22,20 +25,23 @@ public class ArmoredSentinel extends Unit{
 		hitBonus = 0;
 		initiativeBonus = 0;
 	}
+	
 	public void attack(){
-		shoot(1+rotation,1+shootBonus);
-		shoot(5+rotation,1+shootBonus);
+		hit(0, 1+hitBonus);
+		hit(1, 1+hitBonus);
+		hit(2, 1+hitBonus);
+		hit(3, 1+hitBonus);
+		hit(4, 1+hitBonus);
+		hit(5, 1+hitBonus);
 	}
+
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.opancerzonylowca();
 	}
+
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.opancerzonylowcaSelected();
 	}
-	
-	
 }

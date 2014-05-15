@@ -3,12 +3,13 @@ package mod.tiles.Moloch;
 import java.awt.Image;
 import java.util.LinkedList;
 
+import cont.board.ImageLoader.Borgo;
 import mod.Unit;
 
+import cont.board.ImageLoader;
 
-
-public class Blocker extends Unit {
-	Blocker(mod.FieldModel[] board){
+public class Bloker extends Unit {
+	Bloker(mod.FieldModel[] board){
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
@@ -22,14 +23,12 @@ public class Blocker extends Unit {
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.bloker();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.blokerSelected();
 	}
 	
 }

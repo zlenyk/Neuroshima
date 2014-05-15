@@ -1,12 +1,15 @@
 package mod.tiles.Moloch;
 
 import java.awt.Image;
+
+import cont.board.ImageLoader;
+
 import java.util.LinkedList;
 
 import mod.Unit;
 
-public class GaussCannon extends Unit {
-	GaussCannon(mod.FieldModel board[]){
+public class DzialkoGaussa extends Unit {
+	DzialkoGaussa(mod.FieldModel board[]){
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
@@ -37,13 +40,11 @@ public class GaussCannon extends Unit {
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.dzialkogaussa();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.dzialkogaussaSelected();
 	}
 }

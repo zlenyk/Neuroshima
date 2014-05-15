@@ -1,9 +1,12 @@
 package mod.tiles.Moloch;
 
 import java.awt.Image;
+
+import cont.board.ImageLoader;
+
 import java.util.LinkedList;
 
-public class Move extends mod.Tile {
+public class Ruch extends mod.Tile {
 	
 	
 	public LinkedList<Integer> pick(){
@@ -23,12 +26,10 @@ public class Move extends mod.Tile {
 	}
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.ruch();
 	}
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.ruchSelected();
 	}
 }

@@ -1,11 +1,14 @@
 package mod.tiles.Moloch;
 
+import java.awt.Image;
+
 import mod.Modul;
+import cont.board.ImageLoader;
 import mod.Unit;
 
 
-public class Brain extends Modul {
-	Brain(int rotation){
+public class Mozg extends Modul {
+	Mozg(int rotation){
 		hp = 1;
 		this.rotation = rotation;
 		ifWorks = new boolean[6];
@@ -23,4 +26,5 @@ public class Brain extends Modul {
 			}
 		}
 	}
+	
 }

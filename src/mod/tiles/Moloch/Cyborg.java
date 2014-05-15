@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import mod.Unit;
 
+import cont.board.ImageLoader;
 
 public class Cyborg extends Unit{
 	Cyborg(mod.FieldModel board[]){
@@ -29,14 +30,12 @@ public class Cyborg extends Unit{
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.cyborg();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.cyborgSelected();
 	}
 		
 }

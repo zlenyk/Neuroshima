@@ -1,12 +1,15 @@
 package mod.tiles.Moloch;
 
 import java.awt.Image;
+
+import cont.board.ImageLoader;
+
 import java.util.LinkedList;
 
 import mod.Unit;
 
-public class Hunter extends Unit {
-	Hunter(mod.FieldModel board[]){
+public class Rozpruwacz extends Unit {
+	Rozpruwacz(mod.FieldModel[] board){
 		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
@@ -15,28 +18,23 @@ public class Hunter extends Unit {
 		for(int i=0; i<6; i++)	shield[i] = false;
 		isNetted = 0;
 		initiative = new LinkedList<Integer>();
-		initiative.add(3);
+		initiative.add(2);
 		shootBonus = 0;
 		hitBonus = 0;
 		initiativeBonus = 0;
 	}
 	
 	public void attack(){
-		hit(0+rotation, 1+hitBonus);
-		hit(1+rotation, 1+hitBonus);
-		hit(3+rotation, 1+hitBonus);
-		hit(5+rotation, 1+hitBonus);
+		hit(0+rotation, 2+hitBonus);
 	}
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.rozpruwacz();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return ImageLoader.Moloch.rozpruwaczSelected();
 	}
 }
