@@ -458,6 +458,14 @@ public class ImageLoader {
 		public static Image zwiadowcaSelected(){
 			return getImage("graphics/hegemonia/selected/posterunek16-zwiadowca.png");
 		}
-		
+	}
+	public static class Empty{
+		static File imageFile;
+		public static Image empty(){
+			return getImage("graphics/empty.png");
+		}
+		public static Image emptySelected(){
+			return getImage("graphics/selected_empty.png");
+		}
 	}
 }

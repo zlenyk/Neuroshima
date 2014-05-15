@@ -20,7 +20,7 @@ public class BoardModel {
 		 * 
 		 * 
 		 */
-	for(int i=0;i<21;i++) board[i]=new FieldModel(new mod.tiles.Moloch.Bomba(),i);
+	for(int i=0;i<21;i++) board[i]=new FieldModel(new mod.tiles.empty.Empty(),i);
 		
 	}
 	public BoardModel(GameController game,List<String> armies){
