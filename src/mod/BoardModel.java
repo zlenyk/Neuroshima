@@ -14,12 +14,12 @@ public class BoardModel {
 	
 	private void fillBoard(){
 
-		for(int i=0;i<19;i++) board[i]=new FieldModel(i);
-		for(int i=0;i<19;i++) board[i].changeTile(new mod.tiles.empty.Empty());
+		for(int i=0;i<21;i++) board[i]=new FieldModel(i);
+		for(int i=0;i<21;i++) board[i].changeTile(new mod.tiles.empty.Empty());
 	}
 	public BoardModel(BoardController boardC){
 		boardController = boardC;
-		board = new FieldModel[19];
+		board = new FieldModel[21];
 		fillBoard();
 		fillNeighbours();
 	}
@@ -42,7 +42,7 @@ public class BoardModel {
 	}
 	public List<Field> getFields(){
 		List<Field> fieldList = new ArrayList<Field>();
-		for(int i = 0; i<19; i++){
+		for(int i = 0; i<21; i++){
 			fieldList.add(board[i].getTile().getField());
 		}
 		return fieldList;
