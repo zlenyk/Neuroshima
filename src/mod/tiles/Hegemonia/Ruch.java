@@ -16,7 +16,8 @@ public class Ruch extends mod.Tile {
 	}
 	public LinkedList<Integer> pick(){
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
-		//for(int i=0;i<21;i++) if(board[i]!=null&&board[i].tile!=null&&board[i].tile.owner==this.owner) whereCanPut.add(board[position].neibours[i].position);
+
+		for(int i=0;i<19;i++) if(board[i]!=null&&board[i].tile!=null&&board[i].tile.owner==this.owner) whereCanPut.add(board[position].neighbours[i].position);
 		
 		return whereCanPut;
 	}
