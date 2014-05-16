@@ -45,7 +45,7 @@ public abstract class Unit extends Tile {
 	public LinkedList<Integer> pick(){
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		if(position == -1){
-			for(int i=0;i<21;i++){
+			for(int i=0;i<19;i++){
 				if(board[i]!=null&&board[i].tile==null) whereCanPut.add(i);
 			}
 		}

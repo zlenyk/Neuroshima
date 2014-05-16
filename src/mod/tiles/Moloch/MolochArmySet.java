@@ -6,15 +6,19 @@ public class MolochArmySet extends ArmySet {
 	public MolochArmySet(){
 		super();
 		list.add(new Bloker());
+		list.add(new Bloker());
 		list.add(new Bomba());
+		list.add(new Cyborg());
 		list.add(new Cyborg());
 		list.add(new DzialkoGaussa());
 		list.add(new Juggernaut());
 		list.add(new Klaun());
 		list.add(new Lowca());
+		list.add(new Lowca());
 		list.add(new Mozg());
 		list.add(new Obronca());
 		list.add(new Oficer());
+		list.add(new OpancerzonyLowca());
 		list.add(new OpancerzonyLowca());
 		list.add(new OpancerzonyWartownik());
 		list.add(new Rozpruwacz());

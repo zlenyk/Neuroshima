@@ -14,13 +14,13 @@ public class Bomba extends mod.Tile {
 
 public LinkedList<Integer> pick(){
 	LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
+	whereCanPut.add(4);
 	whereCanPut.add(5);
-	whereCanPut.add(7);
 	whereCanPut.add(8);
+	whereCanPut.add(9);
 	whereCanPut.add(10);
-	whereCanPut.add(12);
 	whereCanPut.add(13);
-	whereCanPut.add(15);
+	whereCanPut.add(14);
 	return whereCanPut;
 }
 public void put(int position){
