@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import mod.FieldModel;
 import cont.board.BoardGUIController;
 
 
@@ -27,13 +28,15 @@ public class Board extends JPanel{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controller.mouseAction(e.getX(),e.getY());
+				controller.select(e.getX(),e.getY());
 			}
 		});
 	}
-	public void addField(Field field){
-		add(field);			//adds to JPanel
-		fieldList.add(field);
+	public void addField(FieldModel f){
+		
+		f.getTile().getField().setLocation(f.getLocation());
+		this.add(f.getTile().getField());			//adds to JPanel
+		fieldList.add(f.getTile().getField());
 	}
 	public List<Field> getFields(){
 		return fieldList;

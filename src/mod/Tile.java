@@ -14,7 +14,7 @@ public abstract class Tile {
 	public Field getField(){
 		return field;
 	}	
-	
+
 	public FieldModel board[];
 	public int rotation;
 	public int owner;

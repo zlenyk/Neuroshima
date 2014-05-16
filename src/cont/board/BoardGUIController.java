@@ -1,33 +1,36 @@
 package cont.board;
 
 import gui.Board;
-import gui.Field;
-
-import java.awt.Point;
-import java.util.List;
+import mod.BoardModel;
 
 public class BoardGUIController {
 	/**
 	 * Controls board behavior.
 	 */
 	Board board;
+	BoardController boardController;
 	public BoardGUIController(Board b){
 		board = b;
 	}
 	public Board getBoard(){
 		return board;
 	}
-	public static BoardGUIController createNewBoard(List<Field> fieldList){
+	public static BoardGUIController createNewBoard(BoardController bc){
 		Board b = new Board();
-		BoardGenerator.generateBoard(b,fieldList);
+		setEmpty(bc.getBoardModel());
+		BoardGenerator.generateBoard(b,bc);
+		b.getController().boardController = bc;
+		for(int i = 0; i<21; i++){
+			System.out.println(bc.getBoardModel().getBoard()[i].getPosition());
+		}
 		return b.getController();
 	}
-	public void mouseAction(int x,int y){
-		Point p = new Point(x,y);
-		for(Field f : board.getFields()){
-			if(f.contains(p)){
-				f.changeSelect();
-			}
+	private static void setEmpty(BoardModel bc){
+		for(int i = 0; i<21; i++){
+			bc.getFieldModelAt(i).changeTile(new mod.tiles.empty.Empty());
 		}
+	}
+	public void select(int x,int y){
+		boardController.select(x,y);
 	}
 }

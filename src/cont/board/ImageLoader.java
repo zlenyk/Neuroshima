@@ -297,7 +297,7 @@ public class ImageLoader {
 			return getImage("graphics/hegemonia/hegemonia09-gladiator.png");
 		}
 		public static Image gladiatorSelected(){
-			return getImage("graphics/hegemonia/sleceted/hegemonia09-gladiator.png");
+			return getImage("graphics/hegemonia/selected/hegemonia09-gladiator.png");
 		}
 		public static Image sieciarz(){
 			return getImage("graphics/hegemonia/hegemonia10-sieciarz.png");
@@ -363,100 +363,100 @@ public class ImageLoader {
 	public static class Posterunek{
 		static File imageFile;
 		public static Image sztab(){
-			return getImage("graphics/hegemonia/posterunek01-sztab.png");
+			return getImage("graphics/posterunek/posterunek01-sztab.png");
 		}
 		public static Image sztabSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek01-sztab.png");
+			return getImage("graphics/posterunek/selected/posterunek01-sztab.png");
 		}
 		public static Image bitwa(){
-			return getImage("graphics/hegemonia/posterunek02-bitwa.png");
+			return getImage("graphics/posterunek/posterunek02-bitwa.png");
 		}
 		public static Image bitwaSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek02-bitwa.png");
+			return getImage("graphics/posterunek/selected/posterunek02-bitwa.png");
 		}
 		public static Image ruch(){
-			return getImage("graphics/hegemonia/posterunek03-ruch.png");
+			return getImage("graphics/posterunek/posterunek03-ruch.png");
 		}
 		public static Image ruchSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek03-ruch.png");
+			return getImage("graphics/posterunek/selected/posterunek03-ruch.png");
 		}
 		public static Image snajper(){
-			return getImage("graphics/hegemonia/posterunek04-snajper.png");
+			return getImage("graphics/posterunek/posterunek04-snajper.png");
 		}
 		public static Image snajperSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek04-snajper.png");
+			return getImage("graphics/posterunek/selected/posterunek04-snajper.png");
 		}
 		public static Image biegacz(){
-			return getImage("graphics/hegemonia/posterunek05-biegacz.png");
+			return getImage("graphics/posterunek/posterunek05-biegacz.png");
 		}
 		public static Image biegaczSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek05-biegacz.png");
+			return getImage("graphics/posterunek/selected/posterunek05-biegacz.png");
 		}
 		public static Image ckm(){
-			return getImage("graphics/hegemonia/posterunek06-ckm.png");
+			return getImage("graphics/posterunek/posterunek06-ckm.png");
 		}
 		public static Image ckmSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek06-ckm.png");
+			return getImage("graphics/posterunek/selected/posterunek06-ckm.png");
 		}
 		public static Image komandos(){
-			return getImage("graphics/hegemonia/posterunek07-komandos.png");
+			return getImage("graphics/posterunek/posterunek07-komandos.png");
 		}
 		public static Image komandosSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek07-komandos.png");
+			return getImage("graphics/posterunek/selected/posterunek07-komandos.png");
 		}
 		public static Image likwidator(){
-			return getImage("graphics/hegemonia/posterunek08-likwidator.png");
+			return getImage("graphics/posterunek/posterunek08-likwidator.png");
 		}
 		public static Image likwidatorSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek08-likwidator.png");
+			return getImage("graphics/posterunek/selected/posterunek08-likwidator.png");
 		}
 		public static Image pancerzwspomagany(){
-			return getImage("graphics/hegemonia/posterunek09-pancerzwspomagany.png");
+			return getImage("graphics/posterunek/posterunek09-pancerzwspomagany.png");
 		}
 		public static Image pancerzwspomaganySelected(){
-			return getImage("graphics/hegemonia/selected/posterunek09-pancerzwspomagany.png");
+			return getImage("graphics/posterunek/selected/posterunek09-pancerzwspomagany.png");
 		}
 		public static Image silacz(){
-			return getImage("graphics/hegemonia/posterunek10-silacz.png");
+			return getImage("graphics/posterunek/posterunek10-silacz.png");
 		}
 		public static Image silaczSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek10-silacz.png");
+			return getImage("graphics/posterunek/selected/posterunek10-silacz.png");
 		}
 		public static Image centrumrozpoznawania(){
-			return getImage("graphics/hegemonia/posterunek11-centrumrozpoznawania.png");
+			return getImage("graphics/posterunek/posterunek11-centrumrozpoznawania.png");
 		}
 		public static Image centrumrozpoznawaniaSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek11-centrumrozpoznawania.png");
+			return getImage("graphics/posterunek/selected/posterunek11-centrumrozpoznawania.png");
 		}
 		public static Image dywersant(){
-			return getImage("graphics/hegemonia/posterunek12-dywersant.png");
+			return getImage("graphics/posterunek/posterunek12-dywersant.png");
 		}
 		public static Image dywersantSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek12-dywersant.png");
+			return getImage("graphics/posterunek/selected/posterunek12-dywersant.png");
 		}
 		public static Image medyk(){
-			return getImage("graphics/hegemonia/posterunek13-medyk.png");
+			return getImage("graphics/posterunek/posterunek13-medyk.png");
 		}
 		public static Image medykSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek13-medyk.png");
+			return getImage("graphics/posterunek/selected/posterunek13-medyk.png");
 		}
 		public static Image oficer(){
-			return getImage("graphics/hegemonia/posterunek14-oficer.png");
+			return getImage("graphics/posterunek/posterunek14-oficer.png");
 		}
 		public static Image oficerSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek14-oficer.png");
+			return getImage("graphics/posterunek/selected/posterunek14-oficer.png");
 		}
 		public static Image skoper(){
-			return getImage("graphics/hegemonia/posterunek15-skoper.png");
+			return getImage("graphics/posterunek/posterunek15-skoper.png");
 		}
 		public static Image skoperSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek15-skoper.png");
+			return getImage("graphics/posterunek/selected/posterunek15-skoper.png");
 		}
 		public static Image zwiadowca(){
-			return getImage("graphics/hegemonia/posterunek16-zwiadowca.png");
+			return getImage("graphics/posterunek/posterunek16-zwiadowca.png");
 		}
 		public static Image zwiadowcaSelected(){
-			return getImage("graphics/hegemonia/selected/posterunek16-zwiadowca.png");
+			return getImage("graphics/posterunek/selected/posterunek16-zwiadowca.png");
 		}
 	}
 	public static class Empty{

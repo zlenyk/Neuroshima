@@ -30,14 +30,14 @@ public class DzialkoGaussa extends Unit {
 	public void attack(){
 		//shoot(rotation,1+shootBonus);
 		int direction = rotation, power = 1;
-		while(board[position].neibours[direction]!=null){
+		/*while(board[position].neibours[direction]!=null){
 			if(board[position].neibours[direction].tile!=null){
 				if(board[position].neibours[direction].tile.shield[(direction+3)%6]==false) 
 					board[position].neibours[direction].tile.hp-=power;
 				else board[position].neibours[direction].tile.hp-=(power-1);
 				
 			}
-		}
+		}*/
 	}
 	// Dzialo Gaussa strzela do wszystkich celow na swojej linii
 

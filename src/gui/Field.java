@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.Polygon;
 
 import javax.swing.JPanel;
@@ -21,9 +20,6 @@ public class Field extends JPanel{
 		selectedImage = selectImg;
 		selected = false;
 	}
-	public void setShape(int[] pointsX,int[] pointsY){
-		polygon = new Polygon(pointsX,pointsY,pointsX.length);
-	}
 	public Field(Image img){
 		super();
 		setSize(126,110);
@@ -34,14 +30,6 @@ public class Field extends JPanel{
 	}
 	public Image getSelectedImage(){
 		return selectedImage;
-	}
-	@Override
-	public boolean contains(int x,int y){
-		if(polygon == null){
-			System.out.println("DUPA");
-			return false;
-		}
-		return polygon.contains(new Point(x,y));
 	}
 	@Override
 	public void paintComponent(Graphics g){

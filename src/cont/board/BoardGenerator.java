@@ -1,9 +1,6 @@
 package cont.board;
 
 import gui.Board;
-import gui.Field;
-
-import java.util.List;
 
 /**
  * @author zygmunt
@@ -13,13 +10,18 @@ public class BoardGenerator {
 	/**
 	 * Methods generates fields for a given board and places them on it.
 	 */
-	public static void generateBoard(Board board,List<Field> fieldList){
-		int index = 0;
+	public static void generateBoard(Board board,BoardController bc){
 		int move = 93;
 		int[] hexX = {31,0,31,31+62,62*2,31+62};
 		int[] hexY = {0,54,108,108,54,0};
 		int[] Y = {108,216,324};
 		int X = 0;
+		int[] ind1 = {4,9,14};
+		int[] ind2 = {2,7,12,17};
+		int[] ind3 = {0,5,10,15,20};
+		int[] ind4 = {3,8,13,18};
+		int[] ind5 = {6,11,16};
+		
 		for(int i = 0; i<3; i++){
 			int[] _hexX = new int[6];
 			int[] _hexY = new int[6];
@@ -28,10 +30,10 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y[i];
 
 			}
-			Field field = fieldList.get(index++);
-			field.setShape(_hexX,_hexY);
-			field.setLocation(X, Y[i]);
-			board.addField(field);
+			bc.getBoardModel().getFieldModelAt(ind1[i]).setShape(_hexX, _hexY);
+			bc.getBoardModel().getFieldModelAt(ind1[i]).setLocation(X, Y[i]);
+
+			board.addField(bc.getBoardModel().getFieldModelAt(ind1[i]));
 		}
 		int[] Y1 = {54,162,270,378};
 		X = move;
@@ -43,10 +45,10 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y1[i];
 
 			}
-			Field field = fieldList.get(index++);
-			field.setShape(_hexX,_hexY);
-			field.setLocation(X, Y1[i]);
-			board.addField(field);
+			bc.getBoardModel().getFieldModelAt(ind2[i]).setShape(_hexX, _hexY);
+			bc.getBoardModel().getFieldModelAt(ind2[i]).setLocation(X, Y1[i]);
+			
+			board.addField(bc.getBoardModel().getFieldModelAt(ind2[i]));
 
 		}
 		int[] Y2 = {0,108,216,324,432};
@@ -59,10 +61,10 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y2[i];
 
 			}
-			Field field = fieldList.get(index++);
-			field.setShape(_hexX,_hexY);
-			field.setLocation(X, Y2[i]);
-			board.addField(field);
+			bc.getBoardModel().getFieldModelAt(ind3[i]).setShape(_hexX, _hexY);
+			bc.getBoardModel().getFieldModelAt(ind3[i]).setLocation(X, Y2[i]);
+
+			board.addField(bc.getBoardModel().getFieldModelAt(ind3[i]));
 
 		}
 		X = 3*move;
@@ -74,10 +76,10 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y1[i];
 
 			}
-			Field field = fieldList.get(index++);
-			field.setShape(_hexX,_hexY);
-			field.setLocation(X, Y1[i]);
-			board.addField(field);
+			bc.getBoardModel().getFieldModelAt(ind4[i]).setShape(_hexX, _hexY);
+			bc.getBoardModel().getFieldModelAt(ind4[i]).setLocation(X, Y1[i]);
+
+			board.addField(bc.getBoardModel().getFieldModelAt(ind4[i]));
 
 		}
 		X = 4*move;
@@ -89,10 +91,10 @@ public class BoardGenerator {
 				_hexY[j] = hexY[j]+Y[i];
 
 			}
-			Field field = fieldList.get(index++);
-			field.setShape(_hexX,_hexY);
-			field.setLocation(X, Y[i]);
-			board.addField(field);
+			bc.getBoardModel().getFieldModelAt(ind5[i]).setShape(_hexX, _hexY);
+			bc.getBoardModel().getFieldModelAt(ind5[i]).setLocation(X, Y[i]);
+
+			board.addField(bc.getBoardModel().getFieldModelAt(ind5[i]));
 
 		}
 	}
