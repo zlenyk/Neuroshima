@@ -5,37 +5,30 @@ import gui.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import cont.game.GameController;
-
-
+import cont.board.BoardController;
 
 
 public class BoardModel {
 	FieldModel board[];
-	GameController gameController;
+	BoardController boardController;
 	
-	private void fillBoard(List<String> armies){
-		/*
-		 * if armies = ... then...
-		 * 
-		 * 
-		 */
-	for(int i=0;i<21;i++) board[i]=new FieldModel(new mod.tiles.empty.Empty(),i);
-		
+	private void fillBoard(){
+		for(int i=0;i<21;i++) board[i]=new FieldModel(i);
+		for(int i=0;i<21;i++) board[i].changeTile(new mod.tiles.empty.Empty());
 	}
-	public BoardModel(GameController game,List<String> armies){
-		gameController = game;
+	public BoardModel(BoardController boardC){
+		boardController = boardC;
 		board = new FieldModel[21];
-		fillBoard(armies);
+		fillBoard();
 		fillNeighbours();
-		createBoard();
 	}
-	private void createBoard(){
+	
+	public List<Field> getFields(){
 		List<Field> fieldList = new ArrayList<Field>();
 		for(int i = 0; i<21; i++){
 			fieldList.add(board[i].getTile().getField());
 		}
-		gameController.createBoard(fieldList);
+		return fieldList;
 	}
 	
 	private void fillNeighbours(){

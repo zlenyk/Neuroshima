@@ -9,20 +9,20 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import cont.board.BoardController;
+import cont.board.BoardGUIController;
 
 
 public class Board extends JPanel{
 
 	List<Field> fieldList;
-	BoardController controller;
-	public BoardController getController(){
+	BoardGUIController controller;
+	public BoardGUIController getController(){
 		return controller;
 	}
 	public Board () {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setLayout(null);
-		controller = new BoardController(this);
+		controller = new BoardGUIController(this);
 		fieldList = new ArrayList<Field>();
 		addMouseListener(new MouseAdapter() {
 			@Override

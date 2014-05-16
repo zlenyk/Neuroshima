@@ -3,6 +3,7 @@ package mod;
 import gui.Field;
 
 import java.awt.Image;
+import java.awt.Point;
 import java.util.LinkedList;
 
 
@@ -12,10 +13,7 @@ public abstract class Tile {
 	
 	public Field getField(){
 		return field;
-	}
-	public abstract Image getImage();
-	public abstract Image getSelectedImage();
-	
+	}	
 	
 	public FieldModel board[];
 	public int rotation;
@@ -31,5 +29,14 @@ public abstract class Tile {
 		
 		hp-=power;
 	}
+	public boolean contains(Point p){
+		return field.contains(p);
+	}
+	public void changeSelect(){
+		field.changeSelect();
+	}
+	public abstract Image getImage();
+	public abstract Image getSelectedImage();
+
 	
 }

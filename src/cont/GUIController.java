@@ -1,13 +1,12 @@
 package cont;
 
 import gui.Board;
-import gui.Field;
 import gui.MessageWindow;
 
 import java.util.List;
 
 import mod.Player;
-import cont.board.BoardController;
+import cont.board.BoardGUIController;
 import cont.game.GameController;
 
 /**
@@ -22,7 +21,7 @@ public class GUIController {
 	StartMenuController startMenuController;
 	ArmiesChoiceController armiesChoiceController;
 	MainWindowController mainWindowController;
-	BoardController boardController;
+	BoardGUIController boardController;
 	GameController gameController;
 	MessageWindow messageWindow;
 	
@@ -43,11 +42,7 @@ public class GUIController {
 		startMenuController.hide();
 		armiesChoiceController = ArmiesChoiceController.openNewArmiesChoice(this);
 	}
-	public void createBoard(List<Field>fieldList){
-		boardController = BoardController.createNewBoard(fieldList);
-		addBoard(boardController.getBoard());
-	}
-	private void addBoard(Board b){
+	public void addBoard(Board b){
 		mainWindowController.addBoard(b);
 	}
 	/**

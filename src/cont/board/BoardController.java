@@ -1,34 +1,24 @@
 package cont.board;
 
-import gui.Board;
-import gui.Field;
-
-import java.awt.Point;
-import java.util.List;
+import mod.BoardModel;
+import cont.GUIController;
+import cont.game.GameController;
 
 public class BoardController {
-	/**
-	 * Controls board behavior.
-	 */
-	Board board;
-	public BoardController(Board b){
-		board = b;
+	BoardModel boardModel;
+	BoardGUIController boardGuiController;
+	GameController gameController;
+	GUIController guiController;
+	BoardController(GameController game,GUIController gui){
+		gameController = game;
+		guiController = gui;
 	}
-	public Board getBoard(){
-		return board;
+	public static BoardController createNewBoard(GUIController gui,GameController game){
+		BoardController bc = new BoardController(game,gui);
+		bc.boardModel = new BoardModel(bc);
+		bc.boardGuiController = BoardGUIController.createNewBoard(bc.boardModel.getFields());
+		bc.guiController.addBoard(bc.boardGuiController.getBoard());
+		return bc;
 	}
-	public static BoardController createNewBoard(List<Field> fieldList){
-		Board b = new Board();
-		BoardGenerator.generateBoard(b,fieldList);
-		return b.getController();
-		
-	}
-	public void mouseAction(int x,int y){
-		Point p = new Point(x,y);
-		for(Field f : board.getFields()){
-			if(f.contains(p)){
-				f.changeSelect();
-			}
-		}
-	}
+	
 }
