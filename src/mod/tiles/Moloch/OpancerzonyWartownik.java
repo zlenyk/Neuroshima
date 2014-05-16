@@ -12,10 +12,8 @@ import mod.Unit;
 
 
 public class OpancerzonyWartownik extends Unit{
-	OpancerzonyWartownik(mod.FieldModel[] board){
+	OpancerzonyWartownik(){
 		field = new Field(getImage(),getSelectedImage());
-
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=1;

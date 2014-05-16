@@ -9,10 +9,9 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 public class Ganger extends Unit {
-	Ganger(mod.FieldModel[] board){
+	Ganger(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=1;

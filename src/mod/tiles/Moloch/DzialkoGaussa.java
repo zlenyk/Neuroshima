@@ -11,10 +11,9 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class DzialkoGaussa extends Unit {
-	DzialkoGaussa(mod.FieldModel board[]){
+	DzialkoGaussa(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp = 2;

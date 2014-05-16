@@ -11,10 +11,9 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class Klaun extends Unit {
-	Klaun(mod.FieldModel[] board){
+	Klaun(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp = 2;

@@ -9,10 +9,9 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 public class Bloker extends Unit {
-	Bloker(mod.FieldModel[] board){
+	Bloker(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=2;

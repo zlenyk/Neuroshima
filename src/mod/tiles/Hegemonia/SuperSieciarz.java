@@ -9,10 +9,9 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 public class SuperSieciarz extends Unit {
-	SuperSieciarz(mod.FieldModel[] board){
+	SuperSieciarz(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=1;

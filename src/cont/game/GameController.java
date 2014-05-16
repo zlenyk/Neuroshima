@@ -23,7 +23,7 @@ public class GameController {
 		boardController = BoardController.createNewBoard(gui, this);
 		players = new ArrayList<Player>();
 		for(int i = 0; i<playersNames.size(); i++){
-			players.add(new Player(playersNames.get(i)) );
+			players.add(new Player(playersNames.get(i),armies.get(i)));
 		}
 	}
 	public void startNewGame(){

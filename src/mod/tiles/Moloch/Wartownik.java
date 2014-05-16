@@ -11,10 +11,9 @@ import java.util.LinkedList;
 import mod.Unit;
 
 public class Wartownik extends Unit {
-	Wartownik(mod.FieldModel[] board){
+	Wartownik(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp = 1;

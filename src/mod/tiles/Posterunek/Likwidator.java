@@ -9,10 +9,9 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 public class Likwidator extends Unit {
-	Likwidator(mod.FieldModel[] board){
+	Likwidator(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=1;

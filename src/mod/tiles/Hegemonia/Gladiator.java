@@ -9,10 +9,8 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 public class Gladiator extends Unit {
-	Gladiator(mod.FieldModel[] board){
+	Gladiator(){
 		field = new Field(getImage(),getSelectedImage());
-
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=2;

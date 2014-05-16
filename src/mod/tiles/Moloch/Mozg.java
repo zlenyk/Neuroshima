@@ -6,11 +6,10 @@ import mod.Unit;
 
 
 public class Mozg extends Modul {
-	Mozg(int rotation){
+	public Mozg(){
 		field = new Field(getImage(),getSelectedImage());
 
 		hp = 1;
-		this.rotation = rotation;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){
 			if(i%2==1)ifWorks[i] = false;

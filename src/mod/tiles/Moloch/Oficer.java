@@ -5,11 +5,10 @@ import mod.Modul;
 
 
 public class Oficer extends Modul {
-	Oficer(int rotation){
+	public Oficer(){
 		field = new Field(getImage(),getSelectedImage());
 
 		hp = 1;
-		this.rotation = rotation;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){
 			if(i%2==1)ifWorks[i] = false;

@@ -12,10 +12,9 @@ import mod.Unit;
 
 
 public class Juggernaut extends Unit{
-	Juggernaut(mod.FieldModel[] board){
+	Juggernaut(){
 		field = new Field(getImage(),getSelectedImage());
 
-		this.board = board;
 		position = -1;
 		//this.rotation = rotation;
 		hp=2;
