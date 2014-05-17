@@ -1,31 +1,32 @@
 package mod.tiles.Moloch;
 
 import mod.ArmySet;
+import mod.Player;
 
 public class MolochArmySet extends ArmySet {
-	public MolochArmySet(){
+	public MolochArmySet(Player owner){
 		super();
-		list.add(new Bloker());
-		list.add(new Bloker());
-		list.add(new Bomba());
-		list.add(new Cyborg());
-		list.add(new Cyborg());
-		list.add(new DzialkoGaussa());
-		list.add(new Juggernaut());
-		list.add(new Klaun());
-		list.add(new Lowca());
-		list.add(new Lowca());
-		list.add(new Mozg());
-		list.add(new Obronca());
-		list.add(new Oficer());
-		list.add(new OpancerzonyLowca());
-		list.add(new OpancerzonyLowca());
-		list.add(new OpancerzonyWartownik());
-		list.add(new Rozpruwacz());
-		list.add(new Ruch());
-		list.add(new Sieciarz());
-		list.add(new Szturmowiec());
-		list.add(new Wartownik());
+		list.add(new Bloker(owner));
+		list.add(new Bloker(owner));
+		list.add(new Bomba(owner));
+		list.add(new Cyborg(owner));
+		list.add(new Cyborg(owner));
+		list.add(new DzialkoGaussa(owner));
+		list.add(new Juggernaut(owner));
+		list.add(new Klaun(owner));
+		list.add(new Lowca(owner));
+		list.add(new Lowca(owner));
+		list.add(new Mozg(owner));
+		list.add(new Obronca(owner));
+		list.add(new Oficer(owner));
+		list.add(new OpancerzonyLowca(owner));
+		list.add(new OpancerzonyLowca(owner));
+		list.add(new OpancerzonyWartownik(owner));
+		list.add(new Rozpruwacz(owner));
+		list.add(new Ruch(owner));
+		list.add(new Sieciarz(owner));
+		list.add(new Szturmowiec(owner));
+		list.add(new Wartownik(owner));
 
 	}
 }

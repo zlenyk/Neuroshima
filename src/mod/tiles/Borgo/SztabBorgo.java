@@ -5,16 +5,17 @@ import gui.Field;
 import java.awt.Image;
 import java.util.LinkedList;
 
+import mod.Player;
 import cont.board.ImageLoader;
 
 public class SztabBorgo extends mod.Unit {
 	
-	public SztabBorgo(){
+	public SztabBorgo(Player owner){
 		field = new Field(getImage(),getSelectedImage());
-
+		this.owner = owner;
 		position = -1;
 		//this.rotation = rotation;
-		hp=1;
+		hp=20;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
 		isNetted = 0;

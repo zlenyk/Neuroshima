@@ -8,14 +8,15 @@ import cont.board.ImageLoader;
 
 import java.util.LinkedList;
 
+import mod.Player;
 import mod.Unit;
 
 
 public class OpancerzonyWartownik extends Unit{
-	OpancerzonyWartownik(){
+	OpancerzonyWartownik(Player owner){
 		field = new Field(getImage(),getSelectedImage());
 		position = -1;
-		//this.rotation = rotation;
+		this.owner = owner;
 		hp=1;
 		shield = new boolean[6];
 		for(int i=1; i<6; i++)	shield[i] = false;

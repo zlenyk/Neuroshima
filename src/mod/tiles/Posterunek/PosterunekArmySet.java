@@ -1,29 +1,31 @@
 package mod.tiles.Posterunek;
 
 import mod.ArmySet;
+import mod.Player;
 
 public class PosterunekArmySet extends ArmySet {
-	public PosterunekArmySet(){
+	public PosterunekArmySet(Player owner){
 		super();
-		list.add(new Biegacz());
-		list.add(new Biegacz());
-		list.add(new Ckm());
-		list.add(new Komandos());
-		list.add(new Komandos());
-		list.add(new Komandos());
-		list.add(new Komandos());
-		list.add(new Komandos());
-		list.add(new Likwidator());
-		list.add(new Likwidator());
-		list.add(new PancerzWspomagany());
-		list.add(new Ruch());
-		list.add(new Ruch());
-		list.add(new Ruch());
-		list.add(new Ruch());
-		list.add(new Ruch());
-		list.add(new Ruch());
-		list.add(new Ruch());
-		list.add(new Silacz());
+		list.add(new Biegacz(owner));
+		list.add(new Biegacz(owner));
+		list.add(new Ckm(owner));
+		list.add(new Komandos(owner));
+		list.add(new Komandos(owner));
+		list.add(new Komandos(owner));
+		list.add(new Komandos(owner));
+		list.add(new Komandos(owner));
+		list.add(new Likwidator(owner));
+		list.add(new Likwidator(owner));
+		list.add(new PancerzWspomagany(owner));
+		list.add(new Ruch(owner));
+		list.add(new Ruch(owner));
+		list.add(new Ruch(owner));
+		list.add(new Ruch(owner));
+		list.add(new Ruch(owner));
+		list.add(new Ruch(owner));
+		list.add(new Ruch(owner));
+		list.add(new Silacz(owner));
+		list.add(new Snajper(owner));
 
 	}
 }

@@ -8,14 +8,15 @@ import cont.board.ImageLoader;
 
 import java.util.LinkedList;
 
+import mod.Player;
 import mod.Unit;
 
 public class Rozpruwacz extends Unit {
-	Rozpruwacz(){
+	Rozpruwacz(Player owner){
 		field = new Field(getImage(),getSelectedImage());
 
 		position = -1;
-		//this.rotation = rotation;
+		this.owner = owner;
 		hp = 1;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;

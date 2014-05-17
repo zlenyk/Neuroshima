@@ -8,12 +8,13 @@ import cont.board.ImageLoader;
 
 import java.util.LinkedList;
 
+import mod.Player;
 import mod.Unit;
 
 public class Klaun extends Unit {
-	Klaun(){
+	Klaun(Player owner){
 		field = new Field(getImage(),getSelectedImage());
-
+		this.owner = owner;
 		position = -1;
 		//this.rotation = rotation;
 		hp = 2;

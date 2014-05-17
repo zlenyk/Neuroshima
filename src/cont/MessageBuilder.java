@@ -24,4 +24,13 @@ public class MessageBuilder {
 	public static String endOfGameMessage(){
 		return "Game has finished!";
 	}
+	public static String playerPutSztabMessage(String name){
+		return "Player: " + name + " put your sztab";
+	}
+	public static String throwTileMessage(){
+		return "choose tile to throw";
+	}
+	public static String putTilesMessage(){
+		return "than put your tiles on the board";
+	}
 }

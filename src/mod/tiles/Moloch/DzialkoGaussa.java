@@ -8,14 +8,14 @@ import cont.board.ImageLoader;
 
 import java.util.LinkedList;
 
+import mod.Player;
 import mod.Unit;
 
 public class DzialkoGaussa extends Unit {
-	DzialkoGaussa(){
+	DzialkoGaussa(Player owner){
 		field = new Field(getImage(),getSelectedImage());
-
+		this.owner = owner;
 		position = -1;
-		//this.rotation = rotation;
 		hp = 2;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;

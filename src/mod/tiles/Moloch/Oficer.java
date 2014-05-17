@@ -2,12 +2,13 @@ package mod.tiles.Moloch;
 
 import gui.Field;
 import mod.Modul;
+import mod.Player;
 
 
 public class Oficer extends Modul {
-	public Oficer(){
+	public Oficer(Player owner){
 		field = new Field(getImage(),getSelectedImage());
-
+		this.owner = owner;
 		hp = 1;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){

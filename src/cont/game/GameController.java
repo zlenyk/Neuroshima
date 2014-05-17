@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mod.Player;
+import mod.Tile;
 import cont.GUIController;
 import cont.MessageBuilder;
 import cont.board.BoardController;
@@ -29,9 +30,36 @@ public class GameController {
 	public void startNewGame(){
 		activePlayer = 0;
 		turns = 0;
+		for(Player active : players){
+			guiController.showMessage(MessageBuilder.playerPutSztabMessage(getActivePlayerName()));
+			List<Integer> whereCanPut = active.getSztab().pick();
+			active.getSztab().put(choosePosition(whereCanPut),0);
+			 
+			activePlayer++;
+			if(activePlayer==0) break;
+		}
 	}
 	
 	public void nextTurn(){
+		List<Tile> tiles = new ArrayList<Tile>();
+		tiles.add(players.get(activePlayer).getTile());
+		tiles.add(players.get(activePlayer).getTile());
+		tiles.add(players.get(activePlayer).getTile());
+		
+		/*
+		 * here should be:
+		 * function printing list tiles,
+		 * guiController.showMessage(MessageBuilder.throwTileMessage());
+		 * player choose one of 3 tiles to throw it
+		 * tiles.remove(index); //remove choosen tile from tiles
+		 * guiController.showMessage(MessageBuilder.putTilesMessage());
+		 * again player click one tile than:
+		 * List<Integeer> whereCanPut = tiles.get(choosentile).pick();
+		 * tiles.get(choosentile).put(choosePosition(whereCanPut),0);
+		 * than same with last tile
+		 * 
+		 */
+		
 		activePlayer++;
 		activePlayer %= players.size();
 		turns++;
@@ -64,4 +92,9 @@ public class GameController {
 	public List<Player> getPlayers(){
 		return players;
 	}
+	public static Integer choosePosition(List<Integer> wherceCanPut){
+		return null;
+	}
+	
+	
 }

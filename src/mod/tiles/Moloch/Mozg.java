@@ -2,13 +2,14 @@ package mod.tiles.Moloch;
 
 import gui.Field;
 import mod.Modul;
+import mod.Player;
 import mod.Unit;
 
 
 public class Mozg extends Modul {
-	public Mozg(){
+	public Mozg(Player owner){
 		field = new Field(getImage(),getSelectedImage());
-
+		this.owner = owner;
 		hp = 1;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){

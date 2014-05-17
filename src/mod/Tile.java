@@ -17,8 +17,8 @@ public abstract class Tile {
 
 	public FieldModel board[];
 	public int rotation;
-	public int owner;
-	protected int position;
+	public Player owner;
+	public int position;
 	public boolean shield[];
 	public int hp;
 	protected int isNetted;
@@ -28,6 +28,7 @@ public abstract class Tile {
 	public void takeDmg(int power){
 		
 		hp-=power;
+		if(hp<=0) board[position].tile = new mod.tiles.empty.Empty();
 	}
 	public boolean contains(Point p){
 		return field.contains(p);

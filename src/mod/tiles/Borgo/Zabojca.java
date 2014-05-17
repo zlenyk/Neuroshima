@@ -5,12 +5,14 @@ import gui.Field;
 import java.awt.Image;
 import java.util.LinkedList;
 
+import mod.Player;
 import mod.Unit;
 import cont.board.ImageLoader;
 
 public class Zabojca extends Unit {
-	Zabojca(){
+	Zabojca(Player owner){
 		field = new Field(getImage(),getSelectedImage());
+		this.owner = owner;
 		position = -1;
 		//this.rotation = rotation;
 		hp=1;
