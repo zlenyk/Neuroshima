@@ -5,16 +5,17 @@ import gui.Field;
 import java.awt.Image;
 import java.util.LinkedList;
 
+import mod.FieldModel;
 import mod.Player;
 import cont.board.ImageLoader;
 
 public class SztabMoloch extends mod.Unit {
 	
-	public SztabMoloch(Player owner){
+	public SztabMoloch(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
-
-		position = -1;
 		this.owner = owner;
+		position = -1;
+		this.board = board;
 		hp=1;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;

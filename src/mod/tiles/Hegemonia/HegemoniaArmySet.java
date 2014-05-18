@@ -1,30 +1,31 @@
 package mod.tiles.Hegemonia;
 
 import mod.ArmySet;
+import mod.FieldModel;
 import mod.Player;
 
 public class HegemoniaArmySet extends ArmySet {
-	public HegemoniaArmySet(Player owner){
+	public HegemoniaArmySet(Player owner, FieldModel board[]){
 		super();
-		list.add(new Biegacz(owner));
-		list.add(new Biegacz(owner));
-		list.add(new Biegacz(owner));
-		list.add(new Bydlak(owner));
-		list.add(new Ganger(owner));
-		list.add(new Ganger(owner));
-		list.add(new Ganger(owner));
-		list.add(new Ganger(owner));
-		list.add(new Gladiator(owner));
-		list.add(new Ruch(owner));
-		list.add(new Ruch(owner));
-		list.add(new Ruch(owner));
-		list.add(new Sieciarz(owner));
-		list.add(new Sieciarz(owner));
-		list.add(new Snajper(owner));
-		list.add(new Straznik(owner));
-		list.add(new SuperSieciarz(owner));
-		list.add(new UniwersalnyZolnierz(owner));
-		list.add(new UniwersalnyZolnierz(owner));
-		list.add(new UniwersalnyZolnierz(owner));
+		list.add(new Biegacz(owner, board));
+		list.add(new Biegacz(owner, board));
+		list.add(new Biegacz(owner, board));
+		list.add(new Bydlak(owner, board));
+		list.add(new Ganger(owner, board));
+		list.add(new Ganger(owner, board));
+		list.add(new Ganger(owner, board));
+		list.add(new Ganger(owner, board));
+		list.add(new Gladiator(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Sieciarz(owner, board));
+		list.add(new Sieciarz(owner, board));
+		list.add(new Snajper(owner, board));
+		list.add(new Straznik(owner, board));
+		list.add(new SuperSieciarz(owner, board));
+		list.add(new UniwersalnyZolnierz(owner, board));
+		list.add(new UniwersalnyZolnierz(owner, board));
+		list.add(new UniwersalnyZolnierz(owner, board));
 	}
 }

@@ -1,32 +1,33 @@
 package mod.tiles.Borgo;
 
 import mod.ArmySet;
+import mod.FieldModel;
 import mod.Player;
 
 public class BorgoArmySet extends ArmySet {
-	public BorgoArmySet(Player owner){
+	public BorgoArmySet(Player owner, FieldModel board[]){
 		super();
-		list.add(new Granat(owner));
-		list.add(new Mutek(owner));
-		list.add(new Mutek(owner));
-		list.add(new Mutek(owner));
-		list.add(new Mutek(owner));
-		list.add(new Mutek(owner));
-		list.add(new Mutek(owner));
-		list.add(new Nozownik(owner));
-		list.add(new Nozownik(owner));
-		list.add(new Nozownik(owner));
-		list.add(new Nozownik(owner));
-		list.add(new Ruch(owner));
-		list.add(new Ruch(owner));
-		list.add(new Ruch(owner));
-		list.add(new Ruch(owner));
-		list.add(new Sieciarz(owner));
-		list.add(new Sieciarz(owner));
-		list.add(new Silacz(owner));
-		list.add(new Silacz(owner));
-		list.add(new SuperMutant(owner));
-		list.add(new Zabojca(owner));
-		list.add(new Zabojca(owner));
+		list.add(new Granat(owner, board));
+		list.add(new Mutek(owner, board));
+		list.add(new Mutek(owner, board));
+		list.add(new Mutek(owner, board));
+		list.add(new Mutek(owner, board));
+		list.add(new Mutek(owner, board));
+		list.add(new Mutek(owner, board));
+		list.add(new Nozownik(owner, board));
+		list.add(new Nozownik(owner, board));
+		list.add(new Nozownik(owner, board));
+		list.add(new Nozownik(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Sieciarz(owner, board));
+		list.add(new Sieciarz(owner, board));
+		list.add(new Silacz(owner, board));
+		list.add(new Silacz(owner, board));
+		list.add(new SuperMutant(owner, board));
+		list.add(new Zabojca(owner, board));
+		list.add(new Zabojca(owner, board));
 	}
 }

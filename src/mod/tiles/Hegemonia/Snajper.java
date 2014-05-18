@@ -5,15 +5,17 @@ import gui.Field;
 import java.awt.Image;
 import java.util.LinkedList;
 
+import mod.FieldModel;
 import mod.Player;
 import mod.Tile;
 import mod.tiles.empty.Empty;
 import cont.board.ImageLoader;
 
 public class Snajper extends Tile {
-	public Snajper(Player owner){
+	public Snajper(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
+		this.board = board;
 	}
 	
 	public LinkedList<Integer> pick(){

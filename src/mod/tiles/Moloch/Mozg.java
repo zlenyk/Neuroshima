@@ -1,15 +1,17 @@
 package mod.tiles.Moloch;
 
 import gui.Field;
+import mod.FieldModel;
 import mod.Modul;
 import mod.Player;
 import mod.Unit;
 
 
 public class Mozg extends Modul {
-	public Mozg(Player owner){
+	public Mozg(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
+		this.board = board;
 		hp = 1;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){

@@ -6,14 +6,16 @@ import java.awt.Image;
 import java.util.LinkedList;
 
 import cont.board.ImageLoader;
+import mod.FieldModel;
 import mod.Player;
 import mod.Tile;
 import mod.tiles.empty.Empty;
 
 public class Granat extends Tile {
-	public Granat(Player owner){
+	public Granat(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
+		this.board = board;
 		
 	}
 	public LinkedList<Integer> pick(){

@@ -24,18 +24,20 @@ public class GameController {
 		boardController = BoardController.createNewBoard(gui, this);
 		players = new ArrayList<Player>();
 		for(int i = 0; i<playersNames.size(); i++){
-			players.add(new Player(playersNames.get(i),armies.get(i)));
+			players.add(new Player(playersNames.get(i),armies.get(i),boardController.getBoardModel().getBoard()));
 		}
 	}
 	public void startNewGame(){
 		activePlayer = 0;
 		turns = 0;
+		
 		for(Player active : players){
 			guiController.showMessage(MessageBuilder.playerPutSztabMessage(getActivePlayerName()));
 			List<Integer> whereCanPut = active.getSztab().pick();
 			active.getSztab().put(choosePosition(whereCanPut),0);
 			 
 			activePlayer++;
+			activePlayer %= players.size();
 			if(activePlayer==0) break;
 		}
 	}
@@ -48,7 +50,7 @@ public class GameController {
 		
 		/*
 		 * here should be:
-		 * function printing list tiles,
+		 * function printing list<tile> tiles, with 3 tiles from armyset,
 		 * guiController.showMessage(MessageBuilder.throwTileMessage());
 		 * player choose one of 3 tiles to throw it
 		 * tiles.remove(index); //remove choosen tile from tiles

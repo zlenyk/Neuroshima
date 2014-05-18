@@ -1,32 +1,33 @@
 package mod.tiles.Moloch;
 
 import mod.ArmySet;
+import mod.FieldModel;
 import mod.Player;
 
 public class MolochArmySet extends ArmySet {
-	public MolochArmySet(Player owner){
+	public MolochArmySet(Player owner, FieldModel board[]){
 		super();
-		list.add(new Bloker(owner));
-		list.add(new Bloker(owner));
-		list.add(new Bomba(owner));
-		list.add(new Cyborg(owner));
-		list.add(new Cyborg(owner));
-		list.add(new DzialkoGaussa(owner));
-		list.add(new Juggernaut(owner));
-		list.add(new Klaun(owner));
-		list.add(new Lowca(owner));
-		list.add(new Lowca(owner));
-		list.add(new Mozg(owner));
-		list.add(new Obronca(owner));
-		list.add(new Oficer(owner));
-		list.add(new OpancerzonyLowca(owner));
-		list.add(new OpancerzonyLowca(owner));
-		list.add(new OpancerzonyWartownik(owner));
-		list.add(new Rozpruwacz(owner));
-		list.add(new Ruch(owner));
-		list.add(new Sieciarz(owner));
-		list.add(new Szturmowiec(owner));
-		list.add(new Wartownik(owner));
+		list.add(new Bloker(owner, board));
+		list.add(new Bloker(owner, board));
+		list.add(new Bomba(owner, board));
+		list.add(new Cyborg(owner, board));
+		list.add(new Cyborg(owner, board));
+		list.add(new DzialkoGaussa(owner, board));
+		list.add(new Juggernaut(owner, board));
+		list.add(new Klaun(owner, board));
+		list.add(new Lowca(owner, board));
+		list.add(new Lowca(owner, board));
+		list.add(new Mozg(owner, board));
+		list.add(new Obronca(owner, board));
+		list.add(new Oficer(owner, board));
+		list.add(new OpancerzonyLowca(owner, board));
+		list.add(new OpancerzonyLowca(owner, board));
+		list.add(new OpancerzonyWartownik(owner, board));
+		list.add(new Rozpruwacz(owner, board));
+		list.add(new Ruch(owner, board));
+		list.add(new Sieciarz(owner, board));
+		list.add(new Szturmowiec(owner, board));
+		list.add(new Wartownik(owner, board));
 
 	}
 }

@@ -8,14 +8,16 @@ import cont.board.ImageLoader;
 
 import java.util.LinkedList;
 
+import mod.FieldModel;
 import mod.Player;
 import mod.Unit;
 
 
 public class OpancerzonyWartownik extends Unit{
-	OpancerzonyWartownik(Player owner){
+	OpancerzonyWartownik(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		position = -1;
+		this.board = board;
 		this.owner = owner;
 		hp=1;
 		shield = new boolean[6];

@@ -8,15 +8,16 @@ import cont.board.ImageLoader;
 
 import java.util.LinkedList;
 
+import mod.FieldModel;
 import mod.Player;
 import mod.Unit;
 
 public class Klaun extends Unit {
-	Klaun(Player owner){
+	Klaun(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		position = -1;
-		//this.rotation = rotation;
+		this.board = board;
 		hp = 2;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;

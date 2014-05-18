@@ -13,23 +13,23 @@ public class Player {
 	private final String name;
 	private ArmySet armySet;
 	private mod.Tile sztab;
-	public Player(String n,String army){
+	public Player(String n,String army, FieldModel board[]){
 		name = n;
 		if(army.equals("Borgo")){
-			armySet = new BorgoArmySet(this);
-			sztab = new SztabBorgo(this);
+			armySet = new BorgoArmySet(this, board);
+			sztab = new SztabBorgo(this, board);
 		}
 		if(army.equals("Hegemonia")){
-			armySet = new HegemoniaArmySet(this);
-			sztab = new SztabHegemonia(this);
+			armySet = new HegemoniaArmySet(this, board);
+			sztab = new SztabHegemonia(this, board);
 		}
 		if(army.equals("Moloch")){
-			armySet = new MolochArmySet(this);
-			sztab = new SztabMoloch(this);
+			armySet = new MolochArmySet(this, board);
+			sztab = new SztabMoloch(this, board);
 		}
 		if(army.equals("Posterunek")){
-			armySet = new PosterunekArmySet(this);
-			sztab = new SztabPosterunek(this);
+			armySet = new PosterunekArmySet(this, board);
+			sztab = new SztabPosterunek(this, board);
 		}
 	}
 	public Tile getTile(){
