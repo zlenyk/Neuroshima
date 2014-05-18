@@ -2,6 +2,9 @@ package cont.board;
 
 import mod.BoardModel;
 import mod.FieldModel;
+import mod.Player;
+import mod.Tile;
+import mod.tiles.empty.Empty;
 import cont.GUIController;
 import cont.game.GameController;
 
@@ -19,14 +22,31 @@ public class BoardController {
 		bc.boardModel = new BoardModel(bc);
 		bc.boardGuiController = BoardGUIController.createNewBoard(bc);
 		bc.guiController.addBoard(bc.boardGuiController.getBoard());
-		for(int i = 0; i<21; i++){
-			
-		}
+
 		return bc;
 	}
 	public void select(int x,int y){
-		FieldModel fm = boardModel.getFieldModelThatContains(x, y);
-		fm.getTile().getField().changeSelect();
+		if(gameController.isSztabTurn()){
+			int position = boardModel.getPosition(x,y);
+			if(!(boardModel.getFieldModelAt(position).getTile() instanceof Empty)){
+				return;
+			}
+			Player p = gameController.getActivePlayer();
+			if(p.getSztabPosition() > -1){
+				putTileAtPosition(new mod.tiles.empty.Empty(),p.getSztabPosition());
+			}
+			putTileAtPosition(p.getSztab(),position);
+			p.setSztabPosition(position);
+		}
+		else{
+			FieldModel fm = boardModel.getFieldModelThatContains(x, y);
+			fm.selectTile();
+		}
+	}
+	public void putTileAtPosition(Tile tile,int position){
+		FieldModel fm = boardModel.getFieldModelAt(position);
+		fm.changeTile(tile);
+		boardGuiController.repaintBoard(this);
 	}
 	public BoardModel getBoardModel(){
 		return boardModel;

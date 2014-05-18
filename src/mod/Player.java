@@ -13,7 +13,9 @@ public class Player {
 	private final String name;
 	private ArmySet armySet;
 	private mod.Tile sztab;
+	private int sztabPosition;
 	public Player(String n,String army, FieldModel board[]){
+		sztabPosition = -1;
 		name = n;
 		if(army.equals("Borgo")){
 			armySet = new BorgoArmySet(this, board);
@@ -31,6 +33,12 @@ public class Player {
 			armySet = new PosterunekArmySet(this, board);
 			sztab = new SztabPosterunek(this, board);
 		}
+	}
+	public void setSztabPosition(int p){
+		sztabPosition = p;
+	}
+	public int getSztabPosition(){
+		return sztabPosition;
 	}
 	public Tile getTile(){
 		return armySet.getRandomTile();

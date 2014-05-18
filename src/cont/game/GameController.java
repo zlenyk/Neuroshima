@@ -19,6 +19,7 @@ public class GameController {
 	private List<Player> players;
 	private int activePlayer;
 	private int turns;
+	private boolean sztabTurn;
 	public GameController(GUIController gui,List<String>playersNames,List<String> armies){
 		guiController = gui;
 		boardController = BoardController.createNewBoard(gui, this);
@@ -26,23 +27,42 @@ public class GameController {
 		for(int i = 0; i<playersNames.size(); i++){
 			players.add(new Player(playersNames.get(i),armies.get(i),boardController.getBoardModel().getBoard()));
 		}
+		turns = 0;
 	}
 	public void startNewGame(){
 		activePlayer = 0;
 		turns = 0;
-		
-		for(Player active : players){
+		sztabTurn = true;
+		beginTurn();
+	}
+	public boolean isSztabTurn(){
+		return sztabTurn;
+	}
+	public void nextTurn(){
+		endTurn();
+		beginTurn();
+	}
+	private void beginTurn(){
+		if(isSztabTurn()){
 			guiController.showMessage(MessageBuilder.playerPutSztabMessage(getActivePlayerName()));
-			List<Integer> whereCanPut = active.getSztab().pick();
-			active.getSztab().put(choosePosition(whereCanPut),0);
-			 
-			activePlayer++;
-			activePlayer %= players.size();
-			if(activePlayer==0) break;
+		}
+		else{
+			guiController.showMessage(MessageBuilder.nextTurnMessage(getActivePlayerName()));
+			normalTurn();
 		}
 	}
-	
-	public void nextTurn(){
+	private void endTurn(){
+		activePlayer++;
+		activePlayer %= players.size();
+		if(activePlayer == 0) {
+			sztabTurn = false;
+			turns++;
+		}
+		if(endOfGame()){
+			endGame();
+		}
+	}
+	private void normalTurn(){
 		List<Tile> tiles = new ArrayList<Tile>();
 		tiles.add(players.get(activePlayer).getTile());
 		tiles.add(players.get(activePlayer).getTile());
@@ -61,16 +81,6 @@ public class GameController {
 		 * than same with last tile
 		 * 
 		 */
-		
-		activePlayer++;
-		activePlayer %= players.size();
-		turns++;
-		if(endOfGame()){
-			endGame();
-		}
-		else{
-			guiController.showMessage(MessageBuilder.nextTurnMessage(getActivePlayerName()));
-		}
 	}
 	/**
 	 * Returns if game should be ended.
@@ -84,8 +94,10 @@ public class GameController {
 	}
 	public void endGameManually(){}
 	
-	
-	private Player getActivePlayer(){
+	public int getTurnNumber(){
+		return turns;
+	}
+	public Player getActivePlayer(){
 		return players.get(activePlayer);
 	}
 	public String getActivePlayerName(){
@@ -94,9 +106,4 @@ public class GameController {
 	public List<Player> getPlayers(){
 		return players;
 	}
-	public static Integer choosePosition(List<Integer> wherceCanPut){
-		return null;
-	}
-	
-	
 }

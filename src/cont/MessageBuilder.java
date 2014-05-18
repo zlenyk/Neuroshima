@@ -33,4 +33,7 @@ public class MessageBuilder {
 	public static String putTilesMessage(){
 		return "than put your tiles on the board";
 	}
+	public static String wrongSztabPlace(){
+		return "You can not put your sztab here";
+	}
 }

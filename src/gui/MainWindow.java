@@ -65,7 +65,7 @@ public class MainWindow implements Window{
 		contentPane.add(newxtTurnButton);
 		
 	}
-	public void addBoard(Board b){
+	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
 		contentPane.add(b);
 	}

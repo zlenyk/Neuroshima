@@ -32,7 +32,7 @@ public class Ruch extends mod.Tile {
 	public void put(int position, int rotation){
 		mod.Tile tileToMove = board[position].tile;
 		LinkedList<Integer> whereCanPut = board[position].tile.pick();
-		tileToMove.put(cont.game.GameController.choosePosition(whereCanPut),rotation);
+		//tileToMove.put(cont.game.GameController.choosePosition(whereCanPut),rotation);
 		
 	}
 	@Override

@@ -20,10 +20,11 @@ public class BoardGUIController {
 		setEmpty(bc.getBoardModel());
 		BoardGenerator.generateBoard(b,bc);
 		b.getController().boardController = bc;
-		for(int i = 0; i<21; i++){
-			System.out.println(bc.getBoardModel().getBoard()[i].getPosition());
-		}
 		return b.getController();
+	}
+	public void repaintBoard(BoardController bc){
+		BoardGenerator.generateBoard(board, bc);
+		board.repaint();
 	}
 	private static void setEmpty(BoardModel bc){
 		for(int i = 0; i<21; i++){

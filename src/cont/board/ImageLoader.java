@@ -114,7 +114,7 @@ public class ImageLoader {
 			return getImage("graphics/moloch/moloch01-sztab.png");
 		}
 		public static Image sztabSelected(){
-			return getImage("graphics/selected/moloch/moloch01-sztab.png");
+			return getImage("graphics/moloch/selected/moloch01-sztab.png");
 		}
 		public static Image bitwa(){
 			return getImage("graphics/moloch/moloch02-bitwa.png");

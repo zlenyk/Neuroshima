@@ -27,6 +27,16 @@ public class BoardModel {
 	public FieldModel[] getBoard(){
 		return board;
 	}
+	public int getPosition(int x,int y){
+		for(int i = 0; i<21; i++){
+			if(i != 1 && i != 19){
+				if(getFieldModelAt(i).contains(x, y)){
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
 	public FieldModel getFieldModelThatContains(int x,int y){
 		for(int i = 0; i<21; i++){
 			if(i != 1 && i != 19){
@@ -47,7 +57,6 @@ public class BoardModel {
 		}
 		return fieldList;
 	}
-	
 	private void fillNeighbours(){
 
 		board[0].neighbours[0] = null;

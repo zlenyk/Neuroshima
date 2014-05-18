@@ -29,6 +29,9 @@ public class FieldModel {
 	public void changeTile(Tile t){
 		tile = t;
 	}
+	public void selectTile(){
+		tile.getField().changeSelect();
+	}
 	public int getPosition(){
 		return position;
 	}

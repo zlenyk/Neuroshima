@@ -51,7 +51,6 @@ public abstract class Unit extends Tile {
 				if(i!=1&&i!=19){
 					if(board[i].tile instanceof Empty) whereCanPut.add(i);
 				}
-				
 			}
 		}
 		else{

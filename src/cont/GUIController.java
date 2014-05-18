@@ -61,7 +61,6 @@ public class GUIController {
 		mainWindowController.fillPlayersInfo(playersList);
 		
 		gameController.startNewGame();
-		showMessage(MessageBuilder.nextTurnMessage(gameController.getActivePlayerName()));
 	}
 	
 	/**

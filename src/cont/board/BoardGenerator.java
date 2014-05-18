@@ -11,6 +11,7 @@ public class BoardGenerator {
 	 * Methods generates fields for a given board and places them on it.
 	 */
 	public static void generateBoard(Board board,BoardController bc){
+		board.resetBoard();
 		int move = 93;
 		int[] hexX = {31,0,31,31+62,62*2,31+62};
 		int[] hexY = {0,54,108,108,54,0};

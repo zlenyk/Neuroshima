@@ -32,6 +32,10 @@ public class Board extends JPanel{
 			}
 		});
 	}
+	public void resetBoard(){
+		removeAll();
+		fieldList.clear();
+	}
 	public void addField(FieldModel f){
 		
 		f.getTile().getField().setLocation(f.getLocation());
