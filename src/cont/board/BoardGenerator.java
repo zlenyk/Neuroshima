@@ -8,7 +8,7 @@ import gui.Board;
  */
 public class BoardGenerator {
 	/**
-	 * Methods generates fields for a given board and places them on it.
+	 * Generates fields for a given board and places them on it.
 	 */
 	public static void generateBoard(Board board,BoardController bc){
 		board.resetBoard();

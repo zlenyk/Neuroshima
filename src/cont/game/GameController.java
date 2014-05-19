@@ -10,7 +10,6 @@ import cont.MessageBuilder;
 import cont.board.BoardController;
 
 /**
- * @author zygmunt
  * Class controls game-flow.
  */
 public class GameController {
@@ -29,26 +28,40 @@ public class GameController {
 		}
 		turns = 0;
 	}
+	/**
+	 * Starts new game. Is called once during game.
+	 */
 	public void startNewGame(){
 		activePlayer = 0;
 		turns = 0;
 		sztabTurn = true;
 		beginTurn();
 	}
+	/**
+	 * @return true if in this turn, players put their Sztab tiles at board.
+	 */
 	public boolean isSztabTurn(){
 		return sztabTurn;
 	}
+	/**
+	 * Is called every time, "Next turn" button is clicked. Ends previous turn and starts next one.
+	 * 
+	 */
 	public void nextTurn(){
 		endTurn();
 		boardController.clearSelections();
 		beginTurn();
 	}
+
 	private void beginTurn(){
 		if(isSztabTurn()){
-			guiController.showMessage(MessageBuilder.playerPutSztabMessage(getActivePlayerName()));
+			guiController.showMessage(MessageBuilder.playerPutSztabMessage(getActivePlayer().getName()));
+		}
+		else if(isBattle()){
+			battle();
 		}
 		else{
-			guiController.showMessage(MessageBuilder.nextTurnMessage(getActivePlayerName()));
+			guiController.showMessage(MessageBuilder.nextTurnMessage(getActivePlayer().getName()));
 			normalTurn();
 		}
 	}
@@ -83,6 +96,12 @@ public class GameController {
 		 * 
 		 */
 	}
+	private void battle(){
+		
+	}
+	private boolean isBattle(){
+		return false;
+	}
 	/**
 	 * Returns if game should be ended.
 	 */
@@ -93,17 +112,23 @@ public class GameController {
 		guiController.showMessage(MessageBuilder.endOfGameMessage());
 		guiController.closeGame();
 	}
-	public void endGameManually(){}
+	public void endGameManually(){
+		guiController.showMessage(MessageBuilder.gameInterrupted());
+		guiController.closeGame();
+	}
 	
 	public int getTurnNumber(){
 		return turns;
 	}
+	/**
+	 * @return active player
+	 */
 	public Player getActivePlayer(){
 		return players.get(activePlayer);
 	}
-	public String getActivePlayerName(){
-		return getActivePlayer().getName();
-	}
+	/**
+	 * @return list of players in the game.
+	 */
 	public List<Player> getPlayers(){
 		return players;
 	}

@@ -39,7 +39,7 @@ public class FieldModel {
 		return tile;
 	}
 	
-	public boolean contains(int x,int y){
-		return polygon.contains(new Point(x,y));
+	public boolean contains(Point p){
+		return polygon.contains(p);
 	}
 }

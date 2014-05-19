@@ -2,6 +2,7 @@ package mod;
 
 import gui.Field;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,20 +28,20 @@ public class BoardModel {
 	public FieldModel[] getBoard(){
 		return board;
 	}
-	public int getPosition(int x,int y){
+	public int getPosition(Point p){
 		for(int i = 0; i<21; i++){
 			if(i != 1 && i != 19){
-				if(getFieldModelAt(i).contains(x, y)){
+				if(getFieldModelAt(i).contains(p)){
 					return i;
 				}
 			}
 		}
 		return -1;
 	}
-	public FieldModel getFieldModelThatContains(int x,int y){
+	public FieldModel getFieldModelThatContains(Point p){
 		for(int i = 0; i<21; i++){
 			if(i != 1 && i != 19){
-				if(getFieldModelAt(i).contains(x, y)){
+				if(getFieldModelAt(i).contains(p)){
 					return getFieldModelAt(i);
 				}
 			}

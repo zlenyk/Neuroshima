@@ -6,13 +6,22 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author zygmunt
+ * Class is responsible for loading images to fields.
+ */
 public class ImageLoader {
 	
 	static File imageFile;
+	/**
+	 * @param path
+	 * @return Image loaded
+	 * Loads image from given path and returns it.
+	 */
 	private static Image getImage(String path){
 		imageFile = new File(path);
 		try { return ImageIO.read(imageFile);} 
-		catch (IOException e) {e.printStackTrace();}	//jeżeli obrazki są załadowane, to to się nie zdarzy.
+		catch (IOException e) {e.printStackTrace();}
 		return null;
 	}
 	public static class Borgo{

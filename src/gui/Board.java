@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Board extends JPanel{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controller.select(e.getX(),e.getY());
+				controller.select(new Point(e.getX(),e.getY()));
 			}
 		});
 	}
