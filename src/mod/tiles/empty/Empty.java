@@ -21,4 +21,9 @@ public Image getImage() {
 public Image getSelectedImage() {
 	return ImageLoader.Empty.emptySelected();
 }
+
+
+@Override
+public void put(int position, int rotation) {}
+
 }

@@ -82,6 +82,7 @@ public class GameController {
 		tiles.add(players.get(activePlayer).getTile());
 		tiles.add(players.get(activePlayer).getTile());
 		
+		guiController.giveTiles(getActivePlayer(), tiles);
 		/*
 		 * here should be:
 		 * function printing list<tile> tiles, with 3 tiles from armyset,

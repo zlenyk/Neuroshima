@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -8,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 
 import mod.FieldModel;
 import cont.GUIController;
@@ -24,7 +22,7 @@ public class Board extends JPanel{
 		return controller;
 	}
 	public Board (GUIController gui,GameController game) {
-		setBorder(new LineBorder(new Color(0, 0, 0)));
+		setBorder(null);
 		setLayout(null);
 		controller = new BoardController(game,gui,this);
 		fieldList = new ArrayList<Field>();
@@ -40,7 +38,6 @@ public class Board extends JPanel{
 		fieldList.clear();
 	}
 	public void addField(FieldModel f){
-		
 		f.getTile().getField().setLocation(f.getLocation());
 		this.add(f.getTile().getField());			//adds to JPanel
 		fieldList.add(f.getTile().getField());

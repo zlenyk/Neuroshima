@@ -2,10 +2,12 @@ package cont;
 
 import gui.Board;
 import gui.MainWindow;
+import gui.PlayerInfo;
 
 import java.util.List;
 
 import mod.Player;
+import mod.Tile;
 
 /**
  * @author zygmunt
@@ -52,7 +54,18 @@ public class MainWindowController implements WindowController {
 	public void addBoard(Board b){
 		mainWindow.addBoard(b);
 	}
-
+	
+	public void givePlayerTiles(Player player,List<Tile> tileList){
+		PlayerInfo pi = null;
+		for(PlayerInfo p : mainWindow.getPlayerInfoList()){
+			if(p.getPlayer() == player){
+				pi = p;
+				break;
+			}
+		}
+		pi.giveTiles(tileList);
+		mainWindow.repaint();
+	}
 	@Override
 	public void show() {
 		mainWindow.getFrame().setVisible(true);

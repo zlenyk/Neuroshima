@@ -8,6 +8,8 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import mod.Player;
@@ -18,7 +20,8 @@ public class MainWindow implements Window{
 
 	private JPanel contentPane;
 	private JFrame frame;
-	private MainWindowController controller;	
+	private MainWindowController controller;
+	private List<PlayerInfo> playerInfoList;
 	
 	/**
 	 * Returns controller to this MainWindow.
@@ -35,7 +38,7 @@ public class MainWindow implements Window{
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.setBounds(100, 100, 715, 600);
+		frame.setBounds(100, 100, 890, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
@@ -48,7 +51,7 @@ public class MainWindow implements Window{
 			}
 		});
 
-		btnClose.setBounds(536, 78, 117, 25);
+		btnClose.setBounds(669, 24, 117, 25);
 		contentPane.add(btnClose);
 		
 		//Board board = new Board(armies);
@@ -64,23 +67,35 @@ public class MainWindow implements Window{
 		newxtTurnButton.setBounds(536, 24, 117, 25);
 		contentPane.add(newxtTurnButton);
 		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setBounds(508, -11, 2, 582);
+		contentPane.add(separator);
+		
 	}
 	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
 		contentPane.add(b);
 	}
 	public void fillPlayersList(List<Player>playersList){
-		List<PlayerInfo> playerInfoList = new ArrayList<PlayerInfo>();
-		int[] Y = {150,250};
+		playerInfoList = new ArrayList<PlayerInfo>();
+		int[] Y = {100,300};
 		for(int i = 0; i < playersList.size(); i++){
 			PlayerInfo pi = new PlayerInfo(playersList.get(i));
 			playerInfoList.add(pi);
-			pi.setBounds(510, Y[i],180,50);
+			pi.setBounds(510, Y[i],360,150);
 			contentPane.add(pi);
 		}
+	}
+	public List<PlayerInfo> getPlayerInfoList(){
+		return playerInfoList;
 	}
 	@Override
 	public JFrame getFrame() {
 		return frame;
+	}
+	
+	public void repaint(){
+		contentPane.repaint();
 	}
 }

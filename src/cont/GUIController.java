@@ -6,6 +6,7 @@ import gui.MessageWindow;
 import java.util.List;
 
 import mod.Player;
+import mod.Tile;
 import cont.game.GameController;
 
 /**
@@ -76,6 +77,9 @@ public class GUIController {
 		armiesChoiceController = null;
 		gameController = null;
 		showNewStartMenu();
+	}
+	public void giveTiles(Player player,List<Tile> tileList){
+		mainWindowController.givePlayerTiles(player, tileList);
 	}
 	/**
 	 * @param message

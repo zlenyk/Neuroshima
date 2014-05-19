@@ -15,15 +15,13 @@ public abstract class Tile {
 		return field;
 	}	
 
-	public FieldModel board[];
-	public int rotation;
-	public Player owner;
+	protected FieldModel board[];
+	protected int rotation;
+	protected Player owner;
 	public int position;
 	public boolean shield[];
 	public int hp;
 	protected int isNetted;
-	protected void work(int direction){}
-	public void put(int position, int rotation){}
 	public LinkedList<Integer> pick(){return null;}
 	public void takeDmg(int power){
 		
@@ -36,6 +34,11 @@ public abstract class Tile {
 	public void changeSelect(){
 		field.changeSelect();
 	}
+	public Player getOwner(){
+		return owner;
+	}
+	protected void work(int direction){}
+	public abstract void put(int position, int rotation);
 	public abstract Image getImage();
 	public abstract Image getSelectedImage();
 

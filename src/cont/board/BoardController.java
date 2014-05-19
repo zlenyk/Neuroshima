@@ -51,6 +51,7 @@ public class BoardController {
 	 */
 	public void select(Point point){
 		FieldModel fm = boardModel.getFieldModelThatContains(point);
+		if(fm == null) return;
 		if(gameController.isSztabTurn()){
 			if(!(fm.getTile() instanceof Empty)){
 				return;
