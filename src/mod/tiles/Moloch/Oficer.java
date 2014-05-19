@@ -19,11 +19,11 @@ public class Oficer extends Modul {
 		}
 		
 	}
-	protected void work(int direction){
+	public void work(int direction){
 		if(ifWorks[(direction+rotation)%6]==true){
-			//if(board[position].neibours[(direction+rotation)%6].tile instanceof mod.Unit){
-			//	((mod.Unit)board[position].neibours[(direction+rotation)%6].tile).shootBonus++;
-			//}
+			if(board[position].neighbours[(direction+rotation)%6]!=null && board[position].neighbours[(direction+rotation)%6].tile instanceof mod.Unit){
+				((mod.Unit)board[position].neighbours[(direction+rotation)%6].tile).shootBonus++;
+			}
 		}
 	}
 }
