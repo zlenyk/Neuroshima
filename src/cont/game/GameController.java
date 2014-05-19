@@ -40,6 +40,7 @@ public class GameController {
 	}
 	public void nextTurn(){
 		endTurn();
+		boardController.clearSelections();
 		beginTurn();
 	}
 	private void beginTurn(){

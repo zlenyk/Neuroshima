@@ -6,7 +6,6 @@ import gui.MessageWindow;
 import java.util.List;
 
 import mod.Player;
-import cont.board.BoardGUIController;
 import cont.game.GameController;
 
 /**
@@ -21,7 +20,6 @@ public class GUIController {
 	StartMenuController startMenuController;
 	ArmiesChoiceController armiesChoiceController;
 	MainWindowController mainWindowController;
-	BoardGUIController boardController;
 	GameController gameController;
 	MessageWindow messageWindow;
 	

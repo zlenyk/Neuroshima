@@ -10,20 +10,22 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import mod.FieldModel;
-import cont.board.BoardGUIController;
+import cont.GUIController;
+import cont.board.BoardController;
+import cont.game.GameController;
 
 
 public class Board extends JPanel{
 
 	List<Field> fieldList;
-	BoardGUIController controller;
-	public BoardGUIController getController(){
+	BoardController controller;
+	public BoardController getController(){
 		return controller;
 	}
-	public Board () {
+	public Board (GUIController gui,GameController game) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setLayout(null);
-		controller = new BoardGUIController(this);
+		controller = new BoardController(game,gui,this);
 		fieldList = new ArrayList<Field>();
 		addMouseListener(new MouseAdapter() {
 			@Override

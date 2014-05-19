@@ -1,5 +1,7 @@
 package cont.board;
 
+import gui.Board;
+import gui.Field;
 import mod.BoardModel;
 import mod.FieldModel;
 import mod.Player;
@@ -10,18 +12,21 @@ import cont.game.GameController;
 
 public class BoardController {
 	private BoardModel boardModel;
-	private BoardGUIController boardGuiController;
+	private Board board;
 	private GameController gameController;
 	private GUIController guiController;
-	BoardController(GameController game,GUIController gui){
+	public BoardController(GameController game,GUIController gui,Board b){
 		gameController = game;
 		guiController = gui;
+		board = b;
 	}
 	public static BoardController createNewBoard(GUIController gui,GameController game){
-		BoardController bc = new BoardController(game,gui);
+		Board b = new Board(gui,game);
+		BoardController bc = b.getController();
 		bc.boardModel = new BoardModel(bc);
-		bc.boardGuiController = BoardGUIController.createNewBoard(bc);
-		bc.guiController.addBoard(bc.boardGuiController.getBoard());
+		setEmpty(bc.getBoardModel());
+		BoardGenerator.generateBoard(b,bc);
+		bc.guiController.addBoard(bc.getBoard());
 
 		return bc;
 	}
@@ -46,7 +51,26 @@ public class BoardController {
 	public void putTileAtPosition(Tile tile,int position){
 		FieldModel fm = boardModel.getFieldModelAt(position);
 		fm.changeTile(tile);
-		boardGuiController.repaintBoard(this);
+		repaintBoard(this);
+	}
+	public void clearSelections(){
+		for(Field f : boardModel.getFields()){
+			if(f.isSelected()){
+				f.changeSelect();
+			}
+		}
+	}
+	public void repaintBoard(BoardController bc){
+		BoardGenerator.generateBoard(board, bc);
+		board.repaint();
+	}
+	private static void setEmpty(BoardModel bc){
+		for(int i = 0; i<21; i++){
+			bc.getFieldModelAt(i).changeTile(new mod.tiles.empty.Empty());
+		}
+	}
+	public Board getBoard(){
+		return board;
 	}
 	public BoardModel getBoardModel(){
 		return boardModel;

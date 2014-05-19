@@ -31,6 +31,9 @@ public class Field extends JPanel{
 	public Image getSelectedImage(){
 		return selectedImage;
 	}
+	public boolean isSelected(){
+		return selected;
+	}
 	@Override
 	public void paintComponent(Graphics g){
 		if(selected){
