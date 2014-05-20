@@ -17,4 +17,7 @@ public class ArmySet {
 		list.remove(t);
 		return t;
 	}
+	public int getSize(){
+		return list.size();
+	}
 }

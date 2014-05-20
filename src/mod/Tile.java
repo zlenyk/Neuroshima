@@ -39,6 +39,9 @@ public abstract class Tile {
 	public Player getOwner(){
 		return owner;
 	}
+	public int getHp(){
+		return hp;
+	}
 	public void work(int direction){}
 	public abstract void put(int position, int rotation);
 	public abstract Image getImage();
