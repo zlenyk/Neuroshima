@@ -3,13 +3,7 @@ package mod;
 import java.awt.Image;
 
 
-public class Modul extends Tile {
-
-
-	protected int hp;
-	protected int rotation;
-	protected boolean ifWorks[];
-	
+public abstract class Modul extends Tile {
 	
 	public void put(int position, int rotation){
 		this.rotation = rotation;

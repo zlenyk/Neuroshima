@@ -14,14 +14,16 @@ public abstract class Tile {
 	public Field getField(){
 		return field;
 	}	
-
+	
+	public boolean ifWorks[];
+	public void stopwork(){}
 	protected FieldModel board[];
 	protected int rotation;
 	protected Player owner;
 	public int position;
 	public boolean shield[];
 	public int hp;
-	protected int isNetted;
+	public int isNetted;
 	public LinkedList<Integer> pick(){return null;}
 	public void takeDmg(int power){
 		
@@ -37,7 +39,10 @@ public abstract class Tile {
 	public Player getOwner(){
 		return owner;
 	}
-	protected void work(int direction){}
+	public int getHp(){
+		return hp;
+	}
+	public void work(int direction){}
 	public abstract void put(int position, int rotation);
 	public abstract Image getImage();
 	public abstract Image getSelectedImage();

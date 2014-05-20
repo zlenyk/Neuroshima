@@ -16,7 +16,7 @@ public class SztabPosterunek extends mod.Unit {
 		this.owner = owner;
 		position = -1;
 		this.board = board;
-		hp=1;
+		hp=20;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
 		isNetted = 0;
