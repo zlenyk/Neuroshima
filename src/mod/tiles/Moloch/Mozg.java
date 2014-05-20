@@ -1,10 +1,12 @@
 package mod.tiles.Moloch;
 
+import java.awt.Image;
+
+import cont.board.ImageLoader;
 import gui.Field;
 import mod.FieldModel;
 import mod.Modul;
 import mod.Player;
-import mod.Unit;
 
 
 public class Mozg extends Modul {
@@ -27,6 +29,16 @@ public class Mozg extends Modul {
 			//	((Unit)board[position].neibours[(direction+rotation)%6].tile).shootBonus++;
 			//}
 		}
+	}
+	
+	@Override
+	public Image getImage() {
+		return ImageLoader.Moloch.mozg();
+	}
+
+	@Override
+	public Image getSelectedImage() {
+		return ImageLoader.Moloch.mozgSelected();
 	}
 	
 }

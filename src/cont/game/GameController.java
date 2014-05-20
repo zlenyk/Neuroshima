@@ -48,6 +48,10 @@ public class GameController {
 	 * 
 	 */
 	public void nextTurn(){
+		if(isSztabTurn() && getActivePlayer().getSztabPosition() < 0){
+			guiController.showMessage(MessageBuilder.mustPutSztabMessage());
+			return;
+		}
 		endTurn();
 		boardController.clearSelections();
 		beginTurn();

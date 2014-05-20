@@ -36,4 +36,7 @@ public class MessageBuilder {
 	public static String gameInterrupted(){
 		return "Game was interrupted";
 	}
+	public static String mustPutSztabMessage(){
+		return "You have to put your Sztab tile on the board";
+	}
 }
