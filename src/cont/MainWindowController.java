@@ -54,7 +54,6 @@ public class MainWindowController implements WindowController {
 	public void addBoard(Board b){
 		mainWindow.addBoard(b);
 	}
-	
 	public void givePlayerTiles(Player player,List<Tile> tileList){
 		PlayerInfo pi = null;
 		for(PlayerInfo p : mainWindow.getPlayerInfoList()){
@@ -65,6 +64,11 @@ public class MainWindowController implements WindowController {
 		}
 		pi.giveTiles(tileList);
 		mainWindow.repaint();
+	}
+	public void refreshPlayerInfo(){
+		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
+			pi.refreshText();
+		}
 	}
 	@Override
 	public void show() {

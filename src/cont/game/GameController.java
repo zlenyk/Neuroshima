@@ -70,6 +70,7 @@ public class GameController {
 		}
 	}
 	private void endTurn(){
+		guiController.refreshPlayerInfo();
 		activePlayer++;
 		activePlayer %= players.size();
 		if(activePlayer == 0) {

@@ -81,7 +81,7 @@ public class MainWindow implements Window{
 		playerInfoList = new ArrayList<PlayerInfo>();
 		int[] Y = {100,300};
 		for(int i = 0; i < playersList.size(); i++){
-			PlayerInfo pi = new PlayerInfo(playersList.get(i));
+			PlayerInfo pi = new PlayerInfo(playersList.get(i),getController());
 			playerInfoList.add(pi);
 			pi.setBounds(510, Y[i],360,150);
 			contentPane.add(pi);

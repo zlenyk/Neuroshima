@@ -1,15 +1,19 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import mod.FieldModel;
 import mod.Player;
 import mod.Tile;
-import java.awt.Font;
+import cont.MainWindowController;
 
 /**
  * @author zygmunt
@@ -19,8 +23,9 @@ public class PlayerInfo extends JPanel{
 	private JLabel nameLabel;
 	private JLabel hpLabel;
 	private JLabel tilesLeftLabel;
-	private List<Tile> tileList;
+	private List<FieldModel> fieldModelList;
 	Player player;
+	private MainWindowController mainWindowController;
 	
 	public String getName(){
 		return nameLabel.getText();
@@ -33,12 +38,32 @@ public class PlayerInfo extends JPanel{
 	}
 	
 
-	public PlayerInfo(Player p){
+	public PlayerInfo(Player p,MainWindowController controller){
 		super();
-		player = p;
-		tileList = new ArrayList<Tile>();
+		mainWindowController = controller;
 		
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println(e.getPoint());
+				for(FieldModel f : fieldModelList){
+					if(f.contains(e.getPoint())){
+						if(getSelectedTile() != null){
+							getSelectedTile().changeSelect();
+							return;
+						}
+						f.getTile().changeSelect();
+					}
+					return;
+				}
+			}
+		});
+		player = p;
+		fieldModelList = new ArrayList<FieldModel>();
 		setBackground(Color.GRAY);
+		
+		setFieldModelLocation();
+		
 		if (player.getArmy().equals("Moloch"))		setBackground(Color.RED);
 		if (player.getArmy().equals("Borgo"))		setBackground(new Color(51, 153, 255));
 		if (player.getArmy().equals("Posterunek"))	setBackground(new Color(0, 128, 0));
@@ -66,24 +91,60 @@ public class PlayerInfo extends JPanel{
 		tilesLeftLabel.setText("Tiles left: "+player.getArmySet().getSize());
 		add(tilesLeftLabel);
 	}
-	public void giveTiles(List<Tile> tl){
-		for(Tile t : tileList){
-			this.remove(t.getField());
+	public Tile getSelectedTile(){
+		for(FieldModel f : fieldModelList){
+			if(f.getTile().getField().isSelected()){
+				return f.getTile();
+			}
 		}
-		tileList.clear();
-		tileList = new ArrayList<Tile>(tl);
+		return null;
+	}
+	private void setFieldModelLocation(){
+		for(int i = 0; i<3; i++){
+			fieldModelList.add(new FieldModel());
+		}
+		int move = 120;
+		int[] hexX = {31,0,31,31+62,62*2,31+62};
+		int[] hexY = {0,54,108,108,54,0};
+
+		for(int i = 0; i<3; i++){
+			
+			int[] _hexX = new int[6];
+			for(int j = 0;j<6;j++){
+				_hexX[j] = hexX[j]+i*move;
+			}
+			fieldModelList.get(i).setLocation(i*move, 20);
+			fieldModelList.get(i).setShape(_hexX, hexY);
+		}
+	}
+	public void giveTiles(List<Tile> tl){
+		clearTiles();
+
+		for(int i = 0; i<tl.size(); i++){
+			fieldModelList.get(i).changeTile(tl.get(i));
+		}
+		
 		showTiles();
+	}
+	private void clearTiles(){
+		for(FieldModel f : fieldModelList){
+			if(f.getTile() != null){
+				this.remove(f.getTile().getField());
+			}
+		}
+	}
+	private void showTiles(){
+		for(FieldModel f : fieldModelList){
+			if(f.getTile() != null){
+				f.getTile().getField().setLocation(f.getLocation());
+				this.add(f.getTile().getField());
+			}
+		}
 	}
 	public Player getPlayer(){
 		return player;
 	}
-	private void showTiles(){
-		int move = 120;
-		for(int i = 0; i<tileList.size(); i++){
-			tileList.get(i).getField().setLocation(i*move, 20);
-			this.add(tileList.get(i).getField());
-		}
-	}
+
 	public void refreshText(){
 		hpLabel.setText("HP: "+player.getSztab().getHp());
 		tilesLeftLabel.setText("Tiles left: "+player.getArmySet().getSize());

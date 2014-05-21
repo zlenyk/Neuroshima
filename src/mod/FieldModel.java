@@ -11,7 +11,7 @@ public class FieldModel {
 	private Polygon polygon;
 	private Point location;
 
-	FieldModel(){}
+	public FieldModel(){}
 	
 	FieldModel(int pos){
 		neighbours = new FieldModel[6];

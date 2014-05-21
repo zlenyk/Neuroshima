@@ -81,6 +81,9 @@ public class GUIController {
 	public void giveTiles(Player player,List<Tile> tileList){
 		mainWindowController.givePlayerTiles(player, tileList);
 	}
+	public void refreshPlayerInfo(){
+		mainWindowController.refreshPlayerInfo();
+	}
 	/**
 	 * @param message
 	 * @param windowController
