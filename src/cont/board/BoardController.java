@@ -64,8 +64,21 @@ public class BoardController {
 			player.setSztabPosition(fm.getPosition());
 		}
 		else{
+			Tile selectedTile = getSelectedTile();
+			if(selectedTile != null){
+				selectedTile.changeSelect();
+			}
 			fm.selectTile();
 		}
+	}
+	public FieldModel getSelectedFieldModel(){
+		return boardModel.getSelectedFieldModel();
+	}
+	private Tile getSelectedTile(){
+		if(getSelectedFieldModel() != null){
+			return getSelectedFieldModel().getTile();
+		}
+		return null;
 	}
 	/**
 	 * @param tile

@@ -38,7 +38,6 @@ public class FieldModel {
 	public Tile getTile(){
 		return tile;
 	}
-	
 	public boolean contains(Point p){
 		return polygon.contains(p);
 	}

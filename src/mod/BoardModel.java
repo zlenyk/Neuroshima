@@ -51,6 +51,16 @@ public class BoardModel {
 	public FieldModel getFieldModelAt(int position){
 		return board[position];
 	}
+	public FieldModel getSelectedFieldModel(){
+		for(int i = 0; i<21; i++){
+			if(i != 1 && i != 19){
+				if(getFieldModelAt(i).getTile().getField().isSelected()){
+					return getFieldModelAt(i);
+				}
+			}
+		}
+		return null;
+	}
 	public List<Field> getFields(){
 		List<Field> fieldList = new ArrayList<Field>();
 		for(int i = 0; i<21; i++){
