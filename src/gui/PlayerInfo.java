@@ -67,11 +67,9 @@ public class PlayerInfo extends JPanel{
 		add(tilesLeftLabel);
 	}
 	public void giveTiles(List<Tile> tl){
-		System.out.println(tl.size());
-		System.out.println(tl.get(0));
-		System.out.println(tl.get(1));
-		System.out.println(tl.get(2));
-
+		for(Tile t : tileList){
+			this.remove(t.getField());
+		}
 		tileList.clear();
 		tileList = new ArrayList<Tile>(tl);
 		showTiles();
@@ -80,7 +78,6 @@ public class PlayerInfo extends JPanel{
 		return player;
 	}
 	private void showTiles(){
-		this.removeAll();
 		int move = 120;
 		for(int i = 0; i<tileList.size(); i++){
 			tileList.get(i).getField().setLocation(i*move, 20);
