@@ -21,8 +21,8 @@ public class MessageBuilder {
 	public static String playersCountErrorMessage(){
 		return "There must be exactly " + Config.getPLAYERS() + " players.";
 	}
-	public static String endOfGameMessage(){
-		return "Game has finished!";
+	public static String endOfGameMessage(String player){
+		return "Game has finished! Player " + player + " won";
 	}
 	public static String playerPutSztabMessage(String name){
 		return "Player: " + name + " put your sztab";

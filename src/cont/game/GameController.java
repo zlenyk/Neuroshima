@@ -21,6 +21,7 @@ public class GameController {
 	private int activePlayer;
 	private int turns;
 	private boolean sztabTurn;
+	private int endingTurn;
 	public GameController(GUIController gui,List<String>playersNames,List<String> armies){
 		guiController = gui;
 		boardController = BoardController.createNewBoard(gui, this);
@@ -36,6 +37,7 @@ public class GameController {
 	public void startNewGame(){
 		activePlayer = 0;
 		turns = 0;
+		endingTurn = 0;
 		sztabTurn = true;
 		beginTurn();
 	}
@@ -85,9 +87,10 @@ public class GameController {
 	}
 	private void normalTurn(){
 		List<Tile> tiles = new ArrayList<Tile>();
-		tiles.add(players.get(activePlayer).getTile());
-		tiles.add(players.get(activePlayer).getTile());
-		tiles.add(players.get(activePlayer).getTile());
+		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
+		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
+		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
+		else endingTurn++;
 		
 		guiController.giveTiles(getActivePlayer(), tiles);
 		/*
@@ -103,6 +106,8 @@ public class GameController {
 		 * than same with last tile
 		 * 
 		 */
+		
+		
 	}
 	private void battle(){
 		guiController.showMessage(MessageBuilder.battle());
@@ -137,11 +142,17 @@ public class GameController {
 	 * Returns if game should be ended.
 	 */
 	private boolean endOfGame(){
-		return turns >= 10;
+		return endingTurn == players.size();
 	}
 	private void endGame(){
-		guiController.showMessage(MessageBuilder.endOfGameMessage());
+		
+		guiController.showMessage(MessageBuilder.endOfGameMessage(winner()));
 		guiController.closeGame();
+	}
+	private String winner(){
+		if(players.get(0).getSztab().getHp()>players.get(1).getSztab().getHp()) return players.get(0).getName();
+		else if(players.get(1).getSztab().getHp()>players.get(0).getSztab().getHp()) return players.get(1).getName();
+		return "-";
 	}
 	public void endGameManually(){
 		guiController.showMessage(MessageBuilder.gameInterrupted());
@@ -163,4 +174,5 @@ public class GameController {
 	public List<Player> getPlayers(){
 		return players;
 	}
+	
 }
