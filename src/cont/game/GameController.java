@@ -8,6 +8,7 @@ import mod.Player;
 import mod.Tile;
 import mod.Unit;
 import cont.GUIController;
+import cont.MainWindowController;
 import cont.MessageBuilder;
 import cont.board.BoardController;
 
@@ -16,14 +17,16 @@ import cont.board.BoardController;
  */
 public class GameController {
 	private GUIController guiController;
+	private MainWindowController mainWindowController;
 	private BoardController boardController;
 	private List<Player> players;
 	private int activePlayer;
 	private int turns;
 	private boolean sztabTurn;
 	private int endingTurn;
-	public GameController(GUIController gui,List<String>playersNames,List<String> armies){
+	public GameController(GUIController gui,MainWindowController mwc,List<String>playersNames,List<String> armies){
 		guiController = gui;
+		mainWindowController = mwc;
 		boardController = BoardController.createNewBoard(gui, this);
 		players = new ArrayList<Player>();
 		for(int i = 0; i<playersNames.size(); i++){
@@ -119,11 +122,8 @@ public class GameController {
 			}
 			for(int i = 0; i<21; i++){
 				if(i!=1 && i!=19 && board[i].tile instanceof mod.tiles.empty.Empty && board[i].tile.getHp() <= 0) board[i].tile.die();
-			}
-			
+			}	
 		}
-		
-		
 	}
 	private boolean isBattle(){
 		FieldModel[] board = boardController.getBoardModel().getBoard();
@@ -154,6 +154,23 @@ public class GameController {
 	
 	public int getTurnNumber(){
 		return turns;
+	}
+	public Tile getSelectedTileFromBoard(){
+		return boardController.getSelectedFieldModel().getTile();
+	}
+	public FieldModel getSelectedFieldModel(){
+		return boardController.getSelectedFieldModel();
+	}
+	public void putTileFromPlayerInfo(){
+		Tile t = mainWindowController.getActivePlayerInfo().getSelectedTile();
+		int position = boardController.getSelectedFieldModel().getPosition();
+		boardController.putTileAtPosition(t, position);
+	}
+	public void enablePutButtonOrNot(){
+		mainWindowController.enablePutButtonOrNot(
+				boardController.getSelectedFieldModel() != null 
+				&& mainWindowController.getActivePlayerInfo().getSelectedTile() != null
+		);
 	}
 	/**
 	 * @return active player

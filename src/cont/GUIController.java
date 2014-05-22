@@ -54,7 +54,9 @@ public class GUIController {
 		
 		mainWindowController = MainWindowController.openNewMainWindow(this);
 
-		gameController = new GameController(this,playersNames,armies);
+		gameController = new GameController(this,mainWindowController,playersNames,armies);
+		
+		mainWindowController.setGameContoller(gameController);
 		
 		List<Player> playersList = gameController.getPlayers();
 		mainWindowController.fillPlayersInfo(playersList);
@@ -84,6 +86,7 @@ public class GUIController {
 	public void refreshPlayerInfo(){
 		mainWindowController.refreshPlayerInfo();
 	}
+
 	/**
 	 * @param message
 	 * @param windowController

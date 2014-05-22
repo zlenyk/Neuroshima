@@ -70,6 +70,7 @@ public class BoardController {
 			}
 			fm.selectTile();
 		}
+		gameController.enablePutButtonOrNot();
 	}
 	public FieldModel getSelectedFieldModel(){
 		return boardModel.getSelectedFieldModel();

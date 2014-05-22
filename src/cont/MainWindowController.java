@@ -8,6 +8,7 @@ import java.util.List;
 
 import mod.Player;
 import mod.Tile;
+import cont.game.GameController;
 
 /**
  * @author zygmunt
@@ -17,12 +18,15 @@ import mod.Tile;
 public class MainWindowController implements WindowController {
 	
 	GUIController guiController;
+	GameController gameController;
 	MainWindow mainWindow;
 	public MainWindowController(MainWindow mw,GUIController gui){
 		guiController = gui;
 		mainWindow = mw;
 	}
-	
+	public void setGameContoller(GameController game){
+		gameController = game;
+	}
 	/**
 	 * @param gui
 	 * @param armies
@@ -38,6 +42,9 @@ public class MainWindowController implements WindowController {
 	public void fillPlayersInfo(List<Player> playersList){
 		mainWindow.fillPlayersList(playersList);
 	}
+	public GameController getGameController(){
+		return gameController;
+	}
 	/**
 	 * Implementation of next-turn-button. Calls method from GUIController.
 	 */
@@ -50,7 +57,14 @@ public class MainWindowController implements WindowController {
 	public void closeGame(){
 		guiController.closeGame();
 	}
-	
+	public void enablePutButtonOrNot(boolean b){
+		if(b){
+			mainWindow.enablePutTile();
+		}
+		else{
+			mainWindow.disablePutTile();
+		}
+	}
 	public void addBoard(Board b){
 		mainWindow.addBoard(b);
 	}
@@ -65,10 +79,22 @@ public class MainWindowController implements WindowController {
 		pi.giveTiles(tileList);
 		mainWindow.repaint();
 	}
+	public void putTile(){
+		gameController.putTileFromPlayerInfo();
+	}
 	public void refreshPlayerInfo(){
 		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
 			pi.refreshText();
 		}
+	}
+	public PlayerInfo getActivePlayerInfo(){
+		Player p = gameController.getActivePlayer();
+		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
+			if(pi.getPlayer() == p){
+				return pi;
+			}
+		}
+		return null;
 	}
 	@Override
 	public void show() {

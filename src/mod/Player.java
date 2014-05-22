@@ -12,7 +12,7 @@ import mod.tiles.Posterunek.SztabPosterunek;
 public class Player {
 	private final String name;
 	private ArmySet armySet;
-	private mod.Tile sztab;
+	private Tile sztab;
 	private int sztabPosition;
 	private String army;
 	public Player(String n,String army, FieldModel board[]){

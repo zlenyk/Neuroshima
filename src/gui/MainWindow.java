@@ -20,6 +20,7 @@ public class MainWindow implements Window{
 
 	private JPanel contentPane;
 	private JFrame frame;
+	private JButton btnPutTile;
 	private MainWindowController controller;
 	private List<PlayerInfo> playerInfoList;
 	
@@ -72,10 +73,26 @@ public class MainWindow implements Window{
 		separator.setBounds(508, -11, 2, 582);
 		contentPane.add(separator);
 		
+		btnPutTile = new JButton("Put Tile");
+		btnPutTile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.putTile();
+			}
+		});
+		btnPutTile.setBounds(536, 61, 117, 25);
+		btnPutTile.setEnabled(false);
+		contentPane.add(btnPutTile);
+		
 	}
 	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
 		contentPane.add(b);
+	}
+	public void enablePutTile(){
+		btnPutTile.setEnabled(true);
+	}
+	public void disablePutTile(){
+		btnPutTile.setEnabled(false);
 	}
 	public void fillPlayersList(List<Player>playersList){
 		playerInfoList = new ArrayList<PlayerInfo>();

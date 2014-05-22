@@ -47,11 +47,12 @@ public class PlayerInfo extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				for(FieldModel f : fieldModelList){
 					if(f.contains(e.getPoint())){
-						System.out.println("DE");
 						if(getSelectedTile() != null){
 							getSelectedTile().changeSelect();
 						}
 						f.getTile().changeSelect();
+						mainWindowController.getGameController().enablePutButtonOrNot();
+
 						return;
 					}
 				}
@@ -125,7 +126,12 @@ public class PlayerInfo extends JPanel{
 		clearTiles();
 
 		for(int i = 0; i<tl.size(); i++){
+			if(i < tl.size()){
 			fieldModelList.get(i).changeTile(tl.get(i));
+			}
+			else{
+				fieldModelList.get(i).changeTile(new mod.tiles.empty.Empty());
+			}
 		}
 		showTiles();
 	}
