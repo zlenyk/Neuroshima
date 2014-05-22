@@ -39,4 +39,10 @@ public class MessageBuilder {
 	public static String mustPutSztabMessage(){
 		return "You have to put your Sztab tile on the board";
 	}
+	public static String actuallyInitiative(int initiative){
+		return "Initiative: " + initiative;
+	}
+	public static String battle(){
+		return "BATTLE!";
+	}
 }

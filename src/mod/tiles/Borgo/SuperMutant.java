@@ -22,7 +22,7 @@ public class SuperMutant extends Unit {
 		shield[0]=true;
 		shield[1]=true;
 		shield[5]=true;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
 		shootBonus = 0;

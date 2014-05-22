@@ -13,7 +13,7 @@ public abstract class Unit extends Tile {
 	public void attack(){}
 	public int shootBonus;
 	public int hitBonus;
-	protected int initiativeBonus;
+	public int initiativeBonus;
 		
 	protected void shoot(int direction,int power){
 		while(board[position].neighbours[direction]!=null){
@@ -64,6 +64,9 @@ public abstract class Unit extends Tile {
 		}
 		
 		return whereCanPut;
+	}
+	public int getBiggestInitiative(){
+		return initiative.get(0)+initiativeBonus;
 	}
 	
 	

@@ -20,7 +20,7 @@ public class Bloker extends Unit {
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
 		shield[0] = true;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 	}
 

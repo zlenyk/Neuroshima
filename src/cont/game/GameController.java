@@ -3,8 +3,10 @@ package cont.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import mod.FieldModel;
 import mod.Player;
 import mod.Tile;
+import mod.Unit;
 import cont.GUIController;
 import cont.MessageBuilder;
 import cont.board.BoardController;
@@ -103,10 +105,33 @@ public class GameController {
 		 */
 	}
 	private void battle(){
+		guiController.showMessage(MessageBuilder.battle());
+		FieldModel[] board = boardController.getBoardModel().getBoard();
+		int initiative = 0;
+		for(int i = 0; i<21; i++){
+			if(i!=1 && i!=19 && board[i].tile instanceof Unit && ((Unit)board[i].tile).getBiggestInitiative()>initiative) initiative = ((Unit)board[i].tile).getBiggestInitiative();
+		}
+		while(initiative>=0){
+			guiController.showMessage(MessageBuilder.actuallyInitiative(initiative));
+			for(int i = 0; i<21; i++){
+				if(i!=1 && i!=19 && board[i].tile instanceof Unit && ((Unit)board[i].tile).initiative.contains(initiative-((Unit)board[i].tile).initiativeBonus)){
+					if(board[i].tile.isNetted())((Unit)board[i].tile).attack();
+				}
+			}
+			for(int i = 0; i<21; i++){
+				if(i!=1 && i!=19 && board[i].tile instanceof mod.tiles.empty.Empty && board[i].tile.getHp() <= 0) board[i].tile.die();
+			}
+			
+		}
+		
 		
 	}
 	private boolean isBattle(){
-		return false;
+		FieldModel[] board = boardController.getBoardModel().getBoard();
+		for(int i = 0; i<21; i++){
+			if(i!=1 && i!=19 && board[i].tile instanceof mod.tiles.empty.Empty) return false;
+		}
+		return true;
 	}
 	/**
 	 * Returns if game should be ended.

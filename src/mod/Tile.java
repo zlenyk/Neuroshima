@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.util.LinkedList;
 
+import mod.tiles.empty.Empty;
+
 
 public abstract class Tile {
 	
@@ -23,7 +25,7 @@ public abstract class Tile {
 	public int position;
 	public boolean shield[];
 	public int hp;
-	public int isNetted;
+	public int netted;
 	public LinkedList<Integer> pick(){return null;}
 	public void takeDmg(int power){
 		
@@ -46,6 +48,13 @@ public abstract class Tile {
 	public abstract void put(int position, int rotation);
 	public abstract Image getImage();
 	public abstract Image getSelectedImage();
-
+	public void die(){
+		if(netted<=0) stopwork();
+		board[position].tile = new Empty();
+	}
+	public boolean isNetted(){
+		if(netted==0) return false;
+		else return true;
+	}
 	
 }

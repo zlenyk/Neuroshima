@@ -21,7 +21,7 @@ public class Klaun extends Unit {
 		hp = 2;
 		shield = new boolean[6];
 		for(int i=0; i<6; i++)	shield[i] = false;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
 		shootBonus = 0;

@@ -19,7 +19,7 @@ public class SztabHegemonia extends mod.Unit {
 		hp=20;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(0);
 		shootBonus = 0;

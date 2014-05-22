@@ -23,7 +23,7 @@ public class OpancerzonyLowca extends Unit {
 		for(int i=1; i<5; i++)	shield[i] = false;
 		shield[0] = true;
 		shield[5] = true;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
 		shootBonus = 0;

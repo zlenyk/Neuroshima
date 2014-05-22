@@ -26,15 +26,15 @@ public class Sieciarz extends Unit {
 		ifWorks[0] = true;
 		for(int i=1;i<6;i++) ifWorks[i] = false;
 		ifWorks[5] = true;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 	}
 	public void work(int direction){
-		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.getOwner()!=this.owner ) board[position].neighbours[direction].tile.isNetted++; 
+		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.getOwner()!=this.owner ) board[position].neighbours[direction].tile.netted++; 
 	}
 	public void stopWork(){
-		if(ifWorks[rotation]==true && board[position].neighbours[rotation]!=null && !(board[position].neighbours[rotation].tile instanceof Empty) && board[position].neighbours[rotation].tile.getOwner()!=this.owner ) board[position].neighbours[rotation].tile.isNetted--; 
-		if(ifWorks[(rotation+5)%6]==true && board[position].neighbours[(rotation+5)%6]!=null && !(board[position].neighbours[(rotation+5)%6].tile instanceof Empty) && board[position].neighbours[(rotation+5)%6].tile.getOwner()!=this.owner ) board[position].neighbours[(rotation+5)%6].tile.isNetted--; 
+		if(ifWorks[rotation]==true && board[position].neighbours[rotation]!=null && !(board[position].neighbours[rotation].tile instanceof Empty) && board[position].neighbours[rotation].tile.getOwner()!=this.owner ) board[position].neighbours[rotation].tile.netted--; 
+		if(ifWorks[(rotation+5)%6]==true && board[position].neighbours[(rotation+5)%6]!=null && !(board[position].neighbours[(rotation+5)%6].tile instanceof Empty) && board[position].neighbours[(rotation+5)%6].tile.getOwner()!=this.owner ) board[position].neighbours[(rotation+5)%6].tile.netted--; 
 	}
 	public void put(int position, int rotation){
 		this.rotation = rotation;
@@ -62,7 +62,7 @@ public class Sieciarz extends Unit {
 		}
 		else{
 			stopWork();
-			isNetted = 0;
+			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;
 			hitBonus = 0;

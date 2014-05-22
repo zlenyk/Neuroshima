@@ -23,7 +23,7 @@ public class Sieciarz extends Unit {
 		ifWorks = new boolean[6];
 		ifWorks[0] = true;
 		for(int i=1;i<6;i++) ifWorks[i] = false;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(1);
 		shootBonus = 0;
@@ -31,10 +31,10 @@ public class Sieciarz extends Unit {
 		initiativeBonus = 0;
 	}
 	public void work(int direction){
-		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.getOwner()!=this.owner ) board[position].neighbours[direction].tile.isNetted++; 
+		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.getOwner()!=this.owner ) board[position].neighbours[direction].tile.netted++; 
 	}
 	public void stopWork(){
-		if(ifWorks[rotation]==true && board[position].neighbours[rotation]!=null && !(board[position].neighbours[rotation].tile instanceof Empty) && board[position].neighbours[rotation].tile.getOwner()!=this.owner ) board[position].neighbours[rotation].tile.isNetted--; 
+		if(ifWorks[rotation]==true && board[position].neighbours[rotation]!=null && !(board[position].neighbours[rotation].tile instanceof Empty) && board[position].neighbours[rotation].tile.getOwner()!=this.owner ) board[position].neighbours[rotation].tile.netted--; 
 	}
 	public void put(int position, int rotation){
 		this.rotation = rotation;
@@ -61,7 +61,7 @@ public class Sieciarz extends Unit {
 		}
 		else{
 			stopWork();
-			isNetted = 0;
+			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;
 			hitBonus = 0;

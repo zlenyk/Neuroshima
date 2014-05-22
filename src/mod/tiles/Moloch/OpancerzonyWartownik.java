@@ -23,7 +23,7 @@ public class OpancerzonyWartownik extends Unit{
 		shield = new boolean[6];
 		for(int i=1; i<6; i++)	shield[i] = false;
 		shield[0] = true;
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(2);
 		shootBonus = 0;

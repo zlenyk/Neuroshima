@@ -25,7 +25,7 @@ public class Juggernaut extends Unit{
 			if(i%2==1)shield[i] = false;
 			else shield[i] = true;
 		}
-		isNetted = 0;
+		netted = 0;
 		initiative = new LinkedList<Integer>();
 		initiative.add(1);
 		shootBonus = 0;
