@@ -45,16 +45,15 @@ public class PlayerInfo extends JPanel{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println(e.getPoint());
 				for(FieldModel f : fieldModelList){
 					if(f.contains(e.getPoint())){
+						System.out.println("DE");
 						if(getSelectedTile() != null){
 							getSelectedTile().changeSelect();
-							return;
 						}
 						f.getTile().changeSelect();
+						return;
 					}
-					return;
 				}
 			}
 		});
@@ -110,11 +109,16 @@ public class PlayerInfo extends JPanel{
 		for(int i = 0; i<3; i++){
 			
 			int[] _hexX = new int[6];
+			int[] _hexY = new int[6];
+
 			for(int j = 0;j<6;j++){
 				_hexX[j] = hexX[j]+i*move;
+				_hexY[j] = hexY[j]+20;
 			}
+			for(int k = 0; k<6; k++)
+			
+			fieldModelList.get(i).setShape(_hexX, _hexY);
 			fieldModelList.get(i).setLocation(i*move, 20);
-			fieldModelList.get(i).setShape(_hexX, hexY);
 		}
 	}
 	public void giveTiles(List<Tile> tl){
@@ -123,7 +127,6 @@ public class PlayerInfo extends JPanel{
 		for(int i = 0; i<tl.size(); i++){
 			fieldModelList.get(i).changeTile(tl.get(i));
 		}
-		
 		showTiles();
 	}
 	private void clearTiles(){
@@ -132,6 +135,7 @@ public class PlayerInfo extends JPanel{
 				this.remove(f.getTile().getField());
 			}
 		}
+		this.repaint();
 	}
 	private void showTiles(){
 		for(FieldModel f : fieldModelList){

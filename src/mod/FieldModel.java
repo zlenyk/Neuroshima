@@ -2,6 +2,7 @@ package mod;
 
 import java.awt.Point;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 
 
 public class FieldModel {
@@ -40,5 +41,8 @@ public class FieldModel {
 	}
 	public boolean contains(Point p){
 		return polygon.contains(p);
+	}
+	public Rectangle getBounds(){
+		return polygon.getBounds();
 	}
 }

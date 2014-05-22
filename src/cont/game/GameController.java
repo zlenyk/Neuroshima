@@ -56,7 +56,9 @@ public class GameController {
 			guiController.showMessage(MessageBuilder.mustPutSztabMessage());
 			return;
 		}
-		endTurn();
+		if(!endTurn()){
+			return;
+		}
 		boardController.clearSelections();
 		beginTurn();
 	}
@@ -73,7 +75,10 @@ public class GameController {
 			normalTurn();
 		}
 	}
-	private void endTurn(){
+	/**
+	 * @return if game should not be ended
+	 */
+	private boolean endTurn(){
 		guiController.refreshPlayerInfo();
 		activePlayer++;
 		activePlayer %= players.size();
@@ -83,7 +88,9 @@ public class GameController {
 		}
 		if(endOfGame()){
 			endGame();
+			return false;
 		}
+		return true;
 	}
 	private void normalTurn(){
 		List<Tile> tiles = new ArrayList<Tile>();
@@ -92,22 +99,9 @@ public class GameController {
 		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
 		else endingTurn++;
 		
-		guiController.giveTiles(getActivePlayer(), tiles);
-		/*
-		 * here should be:
-		 * function printing list<tile> tiles, with 3 tiles from armyset,
-		 * guiController.showMessage(MessageBuilder.throwTileMessage());
-		 * player choose one of 3 tiles to throw it
-		 * tiles.remove(index); //remove choosen tile from tiles
-		 * guiController.showMessage(MessageBuilder.putTilesMessage());
-		 * again player click one tile than:
-		 * List<Integeer> whereCanPut = tiles.get(choosentile).pick();
-		 * tiles.get(choosentile).put(choosePosition(whereCanPut),0);
-		 * than same with last tile
-		 * 
-		 */
-		
-		
+		if(tiles.size() > 0){
+			guiController.giveTiles(getActivePlayer(), tiles);
+		}
 	}
 	private void battle(){
 		guiController.showMessage(MessageBuilder.battle());
@@ -145,7 +139,6 @@ public class GameController {
 		return endingTurn == players.size();
 	}
 	private void endGame(){
-		
 		guiController.showMessage(MessageBuilder.endOfGameMessage(winner()));
 		guiController.closeGame();
 	}
