@@ -650,5 +650,8 @@ public class ImageLoader {
 		public static Image emptySelected(){
 			return getImage("graphics/selected_empty.png");
 		}
+		public static Image emptyAimed(){
+			return getImage("graphics/aimed_empty.png");
+		}
 	}
 }
