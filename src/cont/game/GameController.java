@@ -167,9 +167,26 @@ public class GameController {
 		boardController.putTileAtPosition(t, position);
 	}
 	public void enablePutButtonOrNot(){
+		if(isSztabTurn()){
+			mainWindowController.enablePutButtonOrNot(false);
+			return;
+		}
+		Tile t = mainWindowController.getActivePlayerInfo().getSelectedTile();
+		if(boardController.getSelectedFieldModel() == null || t == null){
+			mainWindowController.enablePutButtonOrNot(false);
+			return;
+		}
+		
+		List<Integer> positionList = t.pick();
+		boolean isOnList = false;
+		for(Integer i : positionList){
+			if(boardController.getSelectedFieldModel().getPosition() == i){
+				isOnList = true;
+				break;
+			}
+		}
 		mainWindowController.enablePutButtonOrNot(
-				boardController.getSelectedFieldModel() != null 
-				&& mainWindowController.getActivePlayerInfo().getSelectedTile() != null
+				boardController.getSelectedFieldModel() != null && isOnList
 		);
 	}
 	/**
