@@ -189,6 +189,15 @@ public class GameController {
 				boardController.getSelectedFieldModel() != null && isOnList
 		);
 	}
+	public void enableRotateFieldButtonOrNot(){
+		mainWindowController.enableRotateButtonOrNot(
+			boardController.getSelectedFieldModel() != null	
+		);
+	}
+	public void rotateSelectedField(){
+		int position = boardController.getSelectedFieldModel().getPosition();
+		boardController.rotateField(position);
+	}
 	/**
 	 * @return active player
 	 */
