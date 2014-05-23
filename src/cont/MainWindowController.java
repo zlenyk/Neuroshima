@@ -65,6 +65,14 @@ public class MainWindowController implements WindowController {
 			mainWindow.disablePutTile();
 		}
 	}
+	public void enableRotateButtonOrNot(boolean b){
+		if (b){
+			mainWindow.enableRotateField();
+		}
+		else{
+			mainWindow.disableRotateField();
+		}
+	}
 	public void addBoard(Board b){
 		mainWindow.addBoard(b);
 	}
@@ -81,6 +89,9 @@ public class MainWindowController implements WindowController {
 	}
 	public void putTile(){
 		gameController.putTileFromPlayerInfo();
+	}
+	public void rotateField(){
+		gameController.rotateSelectedField();
 	}
 	public void refreshPlayerInfo(){
 		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){

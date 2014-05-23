@@ -71,6 +71,7 @@ public class BoardController {
 			fm.selectTile();
 		}
 		gameController.enablePutButtonOrNot();
+		gameController.enableRotateFieldButtonOrNot();
 	}
 	public FieldModel getSelectedFieldModel(){
 		return boardModel.getSelectedFieldModel();
@@ -89,6 +90,13 @@ public class BoardController {
 	public void putTileAtPosition(Tile tile,int position){
 		FieldModel fm = boardModel.getFieldModelAt(position);
 		fm.changeTile(tile);
+		repaintBoard(this);
+	}
+	
+	public void rotateField(int position){
+		FieldModel fm = boardModel.getFieldModelAt(position);
+		Field f = fm.getTile().getField();
+		f.rotate();
 		repaintBoard(this);
 	}
 	/**

@@ -21,6 +21,7 @@ public class MainWindow implements Window{
 	private JPanel contentPane;
 	private JFrame frame;
 	private JButton btnPutTile;
+	private JButton btnRotateTile;
 	private MainWindowController controller;
 	private List<PlayerInfo> playerInfoList;
 	
@@ -83,6 +84,16 @@ public class MainWindow implements Window{
 		btnPutTile.setEnabled(false);
 		contentPane.add(btnPutTile);
 		
+		btnRotateTile = new JButton("Rotate");
+		btnRotateTile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.rotateField();
+			}
+		});
+		btnRotateTile.setEnabled(false);
+		btnRotateTile.setBounds(669, 60, 117, 25);
+		contentPane.add(btnRotateTile);
+		
 	}
 	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
@@ -93,6 +104,12 @@ public class MainWindow implements Window{
 	}
 	public void disablePutTile(){
 		btnPutTile.setEnabled(false);
+	}
+	public void enableRotateField(){
+		btnRotateTile.setEnabled(true);
+	}
+	public void disableRotateField(){
+		btnRotateTile.setEnabled(false);
 	}
 	public void fillPlayersList(List<Player>playersList){
 		playerInfoList = new ArrayList<PlayerInfo>();
