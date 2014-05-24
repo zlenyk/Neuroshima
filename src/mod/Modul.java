@@ -55,4 +55,11 @@ public abstract class Modul extends Tile {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public boolean isInstant(){
+		return false;
+	}
+	
 }
+

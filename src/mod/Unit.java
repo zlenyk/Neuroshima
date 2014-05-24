@@ -69,6 +69,10 @@ public abstract class Unit extends Tile {
 		if(initiative.isEmpty()) return -1;
 		else return initiative.get(0)+initiativeBonus;
 	}
+	@Override
+	public boolean isInstant(){
+		return false;
+	}
 	
 	
 }

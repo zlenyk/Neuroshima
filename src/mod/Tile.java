@@ -63,6 +63,9 @@ public abstract class Tile {
 		if(this instanceof SztabBorgo || this instanceof SztabHegemonia || this instanceof SztabMoloch || this instanceof SztabPosterunek) return true;
 		else return false;
 	}
+	public boolean isInstant(){
+		return true;
+	}
 	
 	
 }
