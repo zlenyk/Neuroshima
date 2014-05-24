@@ -17,6 +17,7 @@ public class Ruch extends mod.Tile {
 		this.owner = owner;
 		this.board = board;
 	}
+	@Override
 	public LinkedList<Integer> pick(){
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<21;i++){
@@ -28,6 +29,7 @@ public class Ruch extends mod.Tile {
 		
 		return whereCanPut;
 	}
+	@Override
 	public void put(int position, int rotation){
 		mod.Tile tileToMove = board[position].tile;
 		LinkedList<Integer> whereCanPut = board[position].tile.pick();

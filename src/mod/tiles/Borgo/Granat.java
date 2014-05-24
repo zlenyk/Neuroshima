@@ -18,16 +18,18 @@ public class Granat extends Tile {
 		this.board = board;
 		
 	}
+	@Override
 	public LinkedList<Integer> pick(){
 		position = owner.getSztab().position;
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<6;i++){
-			if(board[position].neighbours[i]!=null && !(board[position].neighbours[i].tile instanceof Empty)){
+			if(board[position].neighbours[i]!=null && !(board[position].neighbours[i].tile instanceof Empty) && !board[position].neighbours[i].tile.isSztab()){
 				whereCanPut.add(board[position].neighbours[i].position);
 			}
 		}
 		return whereCanPut;
 	}
+	@Override
 	public void put(int position, int rotation){
 		board[position].tile.takeDmg(10);
 	}

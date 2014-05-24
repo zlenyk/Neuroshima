@@ -39,6 +39,7 @@ public class SuperSieciarz extends Unit {
 		if(ifWorks[(rotation+1)%6]==true && board[position].neighbours[(rotation+1)%6]!=null && !(board[position].neighbours[(rotation+1)%6].tile instanceof Empty) && board[position].neighbours[(rotation+1)%6].tile.getOwner()!=this.owner ) board[position].neighbours[(rotation+1)%6].tile.netted--; 
 		if(ifWorks[(rotation+5)%6]==true && board[position].neighbours[(rotation+5)%6]!=null && !(board[position].neighbours[(rotation+5)%6].tile instanceof Empty) && board[position].neighbours[(rotation+5)%6].tile.getOwner()!=this.owner ) board[position].neighbours[(rotation+5)%6].tile.netted--; 
 	}
+	@Override
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		board[position].tile = this;
@@ -54,6 +55,7 @@ public class SuperSieciarz extends Unit {
 		if(board[position].neighbours[(rotation+5)%6]!=null&& !(board[position].neighbours[(rotation+5)%6].tile instanceof Empty)) work((rotation+5)%6); 
 		
 	}
+	@Override
 	public LinkedList<Integer> pick(){
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		if(position == -1){

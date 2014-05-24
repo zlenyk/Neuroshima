@@ -6,6 +6,10 @@ import java.awt.Image;
 import java.awt.Point;
 import java.util.LinkedList;
 
+import mod.tiles.Borgo.SztabBorgo;
+import mod.tiles.Hegemonia.SztabHegemonia;
+import mod.tiles.Moloch.SztabMoloch;
+import mod.tiles.Posterunek.SztabPosterunek;
 import mod.tiles.empty.Empty;
 
 
@@ -18,7 +22,7 @@ public abstract class Tile {
 	}	
 	
 	public boolean ifWorks[];
-	public void stopwork(){}
+	public void stopWork(){}
 	protected FieldModel board[];
 	protected int rotation;
 	protected Player owner;
@@ -48,12 +52,17 @@ public abstract class Tile {
 	public abstract Image getImage();
 	public abstract Image getSelectedImage();
 	public void die(){
-		if(netted<=0) stopwork();
+		if(netted<=0) stopWork();
 		board[position].tile = new Empty();
 	}
 	public boolean isNetted(){
 		if(netted==0) return false;
 		else return true;
 	}
+	public boolean isSztab(){
+		if(this instanceof SztabBorgo || this instanceof SztabHegemonia || this instanceof SztabMoloch || this instanceof SztabPosterunek) return true;
+		else return false;
+	}
+	
 	
 }

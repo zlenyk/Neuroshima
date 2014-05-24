@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import mod.FieldModel;
 import mod.Player;
 import mod.Unit;
+import mod.tiles.empty.Empty;
 
 public class DzialkoGaussa extends Unit {
 	DzialkoGaussa(Player owner, FieldModel board[]){
@@ -32,14 +33,14 @@ public class DzialkoGaussa extends Unit {
 	public void attack(){
 		//shoot(rotation,1+shootBonus);
 		int direction = rotation, power = 1;
-		/*while(board[position].neibours[direction]!=null){
-			if(board[position].neibours[direction].tile!=null){
-				if(board[position].neibours[direction].tile.shield[(direction+3)%6]==false) 
-					board[position].neibours[direction].tile.hp-=power;
-				else board[position].neibours[direction].tile.hp-=(power-1);
+		while(board[position].neighbours[direction]!=null){
+			if(!(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.getOwner()!=this.owner){
+				if(board[position].neighbours[direction].tile.shield[(direction+3)%6]==false) 
+					board[position].neighbours[direction].tile.hp-=power;
+				else board[position].neighbours[direction].tile.hp-=(power-1);
 				
 			}
-		}*/
+		}
 	}
 	// Dzialo Gaussa strzela do wszystkich celow na swojej linii
 

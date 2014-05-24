@@ -36,6 +36,7 @@ public class Sieciarz extends Unit {
 	public void stopWork(){
 		if(ifWorks[rotation]==true && board[position].neighbours[rotation]!=null && !(board[position].neighbours[rotation].tile instanceof Empty) && board[position].neighbours[rotation].tile.getOwner()!=this.owner ) board[position].neighbours[rotation].tile.netted--; 
 	}
+	@Override
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		board[position].tile = this;

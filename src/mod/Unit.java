@@ -31,7 +31,7 @@ public abstract class Unit extends Tile {
 			board[position].neighbours[direction].tile.takeDmg(power);
 		}
 	}
-	
+	@Override
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		board[position].tile = this;
