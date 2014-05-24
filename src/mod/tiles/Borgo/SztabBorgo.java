@@ -21,6 +21,7 @@ public class SztabBorgo extends Unit {
 		hp=20;
 		shield = new boolean[6];
 		for(int i=0;i<6;i++) shield[i] = false;
+		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++) ifWorks[i] = true;
 		netted = 0;
 		initiative = new LinkedList<Integer>();
