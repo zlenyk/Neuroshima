@@ -24,6 +24,7 @@ public class MainWindow implements Window{
 	private JButton btnRotateTile;
 	private MainWindowController controller;
 	private List<PlayerInfo> playerInfoList;
+	private JButton btnAccept;
 	
 	/**
 	 * Returns controller to this MainWindow.
@@ -94,6 +95,17 @@ public class MainWindow implements Window{
 		btnRotateTile.setBounds(669, 60, 117, 25);
 		contentPane.add(btnRotateTile);
 		
+		btnAccept = new JButton("Accept");
+		btnRotateTile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.acceptTile();
+			}
+		});
+	
+		btnAccept.setEnabled(false);
+		btnAccept.setBounds(669, 96, 117, 25);
+		contentPane.add(btnAccept);
+		
 	}
 	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
@@ -113,7 +125,7 @@ public class MainWindow implements Window{
 	}
 	public void fillPlayersList(List<Player>playersList){
 		playerInfoList = new ArrayList<PlayerInfo>();
-		int[] Y = {100,300};
+		int[] Y = {150,350};
 		for(int i = 0; i < playersList.size(); i++){
 			PlayerInfo pi = new PlayerInfo(playersList.get(i),getController());
 			playerInfoList.add(pi);

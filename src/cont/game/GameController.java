@@ -199,6 +199,13 @@ public class GameController {
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.rotateField(position);
 	}
+	
+	public void acceptTile(){
+		// To do
+	}
+	public void enableAcceptButtonOrNot(){
+		// To do too
+	}
 	/**
 	 * @return active player
 	 */

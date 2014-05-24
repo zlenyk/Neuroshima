@@ -93,6 +93,9 @@ public class MainWindowController implements WindowController {
 	public void rotateField(){
 		gameController.rotateSelectedField();
 	}
+	public void acceptTile(){
+		gameController.acceptTile();
+	}
 	public void refreshPlayerInfo(){
 		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
 			pi.refreshText();

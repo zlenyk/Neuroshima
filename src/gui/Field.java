@@ -43,6 +43,9 @@ public class Field extends JPanel{
 		rotation = (rotation + 1) % 6;
 		repaint();
 	}
+	public int getRotation(){
+		return rotation;
+	}
 	
 	@Override
 	public void paintComponent(Graphics g){
