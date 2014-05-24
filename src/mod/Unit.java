@@ -17,7 +17,7 @@ public abstract class Unit extends Tile {
 		
 	protected void shoot(int direction,int power){
 		while(board[position].neighbours[direction]!=null){
-			if(!(board[position].neighbours[0].tile instanceof Empty) && board[position].neighbours[0].tile.owner!=this.owner){
+			if(!(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.owner!=this.owner){
 				if(board[position].neighbours[direction].tile.shield[(direction+3)%6]==false) 
 					board[position].neighbours[direction].tile.takeDmg(power);
 				else board[position].neighbours[direction].tile.takeDmg(power-1);
@@ -27,7 +27,7 @@ public abstract class Unit extends Tile {
 	}
 	
 	protected void hit(int direction, int power){
-		if(board[position].neighbours[direction]!=null && !(board[position].neighbours[0].tile instanceof Empty) && board[position].neighbours[0].tile.owner!=this.owner){
+		if(board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.owner!=this.owner){
 			board[position].neighbours[direction].tile.takeDmg(power);
 		}
 	}
@@ -66,7 +66,8 @@ public abstract class Unit extends Tile {
 		return whereCanPut;
 	}
 	public int getBiggestInitiative(){
-		return initiative.get(0)+initiativeBonus;
+		if(initiative.isEmpty()) return -1;
+		else return initiative.get(0)+initiativeBonus;
 	}
 	
 	

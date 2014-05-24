@@ -23,7 +23,7 @@ public class Bloker extends Unit {
 		netted = 0;
 		initiative = new LinkedList<Integer>();
 	}
-
+	
 	@Override
 	public Image getImage() {
 		return ImageLoader.Moloch.bloker();

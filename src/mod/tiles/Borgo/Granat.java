@@ -22,7 +22,7 @@ public class Granat extends Tile {
 		position = owner.getSztab().position;
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<6;i++){
-			if(board[position].neighbours[i]!=null && !(board[position].neighbours[0].tile instanceof Empty)){
+			if(board[position].neighbours[i]!=null && !(board[position].neighbours[i].tile instanceof Empty)){
 				whereCanPut.add(board[position].neighbours[i].position);
 			}
 		}

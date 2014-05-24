@@ -23,7 +23,9 @@ public class Ruch extends mod.Tile {
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<21;i++){
 			if(i!=1 && i!=19){
-				if(board[i]!=null && !(board[position].neighbours[0].tile instanceof Empty) && board[i].tile.getOwner()==this.owner) whereCanPut.add(board[position].neighbours[i].position);
+				if(!(board[i].tile instanceof Empty) && board[i].tile.getOwner()==this.owner && !board[i].tile.isNetted()) whereCanPut.add(board[i].position);
+				
+				
 			}
 			
 		}

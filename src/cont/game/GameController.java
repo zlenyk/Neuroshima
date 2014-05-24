@@ -117,12 +117,13 @@ public class GameController {
 			guiController.showMessage(MessageBuilder.actuallyInitiative(initiative));
 			for(int i = 0; i<21; i++){
 				if(i!=1 && i!=19 && board[i].tile instanceof Unit && ((Unit)board[i].tile).initiative.contains(initiative-((Unit)board[i].tile).initiativeBonus)){
-					if(board[i].tile.isNetted())((Unit)board[i].tile).attack();
+					if(!board[i].tile.isNetted())((Unit)board[i].tile).attack();
 				}
 			}
 			for(int i = 0; i<21; i++){
-				if(i!=1 && i!=19 && board[i].tile instanceof mod.tiles.empty.Empty && board[i].tile.getHp() <= 0) board[i].tile.die();
+				if(i!=1 && i!=19 && !(board[i].tile instanceof mod.tiles.empty.Empty) && board[i].tile.getHp() <= 0) board[i].tile.die();
 			}	
+			initiative--;
 		}
 	}
 	private boolean isBattle(){

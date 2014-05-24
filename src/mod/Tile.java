@@ -30,7 +30,6 @@ public abstract class Tile {
 	public void takeDmg(int power){
 		
 		hp-=power;
-		if(hp<=0) board[position].tile = new mod.tiles.empty.Empty();
 	}
 	public boolean contains(Point p){
 		return field.contains(p);
