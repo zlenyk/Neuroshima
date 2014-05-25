@@ -50,7 +50,9 @@ public class PlayerInfo extends JPanel{
 						if(getSelectedTile() != null){
 							getSelectedTile().changeSelect();
 						}
-						f.getTile().changeSelect();
+						if(f.getTile() != null){
+							f.getTile().changeSelect();
+						}
 						mainWindowController.getGameController().enablePutButtonOrNot();
 
 						return;
@@ -93,8 +95,20 @@ public class PlayerInfo extends JPanel{
 	}
 	public Tile getSelectedTile(){
 		for(FieldModel f : fieldModelList){
+			if(f.getTile() != null){
+				if(f.getTile().getField().isSelected()){
+					return f.getTile();
+				}
+			}
+		}
+		return null;
+	}
+	public Tile getAndDeleteSelectedTile(){
+		for(FieldModel f : fieldModelList){
 			if(f.getTile().getField().isSelected()){
-				return f.getTile();
+				Tile t = f.getTile();
+				f.changeTile(null);
+				return t;
 			}
 		}
 		return null;

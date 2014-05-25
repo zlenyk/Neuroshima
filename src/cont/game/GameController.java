@@ -163,7 +163,7 @@ public class GameController {
 		return boardController.getSelectedFieldModel();
 	}
 	public void putTileFromPlayerInfo(){
-		Tile t = mainWindowController.getActivePlayerInfo().getSelectedTile();
+		Tile t = mainWindowController.getActivePlayerInfo().getAndDeleteSelectedTile();
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.putTileAtPosition(t, position);
 	}
