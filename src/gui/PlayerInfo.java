@@ -105,10 +105,12 @@ public class PlayerInfo extends JPanel{
 	}
 	public Tile getAndDeleteSelectedTile(){
 		for(FieldModel f : fieldModelList){
-			if(f.getTile().getField().isSelected()){
-				Tile t = f.getTile();
-				f.changeTile(null);
-				return t;
+			if(f.getTile() != null){
+				if(f.getTile().getField().isSelected()){
+					Tile t = f.getTile();
+					f.changeTile(null);
+					return t;
+				}
 			}
 		}
 		return null;

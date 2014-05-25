@@ -166,6 +166,7 @@ public class GameController {
 		Tile t = mainWindowController.getActivePlayerInfo().getAndDeleteSelectedTile();
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.putTileAtPosition(t, position);
+		enablePutButtonOrNot();
 	}
 	public void enablePutButtonOrNot(){
 		if(isSztabTurn()){
