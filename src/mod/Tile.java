@@ -47,6 +47,9 @@ public abstract class Tile {
 	public int getHp(){
 		return hp;
 	}
+	public int getRotation(){
+		return rotation;
+	}
 	public void work(int direction){}
 	public abstract void put(int position, int rotation);
 	public abstract Image getImage();
@@ -57,11 +60,11 @@ public abstract class Tile {
 	}
 	public boolean isNetted(){
 		if(netted==0) return false;
-		else return true;
+		return true;
 	}
 	public boolean isSztab(){
 		if(this instanceof SztabBorgo || this instanceof SztabHegemonia || this instanceof SztabMoloch || this instanceof SztabPosterunek) return true;
-		else return false;
+		return false;
 	}
 	public boolean isInstant(){
 		return true;

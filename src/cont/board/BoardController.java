@@ -69,6 +69,28 @@ public class BoardController {
 				selectedTile.changeSelect();
 			}
 			fm.selectTile();
+			
+			selectedTile = getSelectedTile();
+			if(gameController.wantToMove()){
+				int prevPos = gameController.getLastPutTilePosition();
+				Tile prevTile = boardModel.getFieldModelAt(prevPos).getTile();
+				for(Integer i : prevTile.pick()){
+					if(i == getSelectedFieldModel().getPosition()){
+						swapTiles(i,gameController.getLastPutTilePosition());
+						gameController.setLastPutTilePosition(i);
+						gameController.setWantMove(false);
+						break;
+					}
+				}
+			}
+			else if(gameController.isWaitingForAccept()){
+				if(getSelectedFieldModel().getPosition() == gameController.getLastPutTilePosition()){
+					gameController.setWantMove(true);
+				}
+				else{
+					gameController.setWantMove(false);
+				}
+			}
 		}
 		gameController.enablePutButtonOrNot();
 		gameController.enableRotateFieldButtonOrNot();
@@ -82,6 +104,9 @@ public class BoardController {
 		}
 		return null;
 	}
+	public Tile getTileAtPosition(int position){
+		return boardModel.getFieldModelAt(position).getTile();
+	}
 	/**
 	 * @param tile
 	 * @param position
@@ -93,6 +118,15 @@ public class BoardController {
 		repaintBoard(this);
 	}
 	
+	public void swapTiles(int position1, int position2){
+		Tile t1 = boardModel.getFieldModelAt(position1).getTile();
+		Tile t2 = boardModel.getFieldModelAt(position2).getTile();
+		
+		boardModel.getFieldModelAt(position1).changeTile(t2);
+		boardModel.getFieldModelAt(position2).changeTile(t1);
+		
+		repaintBoard(this);
+	}
 	public void rotateField(int position){
 		FieldModel fm = boardModel.getFieldModelAt(position);
 		Field f = fm.getTile().getField();

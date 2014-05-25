@@ -24,6 +24,9 @@ public class GameController {
 	private int turns;
 	private boolean sztabTurn;
 	private int endingTurn;
+	private int lastPutTilePosition;
+	private boolean wantMove;
+	private boolean waitForAccept;
 	public GameController(GUIController gui,MainWindowController mwc,List<String>playersNames,List<String> armies){
 		guiController = gui;
 		mainWindowController = mwc;
@@ -32,7 +35,6 @@ public class GameController {
 		for(int i = 0; i<playersNames.size(); i++){
 			players.add(new Player(playersNames.get(i),armies.get(i),boardController.getBoardModel().getBoard()));
 		}
-		turns = 0;
 	}
 	/**
 	 * Starts new game. Is called once during game.
@@ -42,6 +44,9 @@ public class GameController {
 		turns = 0;
 		endingTurn = 0;
 		sztabTurn = true;
+		lastPutTilePosition = -1;
+		waitForAccept = false;
+		wantMove = false;
 		beginTurn();
 	}
 	/**
@@ -166,16 +171,25 @@ public class GameController {
 		Tile t = mainWindowController.getActivePlayerInfo().getAndDeleteSelectedTile();
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.putTileAtPosition(t, position);
-		enablePutButtonOrNot();
+		t.changeSelect();
+		
+		lastPutTilePosition = position;
+		waitForAccept = true;
+		wantMove = false;
+		
+		mainWindowController.setAcceptButtonEnabled(true);
+		mainWindowController.setNextTurnButtonEnabled(false);
+		mainWindowController.setPutButtonEnabled(false);
 	}
+	
 	public void enablePutButtonOrNot(){
 		if(isSztabTurn()){
-			mainWindowController.enablePutButtonOrNot(false);
+			mainWindowController.setPutButtonEnabled(false);
 			return;
 		}
 		Tile t = mainWindowController.getActivePlayerInfo().getSelectedTile();
 		if(boardController.getSelectedFieldModel() == null || t == null){
-			mainWindowController.enablePutButtonOrNot(false);
+			mainWindowController.setPutButtonEnabled(false);
 			return;
 		}
 		
@@ -187,12 +201,12 @@ public class GameController {
 				break;
 			}
 		}
-		mainWindowController.enablePutButtonOrNot(
+		mainWindowController.setPutButtonEnabled(
 				boardController.getSelectedFieldModel() != null && isOnList
 		);
 	}
 	public void enableRotateFieldButtonOrNot(){
-		mainWindowController.enableRotateButtonOrNot(
+		mainWindowController.setRotateButtonEnabled(
 			boardController.getSelectedFieldModel() != null	
 		);
 	}
@@ -202,10 +216,30 @@ public class GameController {
 	}
 	
 	public void acceptTile(){
-		// To do
+		waitForAccept = false;
+		wantMove = false;
+		Tile t = boardController.getTileAtPosition(getLastPutTilePosition());
+		t.put(lastPutTilePosition,t.getRotation());
+		mainWindowController.setNextTurnButtonEnabled(true);
+		mainWindowController.setAcceptButtonEnabled(false);
 	}
 	public void enableAcceptButtonOrNot(){
 		// To do too
+	}
+	public void setWantMove(boolean b){
+		wantMove = b;
+	}
+	public boolean wantToMove(){
+		return wantMove;
+	}
+	public boolean isWaitingForAccept(){
+		return waitForAccept;
+	}
+	public void setLastPutTilePosition(int p){
+		lastPutTilePosition = p;
+	}
+	public int getLastPutTilePosition(){
+		return lastPutTilePosition;
 	}
 	/**
 	 * @return active player

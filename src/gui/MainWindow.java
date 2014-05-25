@@ -22,6 +22,7 @@ public class MainWindow implements Window{
 	private JFrame frame;
 	private JButton btnPutTile;
 	private JButton btnRotateTile;
+	JButton nextTurnButton;
 	private MainWindowController controller;
 	private List<PlayerInfo> playerInfoList;
 	private JButton btnAccept;
@@ -61,14 +62,14 @@ public class MainWindow implements Window{
 		//board.setBounds(12, 12, 496, 550);
 		//contentPane.add(board);
 		
-		JButton newxtTurnButton = new JButton("Next Turn!");
-		newxtTurnButton.addActionListener(new ActionListener() {
+		nextTurnButton = new JButton("Next Turn!");
+		nextTurnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.nextTurn();
 			}
 		});
-		newxtTurnButton.setBounds(536, 24, 117, 25);
-		contentPane.add(newxtTurnButton);
+		nextTurnButton.setBounds(536, 24, 117, 25);
+		contentPane.add(nextTurnButton);
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
@@ -96,7 +97,7 @@ public class MainWindow implements Window{
 		contentPane.add(btnRotateTile);
 		
 		btnAccept = new JButton("Accept");
-		btnRotateTile.addActionListener(new ActionListener() {
+		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.acceptTile();
 			}
@@ -111,18 +112,19 @@ public class MainWindow implements Window{
 		b.setBounds(12, 12, 496, 550);
 		contentPane.add(b);
 	}
-	public void enablePutTile(){
-		btnPutTile.setEnabled(true);
+	public void setPutTileEnabled(boolean b){
+		btnPutTile.setEnabled(b);
 	}
-	public void disablePutTile(){
-		btnPutTile.setEnabled(false);
+	public void setRotateFieldEnabled(boolean b){
+		btnRotateTile.setEnabled(b);
 	}
-	public void enableRotateField(){
-		btnRotateTile.setEnabled(true);
+	public void setNextTurnEnabled(boolean b){
+		nextTurnButton.setEnabled(b);
 	}
-	public void disableRotateField(){
-		btnRotateTile.setEnabled(false);
+	public void setAcceptEnabled(boolean b){
+		btnAccept.setEnabled(b);
 	}
+
 	public void fillPlayersList(List<Player>playersList){
 		playerInfoList = new ArrayList<PlayerInfo>();
 		int[] Y = {150,350};

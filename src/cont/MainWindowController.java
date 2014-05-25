@@ -57,22 +57,19 @@ public class MainWindowController implements WindowController {
 	public void closeGame(){
 		guiController.closeGame();
 	}
-	public void enablePutButtonOrNot(boolean b){
-		if(b){
-			mainWindow.enablePutTile();
-		}
-		else{
-			mainWindow.disablePutTile();
-		}
+	public void setPutButtonEnabled(boolean b){
+		mainWindow.setPutTileEnabled(b);
 	}
-	public void enableRotateButtonOrNot(boolean b){
-		if (b){
-			mainWindow.enableRotateField();
-		}
-		else{
-			mainWindow.disableRotateField();
-		}
+	public void setRotateButtonEnabled(boolean b){
+		mainWindow.setRotateFieldEnabled(b);
 	}
+	public void setNextTurnButtonEnabled(boolean b){
+		mainWindow.setNextTurnEnabled(b);
+	}
+	public void setAcceptButtonEnabled(boolean b){
+		mainWindow.setAcceptEnabled(b);
+	}
+
 	public void addBoard(Board b){
 		mainWindow.addBoard(b);
 	}
