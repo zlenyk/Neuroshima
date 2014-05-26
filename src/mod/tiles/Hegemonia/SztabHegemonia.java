@@ -34,11 +34,11 @@ public class SztabHegemonia extends mod.Unit {
 	
 	public void attack(){
 		if(board[position].neighbours[0]!=null && !board[position].neighbours[0].tile.isSztab())hit(0,1+hitBonus);
-		if(board[position].neighbours[1]!=null && !board[position].neighbours[0].tile.isSztab())hit(1,1+hitBonus);
-		if(board[position].neighbours[2]!=null && !board[position].neighbours[0].tile.isSztab())hit(2,1+hitBonus);
-		if(board[position].neighbours[3]!=null && !board[position].neighbours[0].tile.isSztab())hit(3,1+hitBonus);
-		if(board[position].neighbours[4]!=null && !board[position].neighbours[0].tile.isSztab())hit(4,1+hitBonus);
-		if(board[position].neighbours[5]!=null && !board[position].neighbours[0].tile.isSztab())hit(5,1+hitBonus);
+		if(board[position].neighbours[1]!=null && !board[position].neighbours[1].tile.isSztab())hit(1,1+hitBonus);
+		if(board[position].neighbours[2]!=null && !board[position].neighbours[2].tile.isSztab())hit(2,1+hitBonus);
+		if(board[position].neighbours[3]!=null && !board[position].neighbours[3].tile.isSztab())hit(3,1+hitBonus);
+		if(board[position].neighbours[4]!=null && !board[position].neighbours[4].tile.isSztab())hit(4,1+hitBonus);
+		if(board[position].neighbours[5]!=null && !board[position].neighbours[5].tile.isSztab())hit(5,1+hitBonus);
 	}
 	
 	public void work(int direction){
