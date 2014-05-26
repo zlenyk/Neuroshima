@@ -1,14 +1,14 @@
 package mod.tiles.Moloch;
 
+import gui.Field;
+
 import java.awt.Image;
 
-import cont.board.ImageLoader;
-import gui.Field;
 import mod.FieldModel;
 import mod.Modul;
 import mod.Player;
 import mod.Unit;
-import mod.tiles.empty.Empty;
+import cont.board.ImageLoader;
 
 
 public class Oficer extends Modul {
@@ -34,14 +34,10 @@ public class Oficer extends Modul {
 	}
 	
 	public void stopWork(){
-		if(board[position].neighbours[(0+rotation)%6].getTile() instanceof Unit){
-			((Unit)board[position].neighbours[(0+rotation)%6].getTile()).shootBonus--;
-		}
-		if(board[position].neighbours[(2+rotation)%6].getTile() instanceof Unit){
-			((Unit)board[position].neighbours[(2+rotation)%6].getTile()).shootBonus--;
-		}
-		if(board[position].neighbours[(4+rotation)%6].getTile() instanceof Unit){
-			((Unit)board[position].neighbours[(4+rotation)%6].getTile()).shootBonus--;
+		for(int i = 0; i<6; i+=2){
+			if(board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit){
+				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).shootBonus--;
+			}
 		}
 	}
 	
@@ -49,16 +45,16 @@ public class Oficer extends Modul {
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		this.position=position;
-		if(board[position].neighbours[0]!=null&& !(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[0].getTile().work(3);
-		if(board[position].neighbours[1]!=null&&!(board[position].neighbours[1].getTile() instanceof Empty)) board[position].neighbours[1].getTile().work(4);
-		if(board[position].neighbours[2]!=null&&!(board[position].neighbours[2].getTile() instanceof Empty)) board[position].neighbours[2].getTile().work(5);
-		if(board[position].neighbours[3]!=null&&!(board[position].neighbours[3].getTile() instanceof Empty)) board[position].neighbours[3].getTile().work(0);
-		if(board[position].neighbours[4]!=null&&!(board[position].neighbours[4].getTile() instanceof Empty)) board[position].neighbours[4].getTile().work(1);
-		if(board[position].neighbours[5]!=null&&!(board[position].neighbours[5].getTile() instanceof Empty)) board[position].neighbours[5].getTile().work(2);
-		
-		if(board[position].neighbours[1+rotation]!=null && !(board[position].neighbours[1+rotation].getTile() instanceof Empty)) work(1+rotation); 
-		if(board[position].neighbours[(3+rotation)%6]!=null && !(board[position].neighbours[(3+rotation)%6].getTile() instanceof Empty)) work((3+rotation)%6); 
-		if(board[position].neighbours[(5+rotation)%6]!=null && !(board[position].neighbours[(5+rotation)%6].getTile() instanceof Empty)) work((5+rotation)%6); 
+		for(int i = 0; i<5; i++){
+			if(isGoodNeighbour(i)){
+				board[position].neighbours[0].getTile().work((i+3)%6);
+			}
+		}
+		for(int i = 1; i<6; i+=2){
+			if(isGoodNeighbour(i+rotation)){
+				work((i+rotation)%6); 
+			}
+		}	
 	}
 	
 	@Override

@@ -27,15 +27,16 @@ public class Sieciarz extends Unit {
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		this.position=position;
-		if(board[position].neighbours[0]!=null&& !(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[0].getTile().work(3);
-		if(board[position].neighbours[1]!=null&&!(board[position].neighbours[1].getTile() instanceof Empty)) board[position].neighbours[1].getTile().work(4);
-		if(board[position].neighbours[2]!=null&&!(board[position].neighbours[2].getTile() instanceof Empty)) board[position].neighbours[2].getTile().work(5);
-		if(board[position].neighbours[3]!=null&&!(board[position].neighbours[3].getTile() instanceof Empty)) board[position].neighbours[3].getTile().work(0);
-		if(board[position].neighbours[4]!=null&&!(board[position].neighbours[4].getTile() instanceof Empty)) board[position].neighbours[4].getTile().work(1);
-		if(board[position].neighbours[5]!=null&&!(board[position].neighbours[5].getTile() instanceof Empty)) board[position].neighbours[5].getTile().work(2);
-		
-		if(board[position].neighbours[rotation]!=null&& !(board[position].neighbours[rotation].getTile() instanceof Empty)) work(rotation); 
-		if(board[position].neighbours[(rotation+5)%6]!=null&& !(board[position].neighbours[(rotation+5)%6].getTile() instanceof Empty)) work((rotation+5)%6); 
+		for(int i = 0; i<5; i++){
+			if(isGoodNeighbour(i)){
+				board[position].neighbours[0].getTile().work((i+3)%6);
+			}
+		}
+		for(int i = 0; i<6; i+=5){
+			if(isGoodNeighbour(i+rotation)){
+				work((i+rotation)%6); 
+			}
+		}		
 	}
 	@Override
 	public LinkedList<Integer> pick(){

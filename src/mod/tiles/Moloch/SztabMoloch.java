@@ -21,12 +21,13 @@ public class SztabMoloch extends mod.Unit {
 	
 	
 	public void attack(){
-		if(board[position].neighbours[0]!=null && !board[position].neighbours[0].getTile().isSztab())hit(0,1+hitBonus);
-		if(board[position].neighbours[1]!=null && !board[position].neighbours[0].getTile().isSztab())hit(1,1+hitBonus);
-		if(board[position].neighbours[2]!=null && !board[position].neighbours[0].getTile().isSztab())hit(2,1+hitBonus);
-		if(board[position].neighbours[3]!=null && !board[position].neighbours[0].getTile().isSztab())hit(3,1+hitBonus);
-		if(board[position].neighbours[4]!=null && !board[position].neighbours[0].getTile().isSztab())hit(4,1+hitBonus);
-		if(board[position].neighbours[5]!=null && !board[position].neighbours[0].getTile().isSztab())hit(5,1+hitBonus);
+		for(int i = 0; i<6; i++){
+			if(board[position].neighbours[i]!=null 
+					&& !board[position].neighbours[0].getTile().isSztab()){
+				
+				hit(i,1+hitBonus);
+			}
+		}
 	}
 	
 	public void work(int direction){
@@ -46,15 +47,15 @@ public class SztabMoloch extends mod.Unit {
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		this.position=position;
-		if(board[position].neighbours[0]!=null&& !(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[0].getTile().work(3);
-		if(board[position].neighbours[1]!=null&&!(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[1].getTile().work(4);
-		if(board[position].neighbours[2]!=null&&!(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[2].getTile().work(5);
-		if(board[position].neighbours[3]!=null&&!(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[3].getTile().work(0);
-		if(board[position].neighbours[4]!=null&&!(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[4].getTile().work(1);
-		if(board[position].neighbours[5]!=null&&!(board[position].neighbours[0].getTile() instanceof Empty)) board[position].neighbours[5].getTile().work(2);
+		
+		for(int i = 0; i<6; i++){
+			if(isGoodNeighbour(i)){
+				board[position].neighbours[0].getTile().work((i+3)%6);
+			}
+		}	
 		
 		for(int i =0; i<6; i++){
-			if(board[position].neighbours[i]!=null && !(board[position].neighbours[i].getTile() instanceof Empty)) work(i); 
+			if(isGoodNeighbour(i)) work(i); 
 		}
 	}
 	

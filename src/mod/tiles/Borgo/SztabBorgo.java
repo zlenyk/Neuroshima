@@ -56,7 +56,6 @@ public class SztabBorgo extends Unit {
 			if(isGoodNeighbour(i)){
 				board[position].neighbours[0].getTile().work((i+3)%6);
 			}
-
 		}		
 
 		for(int i =0; i<6; i++){
