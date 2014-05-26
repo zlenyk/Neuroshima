@@ -16,6 +16,7 @@ public class Oficer extends Modul {
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		this.board = board;
+		position = -1;
 		hp = 1;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){

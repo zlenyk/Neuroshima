@@ -29,6 +29,7 @@ public class Snajper extends Tile {
 	}
 	public void put(int position, int rotation){
 		board[position].tile.takeDmg(1);
+		if(board[position].tile.getHp()<=0) board[position].tile.die();
 	}
 
 	@Override

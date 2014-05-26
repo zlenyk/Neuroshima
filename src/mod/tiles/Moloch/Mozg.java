@@ -17,6 +17,7 @@ public class Mozg extends Modul {
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
+		position = -1;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){
 			if(i%2==1)ifWorks[i] = false;
