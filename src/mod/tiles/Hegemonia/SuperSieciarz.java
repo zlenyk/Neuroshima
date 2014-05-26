@@ -33,27 +33,42 @@ public class SuperSieciarz extends Unit {
 	}
 	
 	public void work(int direction){
-		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].tile instanceof Empty) && board[position].neighbours[direction].tile.getOwner()!=this.owner ) board[position].neighbours[direction].tile.netted++; 
+		if(ifWorks[direction]==true 
+				&& isGoodNeighbour(direction)
+				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
+			
+			board[position].neighbours[direction].getTile().netted++; 
+		}
 	}
 	public void stopWork(){
-		if(ifWorks[(rotation+1)%6]==true && board[position].neighbours[(rotation+1)%6]!=null && !(board[position].neighbours[(rotation+1)%6].tile instanceof Empty) && board[position].neighbours[(rotation+1)%6].tile.getOwner()!=this.owner ) board[position].neighbours[(rotation+1)%6].tile.netted--; 
-		if(ifWorks[(rotation+5)%6]==true && board[position].neighbours[(rotation+5)%6]!=null && !(board[position].neighbours[(rotation+5)%6].tile instanceof Empty) && board[position].neighbours[(rotation+5)%6].tile.getOwner()!=this.owner ) board[position].neighbours[(rotation+5)%6].tile.netted--; 
+		if(ifWorks[(rotation+1)%6]==true 
+				&& isGoodNeighbour((rotation+1)%6)
+				&& board[position].neighbours[(rotation+1)%6].getTile().getOwner()!=this.owner ){
+			
+			board[position].neighbours[(rotation+1)%6].getTile().netted--; 
+		}
+		if(ifWorks[(rotation+5)%6]==true 
+				&& isGoodNeighbour((rotation+5)%6)
+				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner ){
+			
+			board[position].neighbours[(rotation+5)%6].getTile().netted--; 
+		}
 	}
 	@Override
 	public void put(int position, int rotation){
 		this.rotation = rotation;
-		board[position].tile = this;
 		this.position=position;
-		if(board[position].neighbours[0]!=null&& !(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[0].tile.work(3);
-		if(board[position].neighbours[1]!=null&&!(board[position].neighbours[1].tile instanceof Empty)) board[position].neighbours[1].tile.work(4);
-		if(board[position].neighbours[2]!=null&&!(board[position].neighbours[2].tile instanceof Empty)) board[position].neighbours[2].tile.work(5);
-		if(board[position].neighbours[3]!=null&&!(board[position].neighbours[3].tile instanceof Empty)) board[position].neighbours[3].tile.work(0);
-		if(board[position].neighbours[4]!=null&&!(board[position].neighbours[4].tile instanceof Empty)) board[position].neighbours[4].tile.work(1);
-		if(board[position].neighbours[5]!=null&&!(board[position].neighbours[5].tile instanceof Empty)) board[position].neighbours[5].tile.work(2);
-		
-		if(board[position].neighbours[(rotation+1)%6]!=null&& !(board[position].neighbours[(rotation+1)%6].tile instanceof Empty)) work((rotation+1)%6); 
-		if(board[position].neighbours[(rotation+5)%6]!=null&& !(board[position].neighbours[(rotation+5)%6].tile instanceof Empty)) work((rotation+5)%6); 
-		
+		for(int i = 0; i<6; i++){
+			if(isGoodNeighbour(i)){
+				board[position].neighbours[i].getTile().work((i+3)%6);
+			}
+		}		
+		if(isGoodNeighbour((rotation+1)%6)){
+			work((rotation+1)%6); 
+		}
+		if(isGoodNeighbour((rotation+5)%6)){
+			work((rotation+5)%6); 
+		}		
 	}
 	@Override
 	public LinkedList<Integer> pick(){
@@ -61,7 +76,7 @@ public class SuperSieciarz extends Unit {
 		if(position == -1){
 			for(int i=0;i<21;i++){
 				if(i!=1&&i!=19){
-					if(board[i].tile instanceof Empty) whereCanPut.add(i);
+					if(board[i].getTile() instanceof Empty) whereCanPut.add(i);
 				}
 				
 			}
@@ -73,7 +88,9 @@ public class SuperSieciarz extends Unit {
 			initiativeBonus = 0;
 			hitBonus = 0;
 			for(int i=0;i<6;i++){
-				if(board[position].neighbours[i]!=null && board[position].neighbours[i].tile instanceof Empty) whereCanPut.add(board[position].neighbours[i].position);
+				if(isGoodNeighbour(i)){
+					whereCanPut.add(board[position].neighbours[i].getPosition());
+				}
 			}
 			
 		}

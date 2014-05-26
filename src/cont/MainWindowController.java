@@ -39,6 +39,10 @@ public class MainWindowController implements WindowController {
 		return mw.getController();
 	}
 
+	/**
+	 * @param playersList
+	 * Creates content for PlayerInfo panels.
+	 */
 	public void fillPlayersInfo(List<Player> playersList){
 		mainWindow.fillPlayersList(playersList);
 	}
@@ -57,22 +61,15 @@ public class MainWindowController implements WindowController {
 	public void closeGame(){
 		guiController.closeGame();
 	}
-	public void setPutButtonEnabled(boolean b){
-		mainWindow.setPutTileEnabled(b);
-	}
-	public void setRotateButtonEnabled(boolean b){
-		mainWindow.setRotateFieldEnabled(b);
-	}
-	public void setNextTurnButtonEnabled(boolean b){
-		mainWindow.setNextTurnEnabled(b);
-	}
-	public void setAcceptButtonEnabled(boolean b){
-		mainWindow.setAcceptEnabled(b);
-	}
 
 	public void addBoard(Board b){
 		mainWindow.addBoard(b);
 	}
+	/**
+	 * @param player
+	 * @param tileList
+	 * Sends tiles in tileList to PlayerInfo panel that belongs to "player".
+	 */
 	public void givePlayerTiles(Player player,List<Tile> tileList){
 		PlayerInfo pi = null;
 		for(PlayerInfo p : mainWindow.getPlayerInfoList()){
@@ -93,11 +90,17 @@ public class MainWindowController implements WindowController {
 	public void acceptTile(){
 		gameController.acceptTile();
 	}
+	/**
+	 * Refreshes information about player(like hp of Sztab tile, TIles left)
+	 */
 	public void refreshPlayerInfo(){
 		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
 			pi.refreshText();
 		}
 	}
+	/**
+	 * @return PlayerInfo that belongs to the active player.
+	 */
 	public PlayerInfo getActivePlayerInfo(){
 		Player p = gameController.getActivePlayer();
 		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
@@ -107,16 +110,27 @@ public class MainWindowController implements WindowController {
 		}
 		return null;
 	}
+	
+	public void setPutButtonEnabled(boolean b){
+		mainWindow.setPutTileEnabled(b);
+	}
+	public void setRotateButtonEnabled(boolean b){
+		mainWindow.setRotateFieldEnabled(b);
+	}
+	public void setNextTurnButtonEnabled(boolean b){
+		mainWindow.setNextTurnEnabled(b);
+	}
+	public void setAcceptButtonEnabled(boolean b){
+		mainWindow.setAcceptEnabled(b);
+	}
 	@Override
 	public void show() {
 		mainWindow.getFrame().setVisible(true);
 	}
-
 	@Override
 	public void hide() {
 		mainWindow.getFrame().setVisible(false);
 	}
-
 	@Override
 	public void repaint() {
 		mainWindow.getFrame().repaint();

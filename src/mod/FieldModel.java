@@ -7,8 +7,8 @@ import java.awt.Rectangle;
 
 public class FieldModel {
 	public FieldModel neighbours[];
-	public Tile tile;
-	public int position;
+	private Tile tile;
+	private int position;
 	private Polygon polygon;
 	private Point location;
 

@@ -30,14 +30,19 @@ public LinkedList<Integer> pick(){
 }
 @Override
 public void put(int position, int rotation){
-	if(!(board[position].tile instanceof Empty) && !board[position].tile.isSztab()){
-		board[position].tile.takeDmg(1);
-		if(board[position].tile.getHp()<=0) board[position].tile.die();
+	if(!(board[position].getTile() instanceof Empty) && !board[position].getTile().isSztab()){
+		board[position].getTile().takeDmg(1);
+		if(board[position].getTile().getHp()<=0) board[position].getTile().die();
 	}
 	for(int i=0;i<6;i++){
-		if(!(board[position].neighbours[i].tile instanceof Empty) && !board[position].neighbours[i].tile.isSztab()){
-			board[position].neighbours[i].tile.takeDmg(1);
-			if(board[position].neighbours[i].tile.getHp()<=0) board[position].neighbours[i].tile.die();
+		if(!(board[position].neighbours[i].getTile() instanceof Empty) 
+				&& !board[position].neighbours[i].getTile().isSztab()){
+			
+			board[position].neighbours[i].getTile().takeDmg(1);
+			
+			if(board[position].neighbours[i].getTile().getHp()<=0){
+				board[position].neighbours[i].getTile().die();
+			}
 		}
 	}
 }

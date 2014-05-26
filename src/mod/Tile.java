@@ -56,7 +56,7 @@ public abstract class Tile {
 	public abstract Image getSelectedImage();
 	public void die(){
 		if(netted<=0) stopWork();
-		board[position].tile = new Empty();
+		board[position].changeTile(new Empty());
 	}
 	public boolean isNetted(){
 		if(netted==0) return false;
@@ -68,6 +68,11 @@ public abstract class Tile {
 	}
 	public boolean isInstant(){
 		return true;
+	}
+	
+	protected boolean isGoodNeighbour(int index){
+		return board[position].neighbours[index]!=null 
+				&& !(board[position].neighbours[index].getTile() instanceof Empty);
 	}
 	
 	

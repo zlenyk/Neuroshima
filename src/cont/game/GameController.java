@@ -116,17 +116,17 @@ public class GameController {
 		FieldModel[] board = boardController.getBoardModel().getBoard();
 		int initiative = 0;
 		for(int i = 0; i<21; i++){
-			if(i!=1 && i!=19 && board[i].tile instanceof Unit && ((Unit)board[i].tile).getBiggestInitiative()>initiative) initiative = ((Unit)board[i].tile).getBiggestInitiative();
+			if(i!=1 && i!=19 && board[i].getTile() instanceof Unit && ((Unit)board[i].getTile()).getBiggestInitiative()>initiative) initiative = ((Unit)board[i].getTile()).getBiggestInitiative();
 		}
 		while(initiative>=0){
 			guiController.showMessage(MessageBuilder.actuallyInitiative(initiative));
 			for(int i = 0; i<21; i++){
-				if(i!=1 && i!=19 && board[i].tile instanceof Unit && ((Unit)board[i].tile).initiative.contains(initiative-((Unit)board[i].tile).initiativeBonus)){
-					if(!board[i].tile.isNetted())((Unit)board[i].tile).attack();
+				if(i!=1 && i!=19 && board[i].getTile() instanceof Unit && ((Unit)board[i].getTile()).initiative.contains(initiative-((Unit)board[i].getTile()).initiativeBonus)){
+					if(!board[i].getTile().isNetted())((Unit)board[i].getTile()).attack();
 				}
 			}
 			for(int i = 0; i<21; i++){
-				if(i!=1 && i!=19 && !(board[i].tile instanceof mod.tiles.empty.Empty) && board[i].tile.getHp() <= 0) board[i].tile.die();
+				if(i!=1 && i!=19 && !(board[i].getTile() instanceof mod.tiles.empty.Empty) && board[i].getTile().getHp() <= 0) board[i].getTile().die();
 			}	
 			initiative--;
 		}
@@ -134,7 +134,7 @@ public class GameController {
 	private boolean isBattle(){
 		FieldModel[] board = boardController.getBoardModel().getBoard();
 		for(int i = 0; i<21; i++){
-			if(i!=1 && i!=19 && board[i].tile instanceof mod.tiles.empty.Empty) return false;
+			if(i!=1 && i!=19 && board[i].getTile() instanceof mod.tiles.empty.Empty) return false;
 		}
 		return true;
 	}

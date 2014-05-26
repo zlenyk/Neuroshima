@@ -5,11 +5,10 @@ import gui.Field;
 import java.awt.Image;
 import java.util.LinkedList;
 
-import cont.board.ImageLoader;
 import mod.FieldModel;
 import mod.Player;
 import mod.Tile;
-import mod.tiles.empty.Empty;
+import cont.board.ImageLoader;
 
 public class Granat extends Tile {
 	public Granat(Player owner, FieldModel board[]){
@@ -23,16 +22,16 @@ public class Granat extends Tile {
 		position = owner.getSztab().position;
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<6;i++){
-			if(board[position].neighbours[i]!=null && !(board[position].neighbours[i].tile instanceof Empty) && !board[position].neighbours[i].tile.isSztab()){
-				whereCanPut.add(board[position].neighbours[i].position);
+			if(isGoodNeighbour(i) && !board[position].neighbours[i].getTile().isSztab()){
+				whereCanPut.add(board[position].neighbours[i].getPosition());
 			}
 		}
 		return whereCanPut;
 	}
 	@Override
 	public void put(int position, int rotation){
-		board[position].tile.takeDmg(10);
-		if(board[position].tile.getHp()<=0) board[position].tile.die();
+		board[position].getTile().takeDmg(10);
+		if(board[position].getTile().getHp()<=0) board[position].getTile().die();
 	}
 
 	@Override

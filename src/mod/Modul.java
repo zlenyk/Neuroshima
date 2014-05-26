@@ -12,7 +12,6 @@ public abstract class Modul extends Tile {
 	@Override
 	public void put(int position, int rotation){
 		this.rotation = rotation;
-		board[position].tile = this;
 		this.position=position;
 		for(int i=0;i<6;i++){
 			if(ifWorks[i]==true) work(i);
@@ -26,7 +25,7 @@ public abstract class Modul extends Tile {
 		if(position == -1){
 			for(int i=0;i<21;i++){
 				if(i!=1&&i!=19){
-					if(board[i].tile instanceof Empty) whereCanPut.add(i);
+					if(board[i].getTile() instanceof Empty) whereCanPut.add(i);
 				}
 				
 			}
@@ -35,7 +34,7 @@ public abstract class Modul extends Tile {
 			stopWork();
 			netted = 0;
 			for(int i=0;i<6;i++){
-				if(board[position].neighbours[i]!=null && board[position].neighbours[i].tile instanceof Empty) whereCanPut.add(board[position].neighbours[i].position);
+				if(board[position].neighbours[i]!=null && board[position].neighbours[i].getTile() instanceof Empty) whereCanPut.add(board[position].neighbours[i].getPosition());
 			}
 			
 		}
@@ -45,14 +44,12 @@ public abstract class Modul extends Tile {
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public Image getSelectedImage() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -22,14 +22,19 @@ public class Snajper extends Tile {
 		LinkedList<Integer> whereCanPut = new LinkedList<Integer>();
 		for(int i=0;i<21;i++){
 			if(i!=1 && i!=19){
-				if(!(board[i].tile instanceof Empty) && !board[i].tile.isSztab() && board[i].tile.getOwner()!=this.owner) whereCanPut.add(board[i].position);
+				if(!(board[i].getTile() instanceof Empty) 
+						&& !board[i].getTile().isSztab() 
+						&& board[i].getTile().getOwner()!=this.owner){
+					
+					whereCanPut.add(board[i].getPosition());
+				}
 			}
 		}
 		return whereCanPut;
 	}
 	public void put(int position, int rotation){
-		board[position].tile.takeDmg(1);
-		if(board[position].tile.getHp()<=0) board[position].tile.die();
+		board[position].getTile().takeDmg(1);
+		if(board[position].getTile().getHp()<=0) board[position].getTile().die();
 	}
 
 	@Override
