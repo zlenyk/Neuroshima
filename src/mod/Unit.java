@@ -1,5 +1,7 @@
 package mod;
 
+import gui.Field;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +17,24 @@ public abstract class Unit extends Tile {
 	public int hitBonus;
 	public int initiativeBonus;
 		
+	protected Unit(Player owner, FieldModel[] board){
+		this.owner = owner;
+		this.board = board;
+		
+		field = new Field(getImage(),getSelectedImage());
+		shield = new boolean[6];
+		ifWorks = new boolean[6];
+		initiative = new LinkedList<Integer>();
+		
+		for(int i=0;i<6;i++) shield[i] = false;
+		for(int i=1;i<6;i++) ifWorks[i] = false;
+
+		position = -1;
+		netted = 0;
+		shootBonus = 0;
+		hitBonus = 0;
+		initiativeBonus = 0;
+	}
 	protected void shoot(int direction,int power){
 		while(board[position].neighbours[direction]!=null){
 			if(!(board[position].neighbours[direction].getTile() instanceof Empty) && board[position].neighbours[direction].getTile().owner!=this.owner){

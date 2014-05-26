@@ -11,19 +11,16 @@ public class Empty extends mod.Tile {
 		field = new Field(getImage(),getSelectedImage());
 	}
 
+	@Override
+	public Image getImage() {
+		return ImageLoader.Empty.empty();
+	}
 
-@Override
-public Image getImage() {
-	return ImageLoader.Empty.empty();
-}
-
-@Override
-public Image getSelectedImage() {
-	return ImageLoader.Empty.emptySelected();
-}
-
-
-@Override
-public void put(int position, int rotation) {}
+	@Override
+	public Image getSelectedImage() {
+		return ImageLoader.Empty.emptySelected();
+	}
+	@Override
+	public void put(int position, int rotation) {}
 
 }

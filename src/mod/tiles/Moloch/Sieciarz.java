@@ -1,33 +1,20 @@
 package mod.tiles.Moloch;
 
-import gui.Field;
-
 import java.awt.Image;
-
-import cont.board.ImageLoader;
-
 import java.util.LinkedList;
 
 import mod.FieldModel;
 import mod.Player;
 import mod.Unit;
 import mod.tiles.empty.Empty;
+import cont.board.ImageLoader;
 
 public class Sieciarz extends Unit {
 	Sieciarz(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
-		this.owner = owner;
-		position = -1;
-		this.board = board;
-		hp = 1;
-		shield = new boolean[6];
-		for(int i=0; i<6; i++)	shield[i] = false;
-		ifWorks = new boolean[6];
+		super(owner,board);
+		hp=1;
 		ifWorks[0] = true;
-		for(int i=1;i<6;i++) ifWorks[i] = false;
 		ifWorks[5] = true;
-		netted = 0;
-		initiative = new LinkedList<Integer>();
 	}
 	public void work(int direction){
 		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].getTile() instanceof Empty) && board[position].neighbours[direction].getTile().getOwner()!=this.owner ) board[position].neighbours[direction].getTile().netted++; 
