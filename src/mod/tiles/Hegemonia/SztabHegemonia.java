@@ -21,11 +21,13 @@ public class SztabHegemonia extends mod.Unit {
 	
 	
 	public void attack(){
+
 		for(int i = 0; i<6; i++){
 			if(board[position].neighbours[i]!=null && !board[position].neighbours[0].getTile().isSztab()){
 				hit(i,1+hitBonus);
 			}
 		}
+
 	}
 	
 	public void work(int direction){

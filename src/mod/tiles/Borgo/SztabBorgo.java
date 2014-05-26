@@ -58,6 +58,7 @@ public class SztabBorgo extends Unit {
 			}
 
 		}		
+
 		for(int i =0; i<6; i++){
 			if(isGoodNeighbour(i)){
 				work(i); 

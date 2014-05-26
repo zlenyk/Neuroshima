@@ -27,6 +27,7 @@ public class SztabPosterunek extends mod.Unit {
 		if(board[position].neighbours[3]!=null && !board[position].neighbours[0].getTile().isSztab())hit(3,1+hitBonus);
 		if(board[position].neighbours[4]!=null && !board[position].neighbours[0].getTile().isSztab())hit(4,1+hitBonus);
 		if(board[position].neighbours[5]!=null && !board[position].neighbours[0].getTile().isSztab())hit(5,1+hitBonus);
+
 	}
 	
 	public void work(int direction){
