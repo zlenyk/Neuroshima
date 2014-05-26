@@ -41,11 +41,11 @@ public class Sieciarz extends Unit {
 		board[position].tile = this;
 		this.position=position;
 		if(board[position].neighbours[0]!=null&& !(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[0].tile.work(3);
-		if(board[position].neighbours[1]!=null&&!(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[1].tile.work(4);
-		if(board[position].neighbours[2]!=null&&!(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[2].tile.work(5);
-		if(board[position].neighbours[3]!=null&&!(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[3].tile.work(0);
-		if(board[position].neighbours[4]!=null&&!(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[4].tile.work(1);
-		if(board[position].neighbours[5]!=null&&!(board[position].neighbours[0].tile instanceof Empty)) board[position].neighbours[5].tile.work(2);
+		if(board[position].neighbours[1]!=null&&!(board[position].neighbours[1].tile instanceof Empty)) board[position].neighbours[1].tile.work(4);
+		if(board[position].neighbours[2]!=null&&!(board[position].neighbours[2].tile instanceof Empty)) board[position].neighbours[2].tile.work(5);
+		if(board[position].neighbours[3]!=null&&!(board[position].neighbours[3].tile instanceof Empty)) board[position].neighbours[3].tile.work(0);
+		if(board[position].neighbours[4]!=null&&!(board[position].neighbours[4].tile instanceof Empty)) board[position].neighbours[4].tile.work(1);
+		if(board[position].neighbours[5]!=null&&!(board[position].neighbours[5].tile instanceof Empty)) board[position].neighbours[5].tile.work(2);
 		
 		if(board[position].neighbours[rotation]!=null&& !(board[position].neighbours[rotation].tile instanceof Empty)) work(rotation); 
 	}
