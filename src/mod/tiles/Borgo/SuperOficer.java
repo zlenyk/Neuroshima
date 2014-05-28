@@ -1,4 +1,4 @@
-package mod.tiles.Moloch;
+package mod.tiles.Borgo;
 
 import gui.Field;
 
@@ -11,18 +11,20 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 
-public class Mozg extends Modul {
-	public Mozg(Player owner, FieldModel board[]){
+public class SuperOficer extends Modul {
+	public SuperOficer(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		this.board = board;
-		hp = 1;
+		hp = 2;
 		netted = 0;
 		position = -1;
 		ifWorks = new boolean[6];
-		for(int i=0;i<6;i++){
-			if(i%2==1)ifWorks[i] = false;
-			else ifWorks[i] = true;
+		for(int i=5;i!=2;i=(i+1)%6){
+			 ifWorks[i] = true;
+		}
+		for(int i=2;i<5;i++){
+			 ifWorks[i] = false;
 		}
 		
 	}
@@ -31,16 +33,14 @@ public class Mozg extends Modul {
 		if(ifWorks[(direction+rotation)%6]==true){
 			if(board[position].neighbours[(direction+rotation)%6].getTile() instanceof Unit){
 				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).hitBonus++;
-				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).shootBonus++;
 			}
 		}
 	}
 	
 	public void stopWork(){
-		for(int i = 0; i<6; i+=2){
+		for(int i=5;i!=2;i=(i+1)%6){
 			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).hitBonus--;
-				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).shootBonus--;
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class Mozg extends Modul {
 				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
-		for(int i = 0; i<6; i+=2){
+		for(int i=5;i!=2;i=(i+1)%6){
 			if(isGoodNeighbour((i+rotation)%6)){
 				work((i+rotation)%6); 
 			}
@@ -64,12 +64,12 @@ public class Mozg extends Modul {
 	
 	@Override
 	public Image getImage() {
-		return ImageLoader.Moloch.mozg();
+		return ImageLoader.Borgo.superoficer();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		return ImageLoader.Moloch.mozgSelected();
+		return ImageLoader.Borgo.superoficerSelected();
 	}
 	
 }

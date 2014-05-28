@@ -17,19 +17,19 @@ public class Sieciarz extends Unit {
 		ifWorks[5] = true;
 	}
 	public void work(int direction){
-		if(ifWorks[direction]==true && board[position].neighbours[direction]!=null && !(board[position].neighbours[direction].getTile() instanceof Empty) && board[position].neighbours[direction].getTile().getOwner()!=this.owner ) board[position].neighbours[direction].getTile().netted++; 
+		if(ifWorks[direction]==true && isGoodNeighbour(direction) && board[position].neighbours[direction].getTile().getOwner()!=this.owner ) board[position].neighbours[direction].getTile().netted++; 
 	}
 	public void stopWork(){
-		if(ifWorks[rotation]==true && board[position].neighbours[rotation]!=null && !(board[position].neighbours[rotation].getTile() instanceof Empty) && board[position].neighbours[rotation].getTile().getOwner()!=this.owner ) board[position].neighbours[rotation].getTile().netted--; 
-		if(ifWorks[(rotation+5)%6]==true && board[position].neighbours[(rotation+5)%6]!=null && !(board[position].neighbours[(rotation+5)%6].getTile() instanceof Empty) && board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner ) board[position].neighbours[(rotation+5)%6].getTile().netted--; 
+		if(isGoodNeighbour(rotation) && board[position].neighbours[rotation].getTile().getOwner()!=this.owner ) board[position].neighbours[rotation].getTile().netted--; 
+		if(isGoodNeighbour((rotation+5)%6) && board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner ) board[position].neighbours[(rotation+5)%6].getTile().netted--; 
 	}
 	@Override
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		this.position=position;
-		for(int i = 0; i<5; i++){
+		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i)){
-				board[position].neighbours[0].getTile().work((i+3)%6);
+				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
 		for(int i = 0; i<6; i+=5){

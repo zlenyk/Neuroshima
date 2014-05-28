@@ -11,8 +11,8 @@ import mod.Unit;
 import cont.board.ImageLoader;
 
 
-public class Mozg extends Modul {
-	public Mozg(Player owner, FieldModel board[]){
+public class Zwiadowca extends Modul {
+	public Zwiadowca(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		this.board = board;
@@ -30,8 +30,7 @@ public class Mozg extends Modul {
 	public void work(int direction){
 		if(ifWorks[(direction+rotation)%6]==true){
 			if(board[position].neighbours[(direction+rotation)%6].getTile() instanceof Unit){
-				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).hitBonus++;
-				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).shootBonus++;
+				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).initiativeBonus++;
 			}
 		}
 	}
@@ -39,8 +38,7 @@ public class Mozg extends Modul {
 	public void stopWork(){
 		for(int i = 0; i<6; i+=2){
 			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit){
-				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).hitBonus--;
-				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).shootBonus--;
+				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).initiativeBonus--;
 			}
 		}
 	}
@@ -64,12 +62,12 @@ public class Mozg extends Modul {
 	
 	@Override
 	public Image getImage() {
-		return ImageLoader.Moloch.mozg();
+		return ImageLoader.Moloch.zwiadowca();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		return ImageLoader.Moloch.mozgSelected();
+		return ImageLoader.Moloch.zwiadowcaSelected();
 	}
 	
 }

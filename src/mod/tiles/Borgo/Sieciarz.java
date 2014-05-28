@@ -25,8 +25,7 @@ public class Sieciarz extends Unit {
 		}
 	}
 	public void stopWork(){
-		if(ifWorks[rotation]==true 
-				&& isGoodNeighbour(rotation) 
+		if(isGoodNeighbour(rotation) 
 				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[rotation].getTile().netted--; 

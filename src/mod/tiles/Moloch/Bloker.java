@@ -10,7 +10,7 @@ import cont.board.ImageLoader;
 public class Bloker extends Unit {
 	Bloker(Player owner, FieldModel board[]){
 		super(owner,board);
-		hp=2;
+		hp=3;
 
 		shield[0] = true;
 	}

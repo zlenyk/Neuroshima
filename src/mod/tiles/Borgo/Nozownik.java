@@ -16,7 +16,7 @@ public class Nozownik extends Unit {
 
 	public void attack(){
 		hit(0+rotation,1+hitBonus);
-		hit(5+rotation, 1+hitBonus);
+		hit((5+rotation)%6, 1+hitBonus);
 	}
 	
 	@Override

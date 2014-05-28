@@ -16,8 +16,8 @@ public class Obronca extends Unit {
 	
 	public void attack(){
 		shoot(0+rotation, 1+shootBonus);
-		shoot(1+rotation, 1+shootBonus);
-		shoot(5+rotation, 1+shootBonus);
+		shoot((1+rotation)%6, 1+shootBonus);
+		shoot((5+rotation)%6, 1+shootBonus);
 	}
 
 	@Override

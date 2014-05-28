@@ -18,9 +18,10 @@ public class Oficer extends Modul {
 		this.board = board;
 		position = -1;
 		hp = 1;
+		netted = 0;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){
-			if(i%2==1)ifWorks[i] = false;
+			if(i%2==0)ifWorks[i] = false;
 			else ifWorks[i] = true;
 		}
 		
@@ -45,9 +46,9 @@ public class Oficer extends Modul {
 	public void put(int position, int rotation){
 		this.rotation = rotation;
 		this.position=position;
-		for(int i = 0; i<5; i++){
+		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i)){
-				board[position].neighbours[0].getTile().work((i+3)%6);
+				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
 		for(int i = 1; i<6; i+=2){

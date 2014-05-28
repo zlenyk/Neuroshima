@@ -20,7 +20,7 @@ public class Juggernaut extends Unit{
 		}
 	}
 	public void attack(){
-		shoot(1+rotation,1+shootBonus);
+		shoot((1+rotation)%6,1+shootBonus);
 		hit(0+rotation,2+hitBonus);
 	}
 	@Override

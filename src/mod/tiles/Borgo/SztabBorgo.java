@@ -20,7 +20,7 @@ public class SztabBorgo extends Unit {
 	
 	public void attack(){
 		for(int i = 0; i<6; i++){
-			if(board[position].neighbours[i]!=null 
+			if(isGoodNeighbour(i) 
 					&& !board[position].neighbours[i].getTile().isSztab()){
 				
 				hit(i,1+hitBonus);
@@ -54,7 +54,7 @@ public class SztabBorgo extends Unit {
 		this.position=position;
 		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i)){
-				board[position].neighbours[0].getTile().work((i+3)%6);
+				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}		
 
