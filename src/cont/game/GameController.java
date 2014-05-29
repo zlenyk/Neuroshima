@@ -131,7 +131,8 @@ public class GameController {
 				if(i!=1 && i!=19 && !(board[i].getTile() instanceof mod.tiles.empty.Empty) && board[i].getTile().getHp() <= 0) board[i].getTile().die();
 			}	
 			initiative--;
-			//odswiezenie wygladu planszy
+			boardController.repaintBoard(boardController);
+			
 		}
 	}
 	private boolean isBattle(){
@@ -222,7 +223,7 @@ public class GameController {
 		waitForAccept = false;
 		wantMove = false;
 		Tile t = boardController.getTileAtPosition(getLastPutTilePosition());
-		t.put(lastPutTilePosition,t.getRotation());
+		t.put(lastPutTilePosition,t.getField().getRotation());
 		mainWindowController.setNextTurnButtonEnabled(true);
 		mainWindowController.setAcceptButtonEnabled(false);
 	}

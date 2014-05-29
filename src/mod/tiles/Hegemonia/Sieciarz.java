@@ -22,11 +22,21 @@ public class Sieciarz extends Unit {
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[direction].getTile().netted++; 
+			if(board[position].neighbours[direction].getTile().netted==1) board[position].neighbours[direction].getTile().stopWork();
+
 		}
 	}
 	public void stopWork(){
 		if(isGoodNeighbour(rotation)
-				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner ) board[position].neighbours[rotation].getTile().netted--; 
+				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner ){
+			
+			board[position].neighbours[rotation].getTile().netted--; 
+			if(board[position].neighbours[rotation].getTile().netted==0){
+				for(int i=0; i<6;i++) board[position].neighbours[rotation].getTile().work(i);
+			}
+		}
+			
+		
 	}
 	@Override
 	public void put(int position, int rotation){

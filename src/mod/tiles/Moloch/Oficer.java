@@ -28,7 +28,7 @@ public class Oficer extends Modul {
 	}
 	public void work(int direction){
 		if(ifWorks[(6+direction-rotation)%6]==true){
-			if(board[position].neighbours[direction].getTile() instanceof Unit){
+			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[direction].getTile()).shootBonus++;
 			}
 		}
@@ -36,7 +36,7 @@ public class Oficer extends Modul {
 	
 	public void stopWork(){
 		for(int i = 0; i<6; i+=2){
-			if(board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit){
+			if(board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).shootBonus--;
 			}
 		}

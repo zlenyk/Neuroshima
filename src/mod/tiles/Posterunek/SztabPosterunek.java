@@ -37,7 +37,7 @@ public class SztabPosterunek extends mod.Unit {
 	public void stopWork(){
 		for(int i=0; i<6; i++){
 			if(board[position].neighbours[i]!=null && board[position].neighbours[i].getTile() instanceof Unit && board[position].neighbours[i].getTile().getOwner()==this.owner ) 
-				((Unit)board[position].neighbours[i].getTile()).initiative.add(((Unit)board[position].neighbours[i].getTile()).initiative.get(((Unit)board[position].neighbours[i].getTile()).initiative.size()-1)-1); 
+				((Unit)board[position].neighbours[i].getTile()).initiative.remove(((Unit)board[position].neighbours[i].getTile()).initiative.size()-1);
 		}
 	}
 	

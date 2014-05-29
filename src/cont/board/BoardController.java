@@ -118,7 +118,7 @@ public class BoardController {
 		if(!tile.isInstant()){
 			fm.changeTile(tile);
 		}
-		tile.put(position, tile.getRotation());
+		if(tile.isInstant() || tile.isSztab()) tile.put(position, 0);
 		repaintBoard(this);
 	}
 	

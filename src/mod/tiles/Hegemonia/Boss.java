@@ -1,18 +1,17 @@
-package mod.tiles.Borgo;
+package mod.tiles.Hegemonia;
 
 import gui.Field;
 
 import java.awt.Image;
 
+import cont.board.ImageLoader;
 import mod.FieldModel;
 import mod.Modul;
 import mod.Player;
 import mod.Unit;
-import cont.board.ImageLoader;
 
-
-public class Oficer extends Modul {
-	public Oficer(Player owner, FieldModel board[]){
+public class Boss extends Modul {
+	public Boss(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		this.board = board;
@@ -20,10 +19,10 @@ public class Oficer extends Modul {
 		netted = 0;
 		position = -1;
 		ifWorks = new boolean[6];
-		for(int i=5;i!=2;i=(i+1)%6){
+		for(int i=5;i!=1;i=(i+1)%6){
 			 ifWorks[i] = true;
 		}
-		for(int i=2;i<5;i++){
+		for(int i=1;i<5;i++){
 			 ifWorks[i] = false;
 		}
 		
@@ -33,14 +32,16 @@ public class Oficer extends Modul {
 		if(ifWorks[(6+direction-rotation)%6]==true){
 			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[direction].getTile()).hitBonus++;
+				((Unit)board[position].neighbours[direction].getTile()).initiativeBonus++;
 			}
 		}
 	}
 	
 	public void stopWork(){
-		for(int i=5;i!=2;i=(i+1)%6){
+		for(int i=5;i!=1;i=(i+1)%6){
 			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).hitBonus--;
+				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).initiativeBonus--;
 			}
 		}
 	}
@@ -54,22 +55,20 @@ public class Oficer extends Modul {
 				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
-		for(int i=5;i!=2;i=(i+1)%6){
+		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour((i+rotation)%6)){
 				work((i+rotation)%6); 
 			}
 		}
 	}
 	
-	
 	@Override
 	public Image getImage() {
-		return ImageLoader.Borgo.oficer();
+		return ImageLoader.Hegemonia.boss();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		return ImageLoader.Borgo.oficerSelected();
+		return ImageLoader.Hegemonia.bossSelected();
 	}
-	
 }

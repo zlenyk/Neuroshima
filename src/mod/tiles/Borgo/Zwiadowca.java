@@ -31,7 +31,7 @@ public class Zwiadowca extends Modul {
 	
 	public void work(int direction){
 		if(ifWorks[(6+direction-rotation)%6]==true){
-			if(board[position].neighbours[direction].getTile() instanceof Unit){
+			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[direction].getTile()).initiativeBonus++;
 			}
 		}
@@ -39,7 +39,7 @@ public class Zwiadowca extends Modul {
 	
 	public void stopWork(){
 		for(int i=5;i!=2;i=(i+1)%6){
-			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit){
+			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).initiativeBonus--;
 			}
 		}

@@ -1,4 +1,4 @@
-package mod.tiles.Borgo;
+package mod.tiles.Hegemonia;
 
 import gui.Field;
 
@@ -10,9 +10,8 @@ import mod.Player;
 import mod.Unit;
 import cont.board.ImageLoader;
 
-
-public class Oficer extends Modul {
-	public Oficer(Player owner, FieldModel board[]){
+public class Oficer2 extends Modul {
+	public Oficer2(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		this.board = board;
@@ -54,22 +53,20 @@ public class Oficer extends Modul {
 				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
-		for(int i=5;i!=2;i=(i+1)%6){
+		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour((i+rotation)%6)){
 				work((i+rotation)%6); 
 			}
 		}
 	}
 	
-	
 	@Override
 	public Image getImage() {
-		return ImageLoader.Borgo.oficer();
+		return ImageLoader.Hegemonia.oficer2();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		return ImageLoader.Borgo.oficerSelected();
+		return ImageLoader.Hegemonia.oficer2Selected();
 	}
-	
 }

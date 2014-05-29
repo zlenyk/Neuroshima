@@ -1,4 +1,4 @@
-package mod.tiles.Borgo;
+package mod.tiles.Posterunek;
 
 import gui.Field;
 
@@ -10,9 +10,8 @@ import mod.Player;
 import mod.Unit;
 import cont.board.ImageLoader;
 
-
-public class Oficer extends Modul {
-	public Oficer(Player owner, FieldModel board[]){
+public class Zwiadowca extends Modul{
+	public Zwiadowca(Player owner, FieldModel board[]){
 		field = new Field(getImage(),getSelectedImage());
 		this.owner = owner;
 		this.board = board;
@@ -20,11 +19,9 @@ public class Oficer extends Modul {
 		netted = 0;
 		position = -1;
 		ifWorks = new boolean[6];
-		for(int i=5;i!=2;i=(i+1)%6){
-			 ifWorks[i] = true;
-		}
-		for(int i=2;i<5;i++){
-			 ifWorks[i] = false;
+		for(int i=0;i<6;i++){
+			if(i%2==0)ifWorks[i] = true;
+			else ifWorks[i] = false;
 		}
 		
 	}
@@ -32,15 +29,15 @@ public class Oficer extends Modul {
 	public void work(int direction){
 		if(ifWorks[(6+direction-rotation)%6]==true){
 			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner){
-				((Unit)board[position].neighbours[direction].getTile()).hitBonus++;
+				((Unit)board[position].neighbours[direction].getTile()).initiativeBonus++;
 			}
 		}
 	}
 	
 	public void stopWork(){
-		for(int i=5;i!=2;i=(i+1)%6){
+		for(int i = 0; i<6; i+=2){
 			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
-				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).hitBonus--;
+				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).initiativeBonus--;
 			}
 		}
 	}
@@ -54,22 +51,20 @@ public class Oficer extends Modul {
 				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
-		for(int i=5;i!=2;i=(i+1)%6){
+		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour((i+rotation)%6)){
 				work((i+rotation)%6); 
 			}
 		}
 	}
 	
-	
 	@Override
 	public Image getImage() {
-		return ImageLoader.Borgo.oficer();
+		return ImageLoader.Posterunek.zwiadowca();
 	}
 
 	@Override
 	public Image getSelectedImage() {
-		return ImageLoader.Borgo.oficerSelected();
+		return ImageLoader.Posterunek.zwiadowcaSelected();
 	}
-	
 }

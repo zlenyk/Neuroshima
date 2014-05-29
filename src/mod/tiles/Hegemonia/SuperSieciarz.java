@@ -25,6 +25,8 @@ public class SuperSieciarz extends Unit {
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[direction].getTile().netted++; 
+			if(board[position].neighbours[direction].getTile().netted==1) board[position].neighbours[direction].getTile().stopWork();
+
 		}
 	}
 	public void stopWork(){
@@ -32,11 +34,17 @@ public class SuperSieciarz extends Unit {
 				&& board[position].neighbours[(rotation+1)%6].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[(rotation+1)%6].getTile().netted--; 
+			if(board[position].neighbours[(rotation+1)%6].getTile().netted==0){
+				for(int i=0; i<6;i++) board[position].neighbours[(rotation+1)%6].getTile().work(i);
+			}
 		}
 		if(isGoodNeighbour((rotation+5)%6)
 				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[(rotation+5)%6].getTile().netted--; 
+			if(board[position].neighbours[(rotation+5)%6].getTile().netted==0){
+				for(int i=0; i<6;i++) board[position].neighbours[(rotation+5)%6].getTile().work(i);
+			}
 		}
 	}
 	@Override
