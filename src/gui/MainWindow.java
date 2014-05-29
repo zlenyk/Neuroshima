@@ -89,9 +89,6 @@ public class MainWindow implements Window{
 	 * Repaints mainWindow.
 	 */
 	public void repaint(){
-		for(PlayerInfo pi : playerInfoList){
-			pi.refreshPlayerInfo();
-		}
 		contentPane.repaint();
 	}
 	

@@ -107,22 +107,21 @@ public class PlayerInfo extends JPanel{
 		return null;
 	}
 	public Tile getAndDeleteSelectedTile(){
+		Tile t = null;
 		for(FieldModel f : fieldModelList){
 			if(f.getTile() != null){
 				if(f.getTile().getField().isSelected()){
-					Tile t = f.getTile();
+					System.out.println("FEE");
+					t = f.getTile();
 					this.remove(t.getField());
 					f.changeTile(null);
-					return t;
+					break;
 				}
 			}
 		}
-		return null;
-	}
-	public void refreshPlayerInfo(){
 		clearTiles();
 		showTiles();
-		refreshText();
+		return t;
 	}
 	private void setFieldModelLocation(){
 		for(int i = 0; i<3; i++){
