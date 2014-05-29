@@ -113,6 +113,7 @@ public class GameController {
 	}
 	private void battle(){
 		guiController.showMessage(MessageBuilder.battle());
+		//pauza
 		FieldModel[] board = boardController.getBoardModel().getBoard();
 		int initiative = 0;
 		for(int i = 0; i<21; i++){
@@ -120,6 +121,7 @@ public class GameController {
 		}
 		while(initiative>=0){
 			guiController.showMessage(MessageBuilder.actuallyInitiative(initiative));
+			//pauza
 			for(int i = 0; i<21; i++){
 				if(i!=1 && i!=19 && board[i].getTile() instanceof Unit && ((Unit)board[i].getTile()).initiative.contains(initiative-((Unit)board[i].getTile()).initiativeBonus)){
 					if(!board[i].getTile().isNetted())((Unit)board[i].getTile()).attack();
@@ -129,6 +131,7 @@ public class GameController {
 				if(i!=1 && i!=19 && !(board[i].getTile() instanceof mod.tiles.empty.Empty) && board[i].getTile().getHp() <= 0) board[i].getTile().die();
 			}	
 			initiative--;
+			//odswiezenie wygladu planszy
 		}
 	}
 	private boolean isBattle(){

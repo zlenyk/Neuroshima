@@ -32,9 +32,12 @@ public class Ruch extends mod.Tile {
 	}
 	@Override
 	public void put(int position, int rotation){
-		//mod.Tile tileToMove = board[position].getTile();
-		//LinkedList<Integer> whereCanPut = board[position].getTile().pick();
-		//tileToMove.put(cont.game.GameController.choosePosition(whereCanPut),rotation);
+		/**docelowy algorytm ruchu:
+		 * standardowo zostaje wywolana funkcja put dla tej plytki na jednym z dostepnych pol
+		 * wywolujemy funkcje pick na plytce która zosta³a wybrana(ta ktora stala na polu na ktorym putnelismy ruch)
+		 * wybieramy pole z listy któr¹ zwrócila funkcja pick
+		 * wywolujemy funkcje put na jednym z dostepnych pol
+		 */
 		
 	}
 	@Override
