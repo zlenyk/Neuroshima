@@ -62,6 +62,7 @@ public class BoardController {
 			}
 			putTileAtPosition(player.getSztab(),fm.getPosition());
 			player.setSztabPosition(fm.getPosition());
+			player.getSztab().put(player.getSztabPosition(),0);
 		}
 		else{
 			Tile selectedTile = getSelectedTile();
