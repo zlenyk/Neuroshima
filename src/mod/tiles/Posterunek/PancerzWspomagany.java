@@ -11,8 +11,8 @@ public class PancerzWspomagany extends Unit {
 	PancerzWspomagany(Player owner, FieldModel board[]){
 		super(owner,board);
 		hp=1;
-		initiative.add(2);
 		initiative.add(3);
+		initiative.add(2);
 	}
 
 	public void attack(){

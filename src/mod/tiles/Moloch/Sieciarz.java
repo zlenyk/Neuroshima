@@ -17,7 +17,10 @@ public class Sieciarz extends Unit {
 		ifWorks[5] = true;
 	}
 	public void work(int direction){
-		if(ifWorks[direction]==true && isGoodNeighbour(direction) && board[position].neighbours[direction].getTile().getOwner()!=this.owner ) board[position].neighbours[direction].getTile().netted++; 
+		if(ifWorks[(6+direction-rotation)%6]==true 
+				&& isGoodNeighbour(direction) 
+				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ) 
+			board[position].neighbours[direction].getTile().netted++; 
 	}
 	public void stopWork(){
 		if(isGoodNeighbour(rotation) && board[position].neighbours[rotation].getTile().getOwner()!=this.owner ) board[position].neighbours[rotation].getTile().netted--; 

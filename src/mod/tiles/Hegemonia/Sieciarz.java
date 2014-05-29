@@ -17,7 +17,7 @@ public class Sieciarz extends Unit {
 		ifWorks[0] = true;
 	}
 	public void work(int direction){
-		if(ifWorks[direction]==true 
+		if(ifWorks[(6+direction-rotation)%6]==true 
 				&& isGoodNeighbour(direction) 
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
 			
@@ -25,8 +25,7 @@ public class Sieciarz extends Unit {
 		}
 	}
 	public void stopWork(){
-		if(ifWorks[rotation]==true 
-				&& isGoodNeighbour(rotation)
+		if(isGoodNeighbour(rotation)
 				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner ) board[position].neighbours[rotation].getTile().netted--; 
 	}
 	@Override
@@ -35,7 +34,7 @@ public class Sieciarz extends Unit {
 		this.position=position;
 		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i)){
-				board[position].neighbours[0].getTile().work((i+3)%6);
+				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
 		

@@ -36,13 +36,16 @@ public abstract class Unit extends Tile {
 		initiativeBonus = 0;
 	}
 	protected void shoot(int direction,int power){
-		while(board[position].neighbours[direction]!=null){
-			if(!(board[position].neighbours[direction].getTile() instanceof Empty) && board[position].neighbours[direction].getTile().owner!=this.owner){
-				if(board[position].neighbours[direction].getTile().shield[(direction+3)%6]==false) 
-					board[position].neighbours[direction].getTile().takeDmg(power);
-				else board[position].neighbours[direction].getTile().takeDmg(power-1);
+		
+		int tmpPos = position;
+		while(board[tmpPos].neighbours[direction]!=null){
+			if(!(board[tmpPos].neighbours[direction].getTile() instanceof Empty) && board[tmpPos].neighbours[direction].getTile().owner!=this.owner){
+				if(board[tmpPos].neighbours[direction].getTile().shield[(direction+3)%6]==false) 
+					board[tmpPos].neighbours[direction].getTile().takeDmg(power);
+				else board[tmpPos].neighbours[direction].getTile().takeDmg(power-1);
 				break;
 			}
+			tmpPos = board[tmpPos].neighbours[direction].getPosition();
 		}
 	}
 	

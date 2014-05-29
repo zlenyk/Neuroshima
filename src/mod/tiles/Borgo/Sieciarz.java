@@ -17,7 +17,7 @@ public class Sieciarz extends Unit {
 		initiative.add(1);
 	}
 	public void work(int direction){
-		if(ifWorks[direction]==true
+		if(ifWorks[(6+direction-rotation)%6]==true
 				&& isGoodNeighbour(direction)
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
 			

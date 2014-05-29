@@ -20,7 +20,7 @@ public class SuperSieciarz extends Unit {
 	}
 	
 	public void work(int direction){
-		if(ifWorks[direction]==true 
+		if(ifWorks[(6+direction-rotation)%6]==true 
 				&& isGoodNeighbour(direction)
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
 			
@@ -28,14 +28,12 @@ public class SuperSieciarz extends Unit {
 		}
 	}
 	public void stopWork(){
-		if(ifWorks[(rotation+1)%6]==true 
-				&& isGoodNeighbour((rotation+1)%6)
+		if(isGoodNeighbour((rotation+1)%6)
 				&& board[position].neighbours[(rotation+1)%6].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[(rotation+1)%6].getTile().netted--; 
 		}
-		if(ifWorks[(rotation+5)%6]==true 
-				&& isGoodNeighbour((rotation+5)%6)
+		if(isGoodNeighbour((rotation+5)%6)
 				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner ){
 			
 			board[position].neighbours[(rotation+5)%6].getTile().netted--; 

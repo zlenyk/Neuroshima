@@ -15,7 +15,7 @@ public class Likwidator extends Unit {
 	}
 
 	public void attack(){
-		hit(0+rotation,2+hitBonus);
+		shoot(0+rotation,2+hitBonus);
 	}
 	
 	@Override

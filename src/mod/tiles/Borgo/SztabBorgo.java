@@ -15,6 +15,7 @@ public class SztabBorgo extends Unit {
 		super(owner,board);
 		hp=20;
 		initiative.add(0);
+		for(int i=0;i<6;i++) ifWorks[i] = true;
 	}
 	
 	

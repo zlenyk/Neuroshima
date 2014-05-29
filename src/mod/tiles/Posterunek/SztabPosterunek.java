@@ -48,7 +48,7 @@ public class SztabPosterunek extends mod.Unit {
 		this.position=position;
 		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i)){
-				board[position].neighbours[0].getTile().work((i+3)%6);
+				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
 		for(int i =0; i<6; i++){

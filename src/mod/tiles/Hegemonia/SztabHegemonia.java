@@ -23,7 +23,7 @@ public class SztabHegemonia extends mod.Unit {
 	public void attack(){
 
 		for(int i = 0; i<6; i++){
-			if(board[position].neighbours[i]!=null && !board[position].neighbours[0].getTile().isSztab()){
+			if(board[position].neighbours[i]!=null && !board[position].neighbours[i].getTile().isSztab()){
 				hit(i,1+hitBonus);
 			}
 		}
@@ -57,7 +57,7 @@ public class SztabHegemonia extends mod.Unit {
 		this.position=position;
 		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i)){
-				board[position].neighbours[0].getTile().work((i+3)%6);
+				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 
 		}		

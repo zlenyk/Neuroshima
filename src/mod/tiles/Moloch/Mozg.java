@@ -28,10 +28,10 @@ public class Mozg extends Modul {
 	}
 	
 	public void work(int direction){
-		if(ifWorks[(direction+rotation)%6]==true){
-			if(board[position].neighbours[(direction+rotation)%6].getTile() instanceof Unit){
-				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).hitBonus++;
-				((Unit)board[position].neighbours[(direction+rotation)%6].getTile()).shootBonus++;
+		if(ifWorks[(6+direction-rotation)%6]==true){
+			if(board[position].neighbours[direction].getTile() instanceof Unit){
+				((Unit)board[position].neighbours[direction].getTile()).hitBonus++;
+				((Unit)board[position].neighbours[direction].getTile()).shootBonus++;
 			}
 		}
 	}
