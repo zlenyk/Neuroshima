@@ -60,9 +60,8 @@ public class BoardController {
 			if(player.getSztabPosition() > -1){
 				putTileAtPosition(new mod.tiles.empty.Empty(),player.getSztabPosition());
 			}
-			putTileAtPosition(player.getSztab(),fm.getPosition());
 			player.setSztabPosition(fm.getPosition());
-			player.getSztab().put(player.getSztabPosition(),0);
+			putTileAtPosition(player.getSztab(),fm.getPosition());
 		}
 		else{
 			Tile selectedTile = getSelectedTile();
@@ -114,8 +113,12 @@ public class BoardController {
 	 * Puts given tile at selected position on a board.
 	 */
 	public void putTileAtPosition(Tile tile,int position){
+		
 		FieldModel fm = boardModel.getFieldModelAt(position);
-		fm.changeTile(tile);
+		if(!tile.isInstant()){
+			fm.changeTile(tile);
+		}
+		tile.put(position, tile.getRotation());
 		repaintBoard(this);
 	}
 	
