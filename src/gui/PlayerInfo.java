@@ -54,7 +54,7 @@ public class PlayerInfo extends JPanel{
 							f.getTile().changeSelect();
 						}
 						mainWindowController.getGameController().enablePutButtonOrNot();
-
+						mainWindowController.setDiscardButtonEnabled(false);
 						return;
 					}
 				}

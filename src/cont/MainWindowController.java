@@ -84,6 +84,10 @@ public class MainWindowController implements WindowController {
 	public void putTile(){
 		gameController.putTileFromPlayerInfo();
 	}
+	public void discardTile(){
+		getActivePlayerInfo().getAndDeleteSelectedTile();
+		setDiscardButtonEnabled(false);
+	}
 	public void rotateField(){
 		gameController.rotateSelectedField();
 	}
@@ -122,6 +126,9 @@ public class MainWindowController implements WindowController {
 	}
 	public void setAcceptButtonEnabled(boolean b){
 		mainWindow.setAcceptEnabled(b);
+	}
+	public void setDiscardButtonEnabled(boolean b){
+		mainWindow.setDiscardEnabled(b);
 	}
 	@Override
 	public void show() {

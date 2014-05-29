@@ -20,12 +20,16 @@ public class MainWindow implements Window{
 
 	private JPanel contentPane;
 	private JFrame frame;
+	
 	private JButton btnPutTile;
 	private JButton btnRotateTile;
-	JButton nextTurnButton;
+	private JButton btnDiscard;
+	private JButton btnAccept;
+	private JButton nextTurnButton;
+	
 	private MainWindowController controller;
 	private List<PlayerInfo> playerInfoList;
-	private JButton btnAccept;
+	
 	
 	/**
 	 * Returns controller to this MainWindow.
@@ -107,24 +111,22 @@ public class MainWindow implements Window{
 		btnAccept.setBounds(669, 96, 117, 25);
 		contentPane.add(btnAccept);
 		
+		btnDiscard = new JButton("Discard");
+		btnDiscard.setEnabled(false);
+		btnDiscard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.discardTile();
+			}
+		});
+		btnDiscard.setBounds(536, 98, 117, 25);
+		contentPane.add(btnDiscard);
+		
 	}
 	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
 		contentPane.add(b);
 	}
-	public void setPutTileEnabled(boolean b){
-		btnPutTile.setEnabled(b);
-	}
-	public void setRotateFieldEnabled(boolean b){
-		btnRotateTile.setEnabled(b);
-	}
-	public void setNextTurnEnabled(boolean b){
-		nextTurnButton.setEnabled(b);
-	}
-	public void setAcceptEnabled(boolean b){
-		btnAccept.setEnabled(b);
-	}
-
+	
 	public void fillPlayersList(List<Player>playersList){
 		playerInfoList = new ArrayList<PlayerInfo>();
 		int[] Y = {150,350};
@@ -145,5 +147,20 @@ public class MainWindow implements Window{
 	
 	public void repaint(){
 		contentPane.repaint();
+	}
+	public void setPutTileEnabled(boolean b){
+		btnPutTile.setEnabled(b);
+	}
+	public void setRotateFieldEnabled(boolean b){
+		btnRotateTile.setEnabled(b);
+	}
+	public void setNextTurnEnabled(boolean b){
+		nextTurnButton.setEnabled(b);
+	}
+	public void setAcceptEnabled(boolean b){
+		btnAccept.setEnabled(b);
+	}
+	public void setDiscardEnabled(boolean b) {
+		btnDiscard.setEnabled(b);
 	}
 }
