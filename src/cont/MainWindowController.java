@@ -86,6 +86,7 @@ public class MainWindowController implements WindowController {
 	}
 	public void discardTile(){
 		getActivePlayerInfo().getAndDeleteSelectedTile();
+		mainWindow.repaint();
 		setDiscardButtonEnabled(false);
 	}
 	public void rotateField(){

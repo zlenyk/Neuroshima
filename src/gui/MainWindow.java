@@ -26,6 +26,7 @@ public class MainWindow implements Window{
 	private JButton btnDiscard;
 	private JButton btnAccept;
 	private JButton nextTurnButton;
+	private JButton btnClose;
 	
 	private MainWindowController controller;
 	private List<PlayerInfo> playerInfoList;
@@ -43,90 +44,26 @@ public class MainWindow implements Window{
 	public MainWindow(GUIController gui) {
 		
 		controller = new MainWindowController(this,gui);
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.setBounds(100, 100, 890, 600);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		frame.setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
-		JButton btnClose = new JButton("Close");
-		btnClose.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.closeGame();
-			}
-		});
-
-		btnClose.setBounds(669, 24, 117, 25);
-		contentPane.add(btnClose);
-		
-		//Board board = new Board(armies);
-		//board.setBounds(12, 12, 496, 550);
-		//contentPane.add(board);
-		
-		nextTurnButton = new JButton("Next Turn!");
-		nextTurnButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.nextTurn();
-			}
-		});
-		nextTurnButton.setBounds(536, 24, 117, 25);
-		contentPane.add(nextTurnButton);
-		
-		JSeparator separator = new JSeparator();
-		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBounds(508, -11, 2, 582);
-		contentPane.add(separator);
-		
-		btnPutTile = new JButton("Put Tile");
-		btnPutTile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.putTile();
-			}
-		});
-		btnPutTile.setBounds(536, 61, 117, 25);
-		btnPutTile.setEnabled(false);
-		contentPane.add(btnPutTile);
-		
-		btnRotateTile = new JButton("Rotate");
-		btnRotateTile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.rotateField();
-			}
-		});
-		btnRotateTile.setEnabled(false);
-		btnRotateTile.setBounds(669, 60, 117, 25);
-		contentPane.add(btnRotateTile);
-		
-		btnAccept = new JButton("Accept");
-		btnAccept.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.acceptTile();
-			}
-		});
-	
-		btnAccept.setEnabled(false);
-		btnAccept.setBounds(669, 96, 117, 25);
-		contentPane.add(btnAccept);
-		
-		btnDiscard = new JButton("Discard");
-		btnDiscard.setEnabled(false);
-		btnDiscard.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.discardTile();
-			}
-		});
-		btnDiscard.setBounds(536, 98, 117, 25);
-		contentPane.add(btnDiscard);
-		
+		initializeContentPane();
+		initializeFrame();
+		initializeSeparator();
+		initializeButtons();
 	}
+	
+	/**
+	 * @param b
+	 * Adds prepared board to MainWindow.
+	 */
 	public void addBoard(Board b){	
 		b.setBounds(12, 12, 496, 550);
 		contentPane.add(b);
 	}
 	
+	/**
+	 * @param playersList
+	 * Creates PlayerInfo list and fills its information.
+	 */
 	public void fillPlayersList(List<Player>playersList){
 		playerInfoList = new ArrayList<PlayerInfo>();
 		int[] Y = {150,350};
@@ -137,6 +74,9 @@ public class MainWindow implements Window{
 			contentPane.add(pi);
 		}
 	}
+	/**
+	 * @return list of PlayerInfo panels.
+	 */
 	public List<PlayerInfo> getPlayerInfoList(){
 		return playerInfoList;
 	}
@@ -144,10 +84,17 @@ public class MainWindow implements Window{
 	public JFrame getFrame() {
 		return frame;
 	}
-	
+
+	/**
+	 * Repaints mainWindow.
+	 */
 	public void repaint(){
+		for(PlayerInfo pi : playerInfoList){
+			pi.refreshPlayerInfo();
+		}
 		contentPane.repaint();
 	}
+	
 	public void setPutTileEnabled(boolean b){
 		btnPutTile.setEnabled(b);
 	}
@@ -162,5 +109,86 @@ public class MainWindow implements Window{
 	}
 	public void setDiscardEnabled(boolean b) {
 		btnDiscard.setEnabled(b);
+	}
+	
+	///////////////////private constructor functions///////////////
+	
+	private void initializeContentPane(){
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+	}
+	
+	private void initializeFrame(){
+		frame = new JFrame();
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.setBounds(100, 100, 890, 600);
+		frame.setContentPane(contentPane);
+	}
+	private void initializeSeparator(){
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setBounds(508, -11, 2, 582);
+		contentPane.add(separator);
+	}
+	private void initializeButtons(){
+		btnClose = new JButton		("Close");
+		nextTurnButton = new JButton("Next Turn!");
+		btnPutTile = new JButton	("Put Tile");
+		btnRotateTile = new JButton	("Rotate");
+		btnAccept = new JButton		("Accept");
+		btnDiscard = new JButton	("Discard");
+		
+		btnClose.setBounds		(669, 24, 117, 25);
+		nextTurnButton.setBounds(536, 24, 117, 25);
+		btnPutTile.setBounds	(536, 61, 117, 25);
+		btnRotateTile.setBounds	(669, 60, 117, 25);
+		btnAccept.setBounds		(669, 96, 117, 25);
+		btnDiscard.setBounds	(536, 98, 117, 25);
+
+		btnPutTile.setEnabled(false);
+		btnRotateTile.setEnabled(false);
+		btnAccept.setEnabled(false);
+		btnDiscard.setEnabled(false);
+		
+		
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.closeGame();
+			}
+		});		
+		nextTurnButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.nextTurn();
+			}
+		});
+		btnPutTile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.putTile();
+			}
+		});
+		btnRotateTile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.rotateField();
+			}
+		});
+		btnAccept.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.acceptTile();
+			}
+		});
+		btnDiscard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.discardTile();
+			}
+		});
+		
+		contentPane.add(btnClose);
+		contentPane.add(nextTurnButton);
+		contentPane.add(btnPutTile);
+		contentPane.add(btnRotateTile);
+		contentPane.add(btnAccept);
+		contentPane.add(btnDiscard);
 	}
 }

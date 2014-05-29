@@ -46,15 +46,18 @@ public class PlayerInfo extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				for(FieldModel f : fieldModelList){
+					if(player != mainWindowController.getGameController().getActivePlayer()){
+						return;
+					}
 					if(f.contains(e.getPoint())){
 						if(getSelectedTile() != null){
 							getSelectedTile().changeSelect();
 						}
 						if(f.getTile() != null){
 							f.getTile().changeSelect();
+							mainWindowController.setDiscardButtonEnabled(true);
 						}
 						mainWindowController.getGameController().enablePutButtonOrNot();
-						mainWindowController.setDiscardButtonEnabled(false);
 						return;
 					}
 				}
@@ -108,12 +111,18 @@ public class PlayerInfo extends JPanel{
 			if(f.getTile() != null){
 				if(f.getTile().getField().isSelected()){
 					Tile t = f.getTile();
+					this.remove(t.getField());
 					f.changeTile(null);
 					return t;
 				}
 			}
 		}
 		return null;
+	}
+	public void refreshPlayerInfo(){
+		clearTiles();
+		showTiles();
+		refreshText();
 	}
 	private void setFieldModelLocation(){
 		for(int i = 0; i<3; i++){
@@ -143,7 +152,7 @@ public class PlayerInfo extends JPanel{
 
 		for(int i = 0; i<tl.size(); i++){
 			if(i < tl.size()){
-			fieldModelList.get(i).changeTile(tl.get(i));
+				fieldModelList.get(i).changeTile(tl.get(i));
 			}
 			else{
 				fieldModelList.get(i).changeTile(new mod.tiles.empty.Empty());
@@ -166,6 +175,7 @@ public class PlayerInfo extends JPanel{
 				this.add(f.getTile().getField());
 			}
 		}
+		this.repaint();
 	}
 	public Player getPlayer(){
 		return player;
@@ -174,5 +184,6 @@ public class PlayerInfo extends JPanel{
 	public void refreshText(){
 		hpLabel.setText("HP: "+player.getSztab().getHp());
 		tilesLeftLabel.setText("Tiles left: "+player.getArmySet().getSize());
+		this.repaint();
 	}
 }
