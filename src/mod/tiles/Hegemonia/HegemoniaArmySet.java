@@ -27,5 +27,10 @@ public class HegemoniaArmySet extends ArmySet {
 		list.add(new UniwersalnyZolnierz(owner, board));
 		list.add(new UniwersalnyZolnierz(owner, board));
 		list.add(new UniwersalnyZolnierz(owner, board));
+		list.add(new Boss(owner, board));
+		list.add(new Oficer1(owner, board));
+		list.add(new Oficer1(owner, board));
+		list.add(new Oficer2(owner, board));
+		list.add(new Zwiadowca(owner, board));
 	}
 }

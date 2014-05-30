@@ -27,6 +27,10 @@ public class PosterunekArmySet extends ArmySet {
 		list.add(new Ruch(owner, board));
 		list.add(new Silacz(owner, board));
 		list.add(new Snajper(owner, board));
+		list.add(new Dywersant(owner, board));
+		list.add(new Oficer(owner, board));
+		list.add(new Zwiadowca(owner, board));
+		list.add(new Zwiadowca(owner, board));
 
 	}
 }

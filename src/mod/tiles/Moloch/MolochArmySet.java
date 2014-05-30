@@ -28,6 +28,8 @@ public class MolochArmySet extends ArmySet {
 		list.add(new Sieciarz(owner, board));
 		list.add(new Szturmowiec(owner, board));
 		list.add(new Wartownik(owner, board));
+		list.add(new Matka(owner, board));
+		list.add(new Zwiadowca(owner, board));
 
 	}
 }
