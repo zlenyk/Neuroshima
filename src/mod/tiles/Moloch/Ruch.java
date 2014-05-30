@@ -31,15 +31,7 @@ public class Ruch extends mod.Tile {
 		return whereCanPut;
 	}
 	@Override
-	public void put(int position, int rotation){
-		/**docelowy algorytm ruchu:
-		 * standardowo zostaje wywolana funkcja put dla tej plytki na jednym z dostepnych pol
-		 * wywolujemy funkcje pick na plytce która zosta³a wybrana(ta ktora stala na polu na ktorym putnelismy ruch)
-		 * wybieramy pole z listy któr¹ zwrócila funkcja pick
-		 * wywolujemy funkcje put na jednym z dostepnych pol
-		 */
-		
-	}
+	public void put(int position, int rotation){}
 	@Override
 	public Image getImage() {
 		return ImageLoader.Moloch.ruch();
