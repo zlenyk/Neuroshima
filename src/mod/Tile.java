@@ -74,6 +74,28 @@ public abstract class Tile {
 		return board[position].neighbours[index]!=null 
 				&& !(board[position].neighbours[index].getTile() instanceof Empty);
 	}
-	
+	public LinkedList<Integer> whoCanPush(){
+		LinkedList<Integer> canPush = new LinkedList<Integer>();
+		for(int i=0;i<6;i++){
+			if(isGoodNeighbour(i) && board[position].neighbours[i].getTile().getOwner()!=owner){
+				if(board[position].neighbours[i].neighbours[i]!=null && board[position].neighbours[i].neighbours[i].getTile() instanceof Empty) 
+					canPush.add(board[position].neighbours[i].neighbours[i].getPosition());
+				if(board[position].neighbours[i].neighbours[(i+1)%6]!=null && board[position].neighbours[i].neighbours[(i+1)%6].getTile() instanceof Empty) 
+					canPush.add(board[position].neighbours[i].neighbours[(i+1)%6].getPosition());
+				if(board[position].neighbours[i].neighbours[(i+5)%6]!=null && board[position].neighbours[i].neighbours[(i+5)%6].getTile() instanceof Empty) 
+					canPush.add(board[position].neighbours[i].neighbours[(i+5)%6].getPosition());
+				
+			}
+		}
+		return canPush;
+	}
+	public LinkedList<Integer> whereCanBePushed(int direction){
+		LinkedList<Integer> canBePushed = new LinkedList<Integer>();
+		for(int i=5;i!=2;i=(i+1)%6){
+			if(board[position].neighbours[(i+direction)%6]!=null && board[position].neighbours[(i+direction)%6].getTile() instanceof Empty)
+				canBePushed.add(board[position].neighbours[(i+direction)%6].getPosition());
+		}
+		return canBePushed;
+	}
 	
 }
