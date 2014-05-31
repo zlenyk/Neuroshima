@@ -27,6 +27,7 @@ public class GameController {
 	private int lastPutTilePosition;
 	private boolean wantMove;
 	private boolean waitForAccept;
+	private boolean waitForDiscard;
 	public GameController(GUIController gui,MainWindowController mwc,List<String>playersNames,List<String> armies){
 		guiController = gui;
 		mainWindowController = mwc;
@@ -46,6 +47,7 @@ public class GameController {
 		sztabTurn = true;
 		lastPutTilePosition = -1;
 		waitForAccept = false;
+		waitForDiscard = false;
 		wantMove = false;
 		beginTurn();
 	}
@@ -81,7 +83,24 @@ public class GameController {
 		else{
 			guiController.showMessage(MessageBuilder.nextTurnMessage(getActivePlayer().getName()));
 			normalTurn();
+			waitForDiscard();
 		}
+	}
+	private void waitForDiscard(){
+		guiController.showMessage(MessageBuilder.discardOneTile());
+		mainWindowController.setAcceptButtonEnabled(false);
+		mainWindowController.setNextTurnButtonEnabled(false);
+		mainWindowController.setPutButtonEnabled(false);
+		mainWindowController.setRotateButtonEnabled(false);
+
+
+		waitForDiscard = true;
+	}
+	public boolean isWaitingForDiscard(){
+		return waitForDiscard;
+	}
+	public void tileDiscarded(){
+		waitForDiscard = false;
 	}
 	/**
 	 * @return if game should not be ended

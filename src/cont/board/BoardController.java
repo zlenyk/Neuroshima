@@ -64,6 +64,9 @@ public class BoardController {
 			putTileAtPosition(player.getSztab(),fm.getPosition());
 		}
 		else{
+			if(gameController.isWaitingForDiscard()){
+				return;
+			}
 			Tile selectedTile = getSelectedTile();
 			if(selectedTile != null){
 				selectedTile.changeSelect();
@@ -74,13 +77,17 @@ public class BoardController {
 			if(gameController.wantToMove()){
 				int prevPos = gameController.getLastPutTilePosition();
 				Tile prevTile = boardModel.getFieldModelAt(prevPos).getTile();
+				System.out.println(prevTile);
+				System.out.println(prevTile.pick().size());
 				for(Integer i : prevTile.pick()){
 					if(i == getSelectedFieldModel().getPosition()){
+						System.out.println("ZMIANA");
 						swapTiles(i,gameController.getLastPutTilePosition());
 						gameController.setLastPutTilePosition(i);
 						gameController.setWantMove(false);
 						break;
 					}
+					System.out.println(i);
 				}
 			}
 			else if(gameController.isWaitingForAccept()){

@@ -45,4 +45,7 @@ public class MessageBuilder {
 	public static String battle(){
 		return "BATTLE!";
 	}
+	public static String discardOneTile() {
+		return "Please discard one tile";
+	}
 }

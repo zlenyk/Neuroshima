@@ -88,6 +88,9 @@ public class MainWindowController implements WindowController {
 		getActivePlayerInfo().getAndDeleteSelectedTile();
 		mainWindow.repaint();
 		setDiscardButtonEnabled(false);
+		if(gameController.isWaitingForDiscard()){
+			gameController.tileDiscarded();
+		}
 	}
 	public void rotateField(){
 		gameController.rotateSelectedField();
