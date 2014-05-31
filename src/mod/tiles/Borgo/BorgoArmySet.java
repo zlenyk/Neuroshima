@@ -29,5 +29,10 @@ public class BorgoArmySet extends ArmySet {
 		list.add(new SuperMutant(owner, board));
 		list.add(new Zabojca(owner, board));
 		list.add(new Zabojca(owner, board));
+		list.add(new Oficer(owner, board));
+		list.add(new Oficer(owner, board));
+		list.add(new SuperOficer(owner, board));
+		list.add(new Zwiadowca(owner, board));
+		list.add(new Zwiadowca(owner, board));
 	}
 }

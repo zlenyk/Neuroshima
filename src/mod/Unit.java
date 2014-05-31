@@ -36,7 +36,7 @@ public abstract class Unit extends Tile {
 		initiativeBonus = 0;
 	}
 	protected void shoot(int direction,int power){
-		
+		direction = direction%6;
 		int tmpPos = position;
 		while(board[tmpPos].neighbours[direction]!=null){
 			if(!(board[tmpPos].neighbours[direction].getTile() instanceof Empty) && board[tmpPos].neighbours[direction].getTile().owner!=this.owner){
@@ -50,6 +50,7 @@ public abstract class Unit extends Tile {
 	}
 	
 	protected void hit(int direction, int power){
+		direction = direction%6;
 		if(isGoodNeighbour(direction) 
 				&& board[position].neighbours[direction].getTile().owner!=this.owner){
 			
