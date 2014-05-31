@@ -101,6 +101,7 @@ public class GameController {
 	}
 	public void tileDiscarded(){
 		waitForDiscard = false;
+		mainWindowController.setNextTurnButtonEnabled(true);
 	}
 	/**
 	 * @return if game should not be ended
