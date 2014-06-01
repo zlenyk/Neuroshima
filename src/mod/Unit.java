@@ -66,7 +66,6 @@ public abstract class Unit extends Tile {
 				board[position].neighbours[i].getTile().work((i+3)%6);
 			}
 		}
-		System.out.println("iamputed");
 	}
 	
 	public LinkedList<Integer> pick(){

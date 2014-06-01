@@ -207,6 +207,7 @@ public class GameController {
 		mainWindowController.setNextTurnButtonEnabled(false);
 		mainWindowController.setPutButtonEnabled(false);
 		mainWindowController.setRotateButtonEnabled(true);
+		mainWindowController.setDiscardButtonEnabled(false);
 	}
 	
 	public void enablePutButtonOrNot(){
