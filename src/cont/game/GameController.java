@@ -122,11 +122,14 @@ public class GameController {
 	}
 	private void normalTurn(){
 		List<Tile> tiles = new ArrayList<Tile>();
-		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
-		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
-		if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
-		else endingTurn++;
-		
+		int tilesCount = mainWindowController.getPlayerTileCount(getActivePlayer());
+		for(int i = tilesCount; i<3; i++){
+			if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
+			else {
+				endingTurn++;
+				break;
+			}
+		}		
 		if(tiles.size() > 0){
 			guiController.giveTiles(getActivePlayer(), tiles);
 		}
@@ -192,10 +195,9 @@ public class GameController {
 		return boardController.getSelectedFieldModel();
 	}
 	public void putTileFromPlayerInfo(){
-		Tile t = mainWindowController.getActivePlayerInfo().getAndDeleteSelectedTile();
+		Tile t = mainWindowController.getPlayerInfo(getActivePlayer()).getAndDeleteSelectedTile();
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.putTileAtPosition(t, position);
-		t.changeSelect();
 		
 		lastPutTilePosition = position;
 		waitForAccept = true;
@@ -211,7 +213,7 @@ public class GameController {
 			mainWindowController.setPutButtonEnabled(false);
 			return;
 		}
-		Tile t = mainWindowController.getActivePlayerInfo().getSelectedTile();
+		Tile t = mainWindowController.getPlayerInfo(getActivePlayer()).getSelectedTile();
 		if(boardController.getSelectedFieldModel() == null || t == null){
 			mainWindowController.setPutButtonEnabled(false);
 			return;

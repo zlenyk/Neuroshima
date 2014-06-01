@@ -111,7 +111,6 @@ public class PlayerInfo extends JPanel{
 		for(FieldModel f : fieldModelList){
 			if(f.getTile() != null){
 				if(f.getTile().getField().isSelected()){
-					System.out.println("FEE");
 					t = f.getTile();
 					this.remove(t.getField());
 					f.changeTile(null);
@@ -146,15 +145,22 @@ public class PlayerInfo extends JPanel{
 			fieldModelList.get(i).setLocation(i*move, 20);
 		}
 	}
+	public int getTilesCount(){
+		int count = 0;
+		for(FieldModel f : fieldModelList){
+			if(f.getTile() != null){
+				count++;
+			}
+		}
+		return count;
+	}
 	public void giveTiles(List<Tile> tl){
 		clearTiles();
 
+		int index = 0;
 		for(int i = 0; i<tl.size(); i++){
-			if(i < tl.size()){
-				fieldModelList.get(i).changeTile(tl.get(i));
-			}
-			else{
-				fieldModelList.get(i).changeTile(new mod.tiles.empty.Empty());
+			if(fieldModelList.get(i).getTile() == null){
+				fieldModelList.get(i).changeTile(tl.get(index++));
 			}
 		}
 		showTiles();

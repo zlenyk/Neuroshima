@@ -78,7 +78,7 @@ public class BoardController {
 				int prevPos = gameController.getLastPutTilePosition();
 				Tile prevTile = boardModel.getFieldModelAt(prevPos).getTile();
 				System.out.println(prevTile);
-				System.out.println(prevTile.pick().size());
+				System.out.println("POS:"+prevTile.position);
 				for(Integer i : prevTile.pick()){
 					if(i == getSelectedFieldModel().getPosition()){
 						System.out.println("ZMIANA");
@@ -87,7 +87,7 @@ public class BoardController {
 						gameController.setWantMove(false);
 						break;
 					}
-					System.out.println(i);
+					System.out.println("I:"+i);
 				}
 			}
 			else if(gameController.isWaitingForAccept()){

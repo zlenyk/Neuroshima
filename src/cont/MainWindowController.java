@@ -85,7 +85,7 @@ public class MainWindowController implements WindowController {
 		gameController.putTileFromPlayerInfo();
 	}
 	public void discardTile(){
-		getActivePlayerInfo().getAndDeleteSelectedTile();
+		getPlayerInfo(gameController.getActivePlayer()).getAndDeleteSelectedTile();
 		mainWindow.repaint();
 		setDiscardButtonEnabled(false);
 		if(gameController.isWaitingForDiscard()){
@@ -98,6 +98,9 @@ public class MainWindowController implements WindowController {
 	public void acceptTile(){
 		gameController.acceptTile();
 	}
+	public int getPlayerTileCount(Player p){
+		return getPlayerInfo(p).getTilesCount();
+	}
 	/**
 	 * Refreshes information about player(like hp of Sztab tile, TIles left)
 	 */
@@ -109,8 +112,7 @@ public class MainWindowController implements WindowController {
 	/**
 	 * @return PlayerInfo that belongs to the active player.
 	 */
-	public PlayerInfo getActivePlayerInfo(){
-		Player p = gameController.getActivePlayer();
+	public PlayerInfo getPlayerInfo(Player p){
 		for(PlayerInfo pi : mainWindow.getPlayerInfoList()){
 			if(pi.getPlayer() == p){
 				return pi;
