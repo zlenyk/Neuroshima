@@ -48,4 +48,7 @@ public class MessageBuilder {
 	public static String discardOneTile() {
 		return "Please discard one tile";
 	}
+	public static String mustChooseOneArmy(){
+		return "You must choose one army";
+	}
 }

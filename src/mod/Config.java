@@ -9,6 +9,8 @@ import javax.swing.DefaultListModel;
 public class Config {
 	private static int PLAYERS;
 	private static DefaultListModel<String> armiesList;
+	private static DefaultListModel<String> unchosenArmiesList;
+
 	
 	static {
 		armiesList = new DefaultListModel<String>();
@@ -16,6 +18,27 @@ public class Config {
 		armiesList.addElement("Hegemonia");
 		armiesList.addElement("Moloch");
 		armiesList.addElement("Posterunek");
+		
+		fillArmies();
+		
+	}
+
+	public static void fillArmies(){
+		unchosenArmiesList = new DefaultListModel<String>();
+		unchosenArmiesList.addElement("Borgo");
+		unchosenArmiesList.addElement("Hegemonia");
+		unchosenArmiesList.addElement("Moloch");
+		unchosenArmiesList.addElement("Posterunek");
+	}
+	public static void chooseArmy(String army){
+		for(int i = 0; i<unchosenArmiesList.size(); i++){
+			if(unchosenArmiesList.get(i).equals(army)){
+				unchosenArmiesList.remove(i);
+			}
+		}
+	}
+	public static DefaultListModel<String> getUnchosenArmies(){
+		return unchosenArmiesList;
 	}
 	
 	public static DefaultListModel<String> getArmies(){

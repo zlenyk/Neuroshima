@@ -41,6 +41,7 @@ public class ArmiesChoiceController implements WindowController{
 			guiController.startNewGame(armies,playersNames);
 		}
 		else{
+			armies.clear();
 			guiController.reportError(check, this);
 		}
 	}
