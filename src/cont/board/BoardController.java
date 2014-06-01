@@ -100,7 +100,7 @@ public class BoardController {
 			}
 		}
 		gameController.enablePutButtonOrNot();
-		gameController.enableRotateFieldButtonOrNot();
+//		gameController.enableRotateFieldButtonOrNot();
 	}
 	public FieldModel getSelectedFieldModel(){
 		return boardModel.getSelectedFieldModel();

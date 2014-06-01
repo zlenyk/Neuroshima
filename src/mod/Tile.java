@@ -74,6 +74,10 @@ public abstract class Tile {
 		return board[position].neighbours[index]!=null 
 				&& !(board[position].neighbours[index].getTile() instanceof Empty);
 	}
+	protected boolean isEmptyNeighbour(int index){
+		return board[position].neighbours[index]!=null 
+				&& (board[position].neighbours[index].getTile() instanceof Empty);
+	}
 	public LinkedList<Integer> whoCanPush(){
 		LinkedList<Integer> canPush = new LinkedList<Integer>();
 		for(int i=0;i<6;i++){

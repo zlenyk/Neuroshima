@@ -206,6 +206,7 @@ public class GameController {
 		mainWindowController.setAcceptButtonEnabled(true);
 		mainWindowController.setNextTurnButtonEnabled(false);
 		mainWindowController.setPutButtonEnabled(false);
+		mainWindowController.setRotateButtonEnabled(true);
 	}
 	
 	public void enablePutButtonOrNot(){
@@ -231,11 +232,11 @@ public class GameController {
 				boardController.getSelectedFieldModel() != null && isOnList
 		);
 	}
-	public void enableRotateFieldButtonOrNot(){
+/*	public void enableRotateFieldButtonOrNot(){
 		mainWindowController.setRotateButtonEnabled(
 			boardController.getSelectedFieldModel() != null	
 		);
-	}
+	}*/
 	public void rotateSelectedField(){
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.rotateField(position);
@@ -248,6 +249,7 @@ public class GameController {
 		t.put(lastPutTilePosition,t.getField().getRotation());
 		mainWindowController.setNextTurnButtonEnabled(true);
 		mainWindowController.setAcceptButtonEnabled(false);
+		mainWindowController.setRotateButtonEnabled(false);
 	}
 	public void enableAcceptButtonOrNot(){
 		// To do too
