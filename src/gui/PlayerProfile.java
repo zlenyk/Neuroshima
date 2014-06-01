@@ -15,7 +15,7 @@ import mod.Config;
 import cont.ArmiesChoiceController;
 import cont.GUIController;
 
-public class ArmiesChoice implements Window{
+public class PlayerProfile implements Window{
 	
 	private JFrame frame;
 	private ArmiesChoiceController controller;
@@ -23,7 +23,7 @@ public class ArmiesChoice implements Window{
 	private JTextField player2Name;
 	
 	
-	public ArmiesChoice(GUIController gui){
+	public PlayerProfile(GUIController gui){
 		controller = new ArmiesChoiceController(this,gui);
 
 		frame = new JFrame();

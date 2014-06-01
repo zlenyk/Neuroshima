@@ -1,6 +1,6 @@
 package cont;
 
-import gui.ArmiesChoice;
+import gui.PlayerProfile;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import mod.InvalidConfigException;
 public class ArmiesChoiceController implements WindowController{
 		
 	GUIController guiController;
-	ArmiesChoice armiesChoice;
-	public ArmiesChoiceController(ArmiesChoice ac,GUIController gui){
+	PlayerProfile playerProfile;
+	public ArmiesChoiceController(PlayerProfile ac,GUIController gui){
 		guiController = gui;
-		armiesChoice = ac;
+		playerProfile = ac;
 	}
 	/**
 	 * @param gui
@@ -25,7 +25,7 @@ public class ArmiesChoiceController implements WindowController{
 	 * Creates and displays new army-choice-window.
 	 */
 	public static ArmiesChoiceController openNewArmiesChoice(GUIController gui){
-		ArmiesChoice ac = new ArmiesChoice(gui);
+		PlayerProfile ac = new PlayerProfile(gui);
 		ac.getFrame().setVisible(true);
 		return ac.getController();
 	}
@@ -67,14 +67,14 @@ public class ArmiesChoiceController implements WindowController{
 	}
 	@Override
 	public void show() {
-		armiesChoice.getFrame().setVisible(true);
+		playerProfile.getFrame().setVisible(true);
 	}
 	@Override
 	public void hide() {
-		armiesChoice.getFrame().setVisible(false);		
+		playerProfile.getFrame().setVisible(false);		
 	}
 	@Override
 	public void repaint() {
-		armiesChoice.getFrame().repaint();
+		playerProfile.getFrame().repaint();
 	}
 }
