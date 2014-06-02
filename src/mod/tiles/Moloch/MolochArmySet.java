@@ -7,6 +7,10 @@ import mod.Player;
 public class MolochArmySet extends ArmySet {
 	public MolochArmySet(Player owner, FieldModel board[]){
 		super();
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
 		list.add(new Bloker(owner, board));
 		list.add(new Bloker(owner, board));
 		list.add(new Bomba(owner, board));

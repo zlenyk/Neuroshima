@@ -7,6 +7,11 @@ import mod.Player;
 public class HegemoniaArmySet extends ArmySet {
 	public HegemoniaArmySet(Player owner, FieldModel board[]){
 		super();
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
 		list.add(new Biegacz(owner, board));
 		list.add(new Biegacz(owner, board));
 		list.add(new Biegacz(owner, board));

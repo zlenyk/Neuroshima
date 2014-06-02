@@ -7,6 +7,12 @@ import mod.Player;
 public class BorgoArmySet extends ArmySet {
 	public BorgoArmySet(Player owner, FieldModel board[]){
 		super();
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
 		list.add(new Granat(owner, board));
 		list.add(new Mutek(owner, board));
 		list.add(new Mutek(owner, board));

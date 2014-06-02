@@ -86,7 +86,7 @@ public class SztabHegemonia extends mod.Unit {
 			initiativeBonus = 0;
 			hitBonus = 0;
 			for(int i=0;i<6;i++){
-				if(isGoodNeighbour(i)){
+				if(isEmptyNeighbour(i)){
 					whereCanPut.add(board[position].neighbours[i].getPosition());
 				}
 			}

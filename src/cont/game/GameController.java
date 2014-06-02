@@ -28,6 +28,7 @@ public class GameController {
 	private boolean wantMove;
 	private boolean waitForAccept;
 	private boolean waitForDiscard;
+	private boolean isPuttedBattle;
 	public GameController(GUIController gui,MainWindowController mwc,List<String>playersNames,List<String> armies){
 		guiController = gui;
 		mainWindowController = mwc;
@@ -143,7 +144,7 @@ public class GameController {
 			if(i!=1 && i!=19 && board[i].getTile() instanceof Unit && ((Unit)board[i].getTile()).getBiggestInitiative()>initiative) initiative = ((Unit)board[i].getTile()).getBiggestInitiative();
 		}
 		while(initiative>=0){
-			guiController.showMessage(MessageBuilder.actuallyInitiative(initiative));
+			//guiController.showMessage(MessageBuilder.actuallyInitiative(initiative));
 			//pauza
 			for(int i = 0; i<21; i++){
 				if(i!=1 && i!=19 && board[i].getTile() instanceof Unit && ((Unit)board[i].getTile()).initiative.contains(initiative-((Unit)board[i].getTile()).initiativeBonus)){
@@ -157,9 +158,14 @@ public class GameController {
 			boardController.repaintBoard(boardController);
 			
 		}
+		activePlayer--;
 	}
 	private boolean isBattle(){
 		FieldModel[] board = boardController.getBoardModel().getBoard();
+		if(isPuttedBattle) {
+			changeBattle(false);
+			return true;
+		}
 		for(int i = 0; i<21; i++){
 			if(i!=1 && i!=19 && board[i].getTile() instanceof mod.tiles.empty.Empty) return false;
 		}
@@ -169,9 +175,11 @@ public class GameController {
 	 * Returns if game should be ended.
 	 */
 	private boolean endOfGame(){
+		if(players.get(0).getSztab().getHp()<0 || players.get(1).getSztab().getHp()<0) return true;
 		return endingTurn == players.size();
 	}
 	private void endGame(){
+		if(players.get(0).getSztab().getHp()>0 && players.get(1).getSztab().getHp()>0) battle();
 		guiController.showMessage(MessageBuilder.endOfGameMessage(winner()));
 		guiController.closeGame();
 	}
@@ -282,5 +290,9 @@ public class GameController {
 	public List<Player> getPlayers(){
 		return players;
 	}
+	public void changeBattle(boolean b){
+		isPuttedBattle = b;
+	}
+	
 	
 }

@@ -7,6 +7,12 @@ import mod.Player;
 public class PosterunekArmySet extends ArmySet {
 	public PosterunekArmySet(Player owner, FieldModel board[]){
 		super();
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
 		list.add(new Biegacz(owner, board));
 		list.add(new Biegacz(owner, board));
 		list.add(new Ckm(owner, board));

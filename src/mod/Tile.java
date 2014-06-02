@@ -71,10 +71,12 @@ public abstract class Tile {
 	}
 	
 	protected boolean isGoodNeighbour(int index){
+		index = index%6;
 		return board[position].neighbours[index]!=null 
 				&& !(board[position].neighbours[index].getTile() instanceof Empty);
 	}
 	protected boolean isEmptyNeighbour(int index){
+		index = index%6;
 		return board[position].neighbours[index]!=null 
 				&& (board[position].neighbours[index].getTile() instanceof Empty);
 	}
@@ -100,6 +102,12 @@ public abstract class Tile {
 				canBePushed.add(board[position].neighbours[(i+direction)%6].getPosition());
 		}
 		return canBePushed;
+	}
+	public boolean isNetter(){
+		return false;
+	}
+	public boolean isBattle(){
+		return false;
 	}
 	
 }

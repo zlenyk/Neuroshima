@@ -122,6 +122,7 @@ public class BoardController {
 			fm.changeTile(tile);
 		}
 		if(tile.isInstant() || tile.isSztab()) tile.put(position, 0);
+		if(tile.isBattle()) gameController.changeBattle(true);
 		repaintBoard(this);
 	}
 	

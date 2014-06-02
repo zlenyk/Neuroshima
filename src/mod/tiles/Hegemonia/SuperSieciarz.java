@@ -22,7 +22,8 @@ public class SuperSieciarz extends Unit {
 	public void work(int direction){
 		if(ifWorks[(6+direction-rotation)%6]==true 
 				&& isGoodNeighbour(direction)
-				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner ){
+				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner 
+				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(direction+3)%6])){
 			
 			board[position].neighbours[direction].getTile().netted++; 
 			if(board[position].neighbours[direction].getTile().netted==1) board[position].neighbours[direction].getTile().stopWork();
@@ -31,7 +32,8 @@ public class SuperSieciarz extends Unit {
 	}
 	public void stopWork(){
 		if(isGoodNeighbour((rotation+1)%6)
-				&& board[position].neighbours[(rotation+1)%6].getTile().getOwner()!=this.owner ){
+				&& board[position].neighbours[(rotation+1)%6].getTile().getOwner()!=this.owner 
+				&& (!board[position].neighbours[(rotation+1)%6].getTile().isNetter() || !board[position].neighbours[(rotation+1)%6].getTile().ifWorks[(rotation+4)%6])){
 			
 			board[position].neighbours[(rotation+1)%6].getTile().netted--; 
 			if(board[position].neighbours[(rotation+1)%6].getTile().netted==0){
@@ -39,7 +41,8 @@ public class SuperSieciarz extends Unit {
 			}
 		}
 		if(isGoodNeighbour((rotation+5)%6)
-				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner ){
+				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner 
+				&& (!board[position].neighbours[(rotation+5)%6].getTile().isNetter() || !board[position].neighbours[(rotation+5)%6].getTile().ifWorks[(rotation+5)%6])){
 			
 			board[position].neighbours[(rotation+5)%6].getTile().netted--; 
 			if(board[position].neighbours[(rotation+5)%6].getTile().netted==0){
@@ -81,7 +84,7 @@ public class SuperSieciarz extends Unit {
 			initiativeBonus = 0;
 			hitBonus = 0;
 			for(int i=0;i<6;i++){
-				if(isGoodNeighbour(i)){
+				if(isEmptyNeighbour(i)){
 					whereCanPut.add(board[position].neighbours[i].getPosition());
 				}
 			}

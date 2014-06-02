@@ -77,7 +77,7 @@ public class SztabMoloch extends mod.Unit {
 			initiativeBonus = 0;
 			hitBonus = 0;
 			for(int i=0;i<6;i++){
-				if(board[position].neighbours[i]!=null && board[position].neighbours[i].getTile() instanceof Empty) whereCanPut.add(board[position].neighbours[i].getPosition());
+				if(isEmptyNeighbour(i)) whereCanPut.add(board[position].neighbours[i].getPosition());
 			}
 			
 		}
