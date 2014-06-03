@@ -241,11 +241,11 @@ public class GameController {
 				boardController.getSelectedFieldModel() != null && isOnList
 		);
 	}
-/*	public void enableRotateFieldButtonOrNot(){
+	public void enableRotateFieldButtonOrNot(){
 		mainWindowController.setRotateButtonEnabled(
-			boardController.getSelectedFieldModel() != null	
+			(boardController.getSelectedFieldModel() != null) && (boardController.getSelectedFieldModel().getPosition() == boardController.getLastTilePosition())	
 		);
-	}*/
+	}
 	public void rotateSelectedField(){
 		int position = boardController.getSelectedFieldModel().getPosition();
 		boardController.rotateField(position);
@@ -259,9 +259,7 @@ public class GameController {
 		mainWindowController.setNextTurnButtonEnabled(true);
 		mainWindowController.setAcceptButtonEnabled(false);
 		mainWindowController.setRotateButtonEnabled(false);
-	}
-	public void enableAcceptButtonOrNot(){
-		// To do too
+		boardController.resetLastTilePosition();
 	}
 	public void setWantMove(boolean b){
 		wantMove = b;

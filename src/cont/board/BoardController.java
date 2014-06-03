@@ -22,6 +22,7 @@ public class BoardController {
 	private Board board;
 	private GameController gameController;
 	private GUIController guiController;
+	private int lastTilePosition = -1;
 	public BoardController(GameController game,GUIController gui,Board b){
 		gameController = game;
 		guiController = gui;
@@ -96,7 +97,7 @@ public class BoardController {
 			}
 		}
 		gameController.enablePutButtonOrNot();
-//		gameController.enableRotateFieldButtonOrNot();
+		gameController.enableRotateFieldButtonOrNot();
 	}
 	public FieldModel getSelectedFieldModel(){
 		return boardModel.getSelectedFieldModel();
@@ -124,6 +125,7 @@ public class BoardController {
 		if(tile.isInstant() || tile.isSztab()) tile.put(position, 0);
 		if(tile.isBattle()) gameController.changeBattle(true);
 		repaintBoard(this);
+		lastTilePosition = position;
 	}
 	
 	public void swapTiles(int position1, int position2){
@@ -174,5 +176,11 @@ public class BoardController {
 	}
 	public BoardModel getBoardModel(){
 		return boardModel;
+	}
+	public int getLastTilePosition(){
+		return lastTilePosition;
+	}
+	public void resetLastTilePosition(){
+		lastTilePosition = -1;
 	}
 }
