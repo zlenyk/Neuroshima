@@ -73,8 +73,8 @@ public class BoardModel {
 		board[0].neighbours[0] = null;
 		board[0].neighbours[1] = null;
 		board[0].neighbours[2] = board[3];
-		board[0].neighbours[3] = board[2];
-		board[0].neighbours[4] = null;
+		board[0].neighbours[3] = board[5];
+		board[0].neighbours[4] = board[2];
 		board[0].neighbours[5] = null;
 
 		board[2].neighbours[0] = null;

@@ -127,10 +127,10 @@ public class GameController {
 		for(int i = tilesCount; i<3; i++){
 			if(players.get(activePlayer).getArmySet().getSize()!=0)tiles.add(players.get(activePlayer).getTile());
 			else {
-				endingTurn++;
 				break;
 			}
-		}		
+		}
+		if(tiles.size() == 0 || endingTurn!=0) endingTurn++;
 		if(tiles.size() > 0){
 			guiController.giveTiles(getActivePlayer(), tiles);
 		}
@@ -156,8 +156,9 @@ public class GameController {
 			}	
 			initiative--;
 			boardController.repaintBoard(boardController);
-			
+			guiController.refreshPlayerInfo();
 		}
+		
 		activePlayer--;
 	}
 	private boolean isBattle(){
@@ -175,7 +176,7 @@ public class GameController {
 	 * Returns if game should be ended.
 	 */
 	private boolean endOfGame(){
-		if(players.get(0).getSztab().getHp()<0 || players.get(1).getSztab().getHp()<0) return true;
+		if(players.get(0).getSztab().getHp()<=0 || players.get(1).getSztab().getHp()<=0) return true;
 		return endingTurn == players.size();
 	}
 	private void endGame(){
