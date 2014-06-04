@@ -225,7 +225,7 @@ public class GameController {
 			return;
 		}
 		Tile t = mainWindowController.getPlayerInfo(getActivePlayer()).getSelectedTile();
-		if(boardController.getSelectedFieldModel() == null || t == null){
+		if(boardController.getSelectedFieldModel() == null || t == null || isWaitingForAccept()){
 			mainWindowController.setPutButtonEnabled(false);
 			return;
 		}
