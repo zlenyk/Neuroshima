@@ -47,6 +47,7 @@ public class SztabMoloch extends mod.Unit {
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		
@@ -73,7 +74,8 @@ public class SztabMoloch extends mod.Unit {
 			}
 		}
 		else{
-			stopWork();
+			if(isWorking())stopWork();
+			working = false;
 			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;

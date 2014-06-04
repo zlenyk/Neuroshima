@@ -31,7 +31,8 @@ public abstract class Modul extends Tile {
 			}
 		}
 		else{
-			stopWork();
+			if(isWorking())stopWork();
+			working = false;
 			netted = 0;
 			for(int i=0;i<6;i++){
 				if(isEmptyNeighbour(i)) whereCanPut.add(board[position].neighbours[i].getPosition());

@@ -30,6 +30,7 @@ public abstract class Tile {
 	public boolean shield[];
 	public int hp;
 	public int netted;
+	public boolean working;
 	public LinkedList<Integer> pick(){return null;}
 	public void takeDmg(int power){
 		
@@ -110,4 +111,7 @@ public abstract class Tile {
 		return false;
 	}
 	
+	public boolean isWorking(){
+		return working;
+	}
 }

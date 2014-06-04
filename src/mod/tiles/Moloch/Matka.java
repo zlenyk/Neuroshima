@@ -18,6 +18,7 @@ public class Matka extends Modul {
 		hp = 1;
 		netted = 0;
 		position = -1;
+		working = false;
 		ifWorks = new boolean[6];
 		ifWorks[0] = true;
 		for(int i=1;i<6;i++){
@@ -30,8 +31,8 @@ public class Matka extends Modul {
 	public void work(int direction){
 		if(isNetted())return;
 		if(ifWorks[(6+direction-rotation)%6]==true){
-			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner){
-				((Unit)board[position].neighbours[direction].getTile()).initiative.add(((Unit)board[position].neighbours[direction].getTile()).initiative.get(((Unit)board[position].neighbours[direction].getTile()).initiative.size()-1)-1); 			}
+			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner)
+				((Unit)board[position].neighbours[direction].getTile()).changeInitiative(true); 
 		}
 	}
 	
@@ -39,13 +40,14 @@ public class Matka extends Modul {
 		if(isNetted())return;
 		for(int i = 0; i<1; i++){
 			if(isGoodNeighbour((i+rotation)%6) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
-				((Unit)board[position].neighbours[i].getTile()).initiative.remove(((Unit)board[position].neighbours[i].getTile()).initiative.size()-1);
+				((Unit)board[position].neighbours[i].getTile()).changeInitiative(false);
 			}
 		}
 	}
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		for(int i = 0; i<6; i++){

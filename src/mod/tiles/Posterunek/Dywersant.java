@@ -17,6 +17,7 @@ public class Dywersant extends Modul {
 		hp = 1;
 		netted = 0;
 		position = -1;
+		working = false;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){
 			ifWorks[i] = true;
@@ -45,6 +46,7 @@ public class Dywersant extends Modul {
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		for(int i = 0; i<6; i++){

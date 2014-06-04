@@ -55,6 +55,7 @@ public class SztabHegemonia extends mod.Unit {
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		for(int i = 0; i<6; i++){
@@ -82,7 +83,8 @@ public class SztabHegemonia extends mod.Unit {
 			}
 		}
 		else{
-			stopWork();
+			if(isWorking())stopWork();
+			working = false;
 			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;

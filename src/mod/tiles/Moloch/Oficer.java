@@ -19,6 +19,7 @@ public class Oficer extends Modul {
 		position = -1;
 		hp = 1;
 		netted = 0;
+		working = false;
 		ifWorks = new boolean[6];
 		for(int i=0;i<6;i++){
 			if(i%2==0)ifWorks[i] = false;
@@ -47,6 +48,7 @@ public class Oficer extends Modul {
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		for(int i = 0; i<6; i++){

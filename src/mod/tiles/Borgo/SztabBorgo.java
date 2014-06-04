@@ -53,6 +53,7 @@ public class SztabBorgo extends Unit {
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		for(int i = 0; i<6; i++){
@@ -80,7 +81,8 @@ public class SztabBorgo extends Unit {
 			}
 		}
 		else{
-			stopWork();
+			if(isWorking())stopWork();
+			working = false;
 			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;

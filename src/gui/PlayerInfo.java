@@ -161,7 +161,7 @@ public class PlayerInfo extends JPanel{
 		for(int i = 0; i<3; i++){
 			if(fieldModelList.get(i).getTile() == null){
 				fieldModelList.get(i).changeTile(tl.get(index++));
-				if(index>tl.size()) break;
+				if(index>=tl.size()) break;
 			}
 		}
 		showTiles();

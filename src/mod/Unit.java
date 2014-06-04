@@ -16,6 +16,7 @@ public abstract class Unit extends Tile {
 	public int shootBonus;
 	public int hitBonus;
 	public int initiativeBonus;
+	private boolean initiativeChange;
 		
 	protected Unit(Player owner, FieldModel[] board){
 		this.owner = owner;
@@ -34,6 +35,8 @@ public abstract class Unit extends Tile {
 		shootBonus = 0;
 		hitBonus = 0;
 		initiativeBonus = 0;
+		initiativeChange = false;
+		working = false;
 	}
 	protected void shoot(int direction,int power){
 		direction = direction%6;
@@ -100,5 +103,17 @@ public abstract class Unit extends Tile {
 		return false;
 	}
 	
+	public void changeInitiative(boolean addOrRemove){
+		if(initiative.isEmpty()) return;
+		if(addOrRemove && !initiativeChange){
+			initiative.add(initiative.get(initiative.size()-1)-1);
+			initiativeChange = true;
+		}
+		else if(!addOrRemove && initiativeChange){
+			initiative.remove(initiative.size()-1);
+			initiativeChange = false;
+		}
+		
+	}
 	
 }

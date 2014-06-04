@@ -23,7 +23,7 @@ public class SztabPosterunek extends mod.Unit {
 	public void attack(){
 		for(int i = 0; i<6; i++){
 			if(board[position].neighbours[i]!=null 
-					&& !board[position].neighbours[0].getTile().isSztab()){
+					&& !board[position].neighbours[i].getTile().isSztab()){
 				
 				hit(i,1+hitBonus);
 			}
@@ -33,19 +33,20 @@ public class SztabPosterunek extends mod.Unit {
 	public void work(int direction){
 		if(isNetted())return;
 		if(board[position].neighbours[direction]!=null && board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==this.owner ) 
-			((Unit)board[position].neighbours[direction].getTile()).initiative.add(((Unit)board[position].neighbours[direction].getTile()).initiative.get(((Unit)board[position].neighbours[direction].getTile()).initiative.size()-1)-1); 
+			((Unit)board[position].neighbours[direction].getTile()).changeInitiative(true);
 	}
 	public void stopWork(){
 		if(isNetted())return;
 		for(int i=0; i<6; i++){
 			if(board[position].neighbours[i]!=null && board[position].neighbours[i].getTile() instanceof Unit && board[position].neighbours[i].getTile().getOwner()==this.owner ) 
-				((Unit)board[position].neighbours[i].getTile()).initiative.remove(((Unit)board[position].neighbours[i].getTile()).initiative.size()-1);
+				((Unit)board[position].neighbours[i].getTile()).changeInitiative(false);
 		}
 	}
 	
 	
 	@Override
 	public void put(int position, int rotation){
+		working = true;
 		this.rotation = rotation;
 		this.position=position;
 		for(int i = 0; i<6; i++){
@@ -72,7 +73,8 @@ public class SztabPosterunek extends mod.Unit {
 			}
 		}
 		else{
-			stopWork();
+			if(isWorking())stopWork();
+			working = false;
 			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;
