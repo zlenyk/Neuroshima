@@ -98,6 +98,7 @@ public class BoardController {
 		}
 		gameController.enablePutButtonOrNot();
 		gameController.enableRotateFieldButtonOrNot();
+		repaintBoard(this);
 	}
 	public FieldModel getSelectedFieldModel(){
 		return boardModel.getSelectedFieldModel();
