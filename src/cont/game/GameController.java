@@ -122,6 +122,7 @@ public class GameController {
 		return true;
 	}
 	private void normalTurn(){
+		guiController.refreshPlayerInfo();
 		List<Tile> tiles = new ArrayList<Tile>();
 		int tilesCount = mainWindowController.getPlayerTileCount(getActivePlayer());
 		for(int i = tilesCount; i<3; i++){
@@ -136,6 +137,7 @@ public class GameController {
 		}
 	}
 	private void battle(){
+		guiController.refreshPlayerInfo();
 		guiController.showMessage(MessageBuilder.battle());
 		//pauza
 		FieldModel[] board = boardController.getBoardModel().getBoard();
@@ -164,6 +166,7 @@ public class GameController {
 				break;
 		if(i==21) endGame();
 		activePlayer--;
+		guiController.refreshPlayerInfo();
 	}
 	private boolean isBattle(){
 		FieldModel[] board = boardController.getBoardModel().getBoard();
@@ -221,6 +224,8 @@ public class GameController {
 		mainWindowController.setPutButtonEnabled(false);
 		mainWindowController.setRotateButtonEnabled(true);
 		mainWindowController.setDiscardButtonEnabled(false);
+		
+		guiController.refreshPlayerInfo();
 	}
 	
 	public void enablePutButtonOrNot(){
@@ -266,6 +271,8 @@ public class GameController {
 		mainWindowController.setRotateButtonEnabled(false);
 		boardController.resetLastTilePosition();
 		boardController.repaintBoard(boardController);
+		
+		
 	}
 	public void setWantMove(boolean b){
 		wantMove = b;
