@@ -42,7 +42,7 @@ public class SuperOficer extends Modul {
 	public void stopWork(){
 		if(isNetted())return;
 		for(int i=5;i!=2;i=(i+1)%6){
-			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
+			if(isGoodNeighbour((i+rotation)%6) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).hitBonus--;
 			}
 		}

@@ -37,7 +37,7 @@ public class Dywersant extends Modul {
 	public void stopWork(){
 		if(isNetted())return;
 		for(int i = 0; i<6; i++){
-			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()!=owner){
+			if(isGoodNeighbour((i+rotation)%6) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()!=owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).initiativeBonus++;
 			}
 		}

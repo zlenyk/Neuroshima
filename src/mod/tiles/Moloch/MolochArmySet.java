@@ -16,9 +16,12 @@ public class MolochArmySet extends ArmySet {
 		list.add(new Bomba(owner, board));
 		list.add(new Cyborg(owner, board));
 		list.add(new Cyborg(owner, board));
+		list.add(new Cyborg(owner, board));
+		list.add(new Cyborg(owner, board));
 		list.add(new DzialkoGaussa(owner, board));
 		list.add(new Juggernaut(owner, board));
 		list.add(new Klaun(owner, board));
+		list.add(new Lowca(owner, board));
 		list.add(new Lowca(owner, board));
 		list.add(new Lowca(owner, board));
 		list.add(new Mozg(owner, board));
@@ -27,13 +30,15 @@ public class MolochArmySet extends ArmySet {
 		list.add(new OpancerzonyLowca(owner, board));
 		list.add(new OpancerzonyLowca(owner, board));
 		list.add(new OpancerzonyWartownik(owner, board));
+		list.add(new OpancerzonyWartownik(owner, board));
+		list.add(new Rozpruwacz(owner, board));
 		list.add(new Rozpruwacz(owner, board));
 		list.add(new Ruch(owner, board));
 		list.add(new Sieciarz(owner, board));
 		list.add(new Szturmowiec(owner, board));
 		list.add(new Wartownik(owner, board));
+		list.add(new Wartownik(owner, board));
 		list.add(new Matka(owner, board));
 		list.add(new Zwiadowca(owner, board));
-
 	}
 }

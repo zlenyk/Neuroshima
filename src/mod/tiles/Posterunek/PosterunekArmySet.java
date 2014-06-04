@@ -16,11 +16,14 @@ public class PosterunekArmySet extends ArmySet {
 		list.add(new Biegacz(owner, board));
 		list.add(new Biegacz(owner, board));
 		list.add(new Ckm(owner, board));
+		list.add(new Ckm(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
+		list.add(new Komandos(owner, board));
+		list.add(new Likwidator(owner, board));
 		list.add(new Likwidator(owner, board));
 		list.add(new Likwidator(owner, board));
 		list.add(new PancerzWspomagany(owner, board));
@@ -37,6 +40,5 @@ public class PosterunekArmySet extends ArmySet {
 		list.add(new Oficer(owner, board));
 		list.add(new Zwiadowca(owner, board));
 		list.add(new Zwiadowca(owner, board));
-
 	}
 }

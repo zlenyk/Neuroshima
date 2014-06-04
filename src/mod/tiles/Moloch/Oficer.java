@@ -55,7 +55,7 @@ public class Oficer extends Modul {
 			}
 		}
 		for(int i = 1; i<6; i+=2){
-			if(isGoodNeighbour(i+rotation)){
+			if(isGoodNeighbour((i+rotation)%6)){
 				work((i+rotation)%6); 
 			}
 		}	

@@ -16,6 +16,8 @@ public class HegemoniaArmySet extends ArmySet {
 		list.add(new Biegacz(owner, board));
 		list.add(new Biegacz(owner, board));
 		list.add(new Bydlak(owner, board));
+		list.add(new Bydlak(owner, board));
+		list.add(new Ganger(owner, board));
 		list.add(new Ganger(owner, board));
 		list.add(new Ganger(owner, board));
 		list.add(new Ganger(owner, board));
@@ -27,6 +29,7 @@ public class HegemoniaArmySet extends ArmySet {
 		list.add(new Sieciarz(owner, board));
 		list.add(new Sieciarz(owner, board));
 		list.add(new Snajper(owner, board));
+		list.add(new Straznik(owner, board));
 		list.add(new Straznik(owner, board));
 		list.add(new SuperSieciarz(owner, board));
 		list.add(new UniwersalnyZolnierz(owner, board));

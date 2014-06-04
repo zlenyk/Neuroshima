@@ -61,7 +61,7 @@ public class Sieciarz extends Unit {
 			}
 		}
 		for(int i = 0; i<6; i+=5){
-			if(isGoodNeighbour(i+rotation)){
+			if(isGoodNeighbour((i+rotation)%6)){
 				work((i+rotation)%6); 
 			}
 		}		
