@@ -130,7 +130,7 @@ public class GameController {
 				break;
 			}
 		}
-		if(tiles.size() == 0 || endingTurn!=0) endingTurn++;
+		if(players.get(activePlayer).getArmySet().getSize()==0 || endingTurn!=0) endingTurn++;
 		if(tiles.size() > 0){
 			guiController.giveTiles(getActivePlayer(), tiles);
 		}
