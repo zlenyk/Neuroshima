@@ -17,6 +17,11 @@ public class Empty extends mod.Tile {
 	}
 
 	@Override
+	public boolean isInstant(){
+		return false;
+	}
+	
+	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Empty.emptySelected();
 	}
