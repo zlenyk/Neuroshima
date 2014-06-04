@@ -109,6 +109,9 @@ public class MainWindowController implements WindowController {
 			pi.refreshText();
 		}
 	}
+	public void mainWindowRepaint(){
+		mainWindow.repaint();
+	}
 	/**
 	 * @return PlayerInfo that belongs to the active player.
 	 */

@@ -53,10 +53,13 @@ public class PlayerInfo extends JPanel{
 						if(getSelectedTile() != null){
 							getSelectedTile().changeSelect();
 							getSelectedTile().getField().repaint();
+							mainWindowController.mainWindowRepaint();
+							
 						}
 						if(f.getTile() != null){
 							f.getTile().changeSelect();
 							f.getTile().getField().repaint();
+							mainWindowController.mainWindowRepaint();
 							mainWindowController.setDiscardButtonEnabled(true);
 						}
 						mainWindowController.getGameController().enablePutButtonOrNot();
