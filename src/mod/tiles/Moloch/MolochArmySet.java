@@ -8,7 +8,7 @@ public class MolochArmySet extends ArmySet {
 	public MolochArmySet(Player owner, FieldModel board[]){
 		super();
 		list.add(new Battle(owner, board));
-		/*list.add(new Battle(owner, board));
+		list.add(new Battle(owner, board));
 		list.add(new Battle(owner, board));
 		list.add(new Battle(owner, board));
 		list.add(new Bloker(owner, board));
@@ -29,7 +29,7 @@ public class MolochArmySet extends ArmySet {
 		list.add(new Oficer(owner, board));
 		list.add(new OpancerzonyLowca(owner, board));
 		list.add(new OpancerzonyLowca(owner, board));
-		list.add(new OpancerzonyWartownik(owner, board));*/
+		list.add(new OpancerzonyWartownik(owner, board));
 		list.add(new OpancerzonyWartownik(owner, board));
 		list.add(new Rozpruwacz(owner, board));
 		list.add(new Rozpruwacz(owner, board));

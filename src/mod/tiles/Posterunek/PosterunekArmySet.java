@@ -18,14 +18,14 @@ public class PosterunekArmySet extends ArmySet {
 		list.add(new Ckm(owner, board));
 		list.add(new Ckm(owner, board));
 		list.add(new Komandos(owner, board));
-		/*list.add(new Komandos(owner, board));
+		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Komandos(owner, board));
 		list.add(new Likwidator(owner, board));
 		list.add(new Likwidator(owner, board));
-		list.add(new Likwidator(owner, board));*/
+		list.add(new Likwidator(owner, board));
 		list.add(new PancerzWspomagany(owner, board));
 		list.add(new Ruch(owner, board));
 		list.add(new Ruch(owner, board));
