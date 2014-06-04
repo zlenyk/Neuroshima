@@ -21,7 +21,8 @@ public class CentrumRozpoznania extends Modul {
 		for(int i=0;i<6;i++){
 			ifWorks[i] = false;
 		}
-		
+		shield = new boolean[6];
+		for(int i=0;i<6;i++) shield[i] = false;
 	}
 	
 	

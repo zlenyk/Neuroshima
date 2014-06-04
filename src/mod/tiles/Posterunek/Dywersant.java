@@ -21,10 +21,12 @@ public class Dywersant extends Modul {
 		for(int i=0;i<6;i++){
 			ifWorks[i] = true;
 		}
-		
+		shield = new boolean[6];
+		for(int i=0;i<6;i++) shield[i] = false;
 	}
 	
 	public void work(int direction){
+		if(isNetted())return;
 		if(ifWorks[(6+direction-rotation)%6]==true){
 			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()!=owner){
 				((Unit)board[position].neighbours[direction].getTile()).initiativeBonus--;
@@ -33,6 +35,7 @@ public class Dywersant extends Modul {
 	}
 	
 	public void stopWork(){
+		if(isNetted())return;
 		for(int i = 0; i<6; i++){
 			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()!=owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).initiativeBonus++;

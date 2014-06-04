@@ -31,10 +31,12 @@ public class SztabPosterunek extends mod.Unit {
 	}
 	
 	public void work(int direction){
+		if(isNetted())return;
 		if(board[position].neighbours[direction]!=null && board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==this.owner ) 
 			((Unit)board[position].neighbours[direction].getTile()).initiative.add(((Unit)board[position].neighbours[direction].getTile()).initiative.get(((Unit)board[position].neighbours[direction].getTile()).initiative.size()-1)-1); 
 	}
 	public void stopWork(){
+		if(isNetted())return;
 		for(int i=0; i<6; i++){
 			if(board[position].neighbours[i]!=null && board[position].neighbours[i].getTile() instanceof Unit && board[position].neighbours[i].getTile().getOwner()==this.owner ) 
 				((Unit)board[position].neighbours[i].getTile()).initiative.remove(((Unit)board[position].neighbours[i].getTile()).initiative.size()-1);

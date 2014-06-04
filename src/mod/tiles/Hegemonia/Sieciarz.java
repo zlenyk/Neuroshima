@@ -17,17 +17,19 @@ public class Sieciarz extends Unit {
 		ifWorks[0] = true;
 	}
 	public void work(int direction){
+		if(isNetted())return;
 		if(ifWorks[(6+direction-rotation)%6]==true 
 				&& isGoodNeighbour(direction) 
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner 
 				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(direction+3)%6])){
 			
+			if(board[position].neighbours[direction].getTile().netted==0) board[position].neighbours[direction].getTile().stopWork();
 			board[position].neighbours[direction].getTile().netted++; 
-			if(board[position].neighbours[direction].getTile().netted==1) board[position].neighbours[direction].getTile().stopWork();
 
 		}
 	}
 	public void stopWork(){
+		if(isNetted())return;
 		if(isGoodNeighbour(rotation)
 				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner 
 				&& (!board[position].neighbours[rotation].getTile().isNetter() || !board[position].neighbours[rotation].getTile().ifWorks[(rotation+3)%6])){
@@ -66,7 +68,7 @@ public class Sieciarz extends Unit {
 			}
 		}
 		else{
-			stopWork();
+			if(!isNetted())stopWork();
 			netted = 0;
 			shootBonus = 0;
 			initiativeBonus = 0;

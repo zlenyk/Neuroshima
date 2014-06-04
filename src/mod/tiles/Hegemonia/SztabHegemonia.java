@@ -31,6 +31,7 @@ public class SztabHegemonia extends mod.Unit {
 	}
 	
 	public void work(int direction){
+		if(isNetted())return;
 		if(board[position].neighbours[direction]!=null 
 				&& board[position].neighbours[direction].getTile() instanceof Unit 
 				&& board[position].neighbours[direction].getTile().getOwner()==this.owner ){
@@ -40,6 +41,7 @@ public class SztabHegemonia extends mod.Unit {
 	}
 	
 	public void stopWork(){
+		if(isNetted())return;
 		for(int i=0;i<6;i++){
 			if(board[position].neighbours[i]!=null 
 					&& board[position].neighbours[i].getTile() instanceof Unit 

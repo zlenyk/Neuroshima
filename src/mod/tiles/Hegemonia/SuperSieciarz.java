@@ -20,17 +20,19 @@ public class SuperSieciarz extends Unit {
 	}
 	
 	public void work(int direction){
+		if(isNetted())return;
 		if(ifWorks[(6+direction-rotation)%6]==true 
 				&& isGoodNeighbour(direction)
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner 
 				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(direction+3)%6])){
 			
+			if(board[position].neighbours[direction].getTile().netted==0) board[position].neighbours[direction].getTile().stopWork();
 			board[position].neighbours[direction].getTile().netted++; 
-			if(board[position].neighbours[direction].getTile().netted==1) board[position].neighbours[direction].getTile().stopWork();
 
 		}
 	}
 	public void stopWork(){
+		if(isNetted())return;
 		if(isGoodNeighbour((rotation+1)%6)
 				&& board[position].neighbours[(rotation+1)%6].getTile().getOwner()!=this.owner 
 				&& (!board[position].neighbours[(rotation+1)%6].getTile().isNetter() || !board[position].neighbours[(rotation+1)%6].getTile().ifWorks[(rotation+4)%6])){

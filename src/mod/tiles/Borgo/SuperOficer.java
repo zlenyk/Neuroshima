@@ -26,10 +26,12 @@ public class SuperOficer extends Modul {
 		for(int i=2;i<5;i++){
 			 ifWorks[i] = false;
 		}
-		
+		shield = new boolean[6];
+		for(int i=0;i<6;i++) shield[i] = false;
 	}
 	
 	public void work(int direction){
+		if(isNetted())return;
 		if(ifWorks[(6+direction-rotation)%6]==true){
 			if(board[position].neighbours[direction].getTile() instanceof Unit && board[position].neighbours[direction].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[direction].getTile()).hitBonus++;
@@ -38,6 +40,7 @@ public class SuperOficer extends Modul {
 	}
 	
 	public void stopWork(){
+		if(isNetted())return;
 		for(int i=5;i!=2;i=(i+1)%6){
 			if(isGoodNeighbour(i) && board[position].neighbours[(i+rotation)%6].getTile() instanceof Unit && board[position].neighbours[(i+rotation)%6].getTile().getOwner()==owner){
 				((Unit)board[position].neighbours[(i+rotation)%6].getTile()).hitBonus--;

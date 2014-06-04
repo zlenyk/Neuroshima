@@ -27,7 +27,7 @@ public abstract class Unit extends Tile {
 		initiative = new LinkedList<Integer>();
 		
 		for(int i=0;i<6;i++) shield[i] = false;
-		for(int i=1;i<6;i++) ifWorks[i] = false;
+		for(int i=0;i<6;i++) ifWorks[i] = false;
 
 		position = -1;
 		netted = 0;
