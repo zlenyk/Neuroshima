@@ -158,7 +158,11 @@ public class GameController {
 			boardController.repaintBoard(boardController);
 			guiController.refreshPlayerInfo();
 		}
-		
+		int i=0;
+		for(;i<21;i++)
+			if(i!=1 && i!=19 && board[i].getTile() instanceof mod.tiles.empty.Empty)
+				break;
+		if(i==21) endGame();
 		activePlayer--;
 	}
 	private boolean isBattle(){
@@ -182,7 +186,7 @@ public class GameController {
 	private void endGame(){
 		if(players.get(0).getSztab().getHp()>0 && players.get(1).getSztab().getHp()>0) battle();
 		guiController.showMessage(MessageBuilder.endOfGameMessage(winner()));
-		guiController.closeGame();
+		//guiController.closeGame();
 	}
 	private String winner(){
 		if(players.get(0).getSztab().getHp()>players.get(1).getSztab().getHp()) return players.get(0).getName();

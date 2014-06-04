@@ -22,6 +22,7 @@ public class MessageBuilder {
 		return "There must be exactly " + Config.getPLAYERS() + " players.";
 	}
 	public static String endOfGameMessage(String player){
+		if(player == "-") return "Game has finished! It's a draw";
 		return "Game has finished! Player " + player + " won";
 	}
 	public static String playerPutSztabMessage(String name){
