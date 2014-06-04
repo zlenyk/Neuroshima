@@ -26,10 +26,11 @@ public class Sieciarz extends Unit {
 			if(board[position].neighbours[direction].getTile().netted==0){
 				board[position].neighbours[direction].getTile().stopWork();
 				board[position].neighbours[direction].getTile().working = false;
+				board[position].neighbours[direction].getTile().getField().changeNetted();
+				board[position].neighbours[direction].getTile().getField().repaint();
 			}
 			board[position].neighbours[direction].getTile().netted++;
-			board[position].neighbours[direction].getTile().getField().changeNetted();
-			board[position].neighbours[direction].getTile().getField().repaint();
+			
 		
 		}
 			
@@ -54,9 +55,9 @@ public class Sieciarz extends Unit {
 				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner 
 				&& (!board[position].neighbours[(rotation+5)%6].getTile().isNetter() || !board[position].neighbours[(rotation+5)%6].getTile().ifWorks[(6-board[position].neighbours[(rotation+5)%6].getTile().getRotation()+rotation+2)%6])){
 			
-			board[position].neighbours[rotation].getTile().netted--; 
-			board[position].neighbours[rotation].getTile().getField().changeNetted();
-			board[position].neighbours[rotation].getTile().getField().repaint();
+			board[position].neighbours[(rotation+5)%6].getTile().netted--; 
+			board[position].neighbours[(rotation+5)%6].getTile().getField().changeNetted();
+			board[position].neighbours[(rotation+5)%6].getTile().getField().repaint();
 			
 			if(board[position].neighbours[(rotation+5)%6].getTile().netted==0){
 				board[position].neighbours[(rotation+5)%6].getTile().working = true;
