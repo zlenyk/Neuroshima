@@ -21,7 +21,7 @@ public class Sieciarz extends Unit {
 		if(ifWorks[(6+direction-rotation)%6]==true 
 				&& isGoodNeighbour(direction) 
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner
-				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(direction+3)%6])){
+				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(6-board[position].neighbours[direction].getTile().getRotation()+direction+3)%6])){
 			
 			if(board[position].neighbours[direction].getTile().netted==0) board[position].neighbours[direction].getTile().stopWork();
 			board[position].neighbours[direction].getTile().netted++; 
@@ -34,7 +34,7 @@ public class Sieciarz extends Unit {
 		if(isNetted())return;
 		if(isGoodNeighbour(rotation) 
 				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner
-				&& (!board[position].neighbours[rotation].getTile().isNetter() || !board[position].neighbours[rotation].getTile().ifWorks[(rotation+3)%6])){
+				&& (!board[position].neighbours[rotation].getTile().isNetter() || !board[position].neighbours[rotation].getTile().ifWorks[(6-board[position].neighbours[(rotation)%6].getTile().getRotation()+rotation+3)%6])){
 			
 			board[position].neighbours[rotation].getTile().netted--; 
 			if(board[position].neighbours[rotation].getTile().netted==0){
@@ -43,7 +43,7 @@ public class Sieciarz extends Unit {
 		}
 		if(isGoodNeighbour((rotation+5)%6) 
 				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner 
-				&& (!board[position].neighbours[(rotation+5)%6].getTile().isNetter() || !board[position].neighbours[(rotation+5)%6].getTile().ifWorks[(rotation+5)%6])){
+				&& (!board[position].neighbours[(rotation+5)%6].getTile().isNetter() || !board[position].neighbours[(rotation+5)%6].getTile().ifWorks[(6-board[position].neighbours[(rotation+5)%6].getTile().getRotation()+rotation+2)%6])){
 			
 			board[position].neighbours[(rotation+5)%6].getTile().netted--;
 			if(board[position].neighbours[(rotation+5)%6].getTile().netted==0){
@@ -91,6 +91,11 @@ public class Sieciarz extends Unit {
 		
 		return whereCanPut;
 	}
+	
+	@Override
+	public boolean isNetter(){
+		return true;
+	}
 
 	@Override
 	public Image getImage() {
@@ -102,5 +107,4 @@ public class Sieciarz extends Unit {
 		return ImageLoader.Moloch.sieciarzSelected();
 	}
 	
-	// Ma siec w kierunkach 0 i 5
 }

@@ -21,7 +21,7 @@ public class Sieciarz extends Unit {
 		if(ifWorks[(6+direction-rotation)%6]==true
 				&& isGoodNeighbour(direction)
 				&& board[position].neighbours[direction].getTile().getOwner()!=this.owner 
-				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(direction+3)%6])){
+				&& (!board[position].neighbours[direction].getTile().isNetter() || !board[position].neighbours[direction].getTile().ifWorks[(6-board[position].neighbours[direction].getTile().getRotation()+direction+3)%6])){
 			
 			if(board[position].neighbours[direction].getTile().netted==0) board[position].neighbours[direction].getTile().stopWork();
 			board[position].neighbours[direction].getTile().netted++;
@@ -32,7 +32,7 @@ public class Sieciarz extends Unit {
 		if(isNetted())return;
 		if(isGoodNeighbour(rotation) 
 				&& board[position].neighbours[rotation].getTile().getOwner()!=this.owner 
-				&& (!board[position].neighbours[rotation].getTile().isNetter() || !board[position].neighbours[rotation].getTile().ifWorks[(rotation+3)%6])){
+				&& (!board[position].neighbours[rotation].getTile().isNetter() || !board[position].neighbours[rotation].getTile().ifWorks[(6-board[position].neighbours[(rotation)%6].getTile().getRotation()+rotation+3)%6])){
 			
 			board[position].neighbours[rotation].getTile().netted--; 
 			if(board[position].neighbours[rotation].getTile().netted==0){
@@ -82,6 +82,11 @@ public class Sieciarz extends Unit {
 
 	public void attack(){
 		hit(0+rotation,3+hitBonus);
+	}
+	
+	@Override
+	public boolean isNetter(){
+		return true;
 	}
 	
 	@Override
