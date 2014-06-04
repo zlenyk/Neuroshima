@@ -13,7 +13,7 @@ import cont.board.ImageLoader;
 
 public class Oficer extends Modul {
 	public Oficer(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -76,6 +76,11 @@ public class Oficer extends Modul {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Borgo.oficerSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.oficerNetted();
 	}
 	
 }

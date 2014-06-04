@@ -30,4 +30,9 @@ public class Lowca extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.lowcaSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.lowcaNetted();
+	}
 }

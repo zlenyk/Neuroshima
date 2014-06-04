@@ -27,4 +27,9 @@ public class Rozpruwacz extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.rozpruwaczSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.rozpruwaczNetted();
+	}
 }

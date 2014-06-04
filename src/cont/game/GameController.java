@@ -265,6 +265,7 @@ public class GameController {
 		mainWindowController.setAcceptButtonEnabled(false);
 		mainWindowController.setRotateButtonEnabled(false);
 		boardController.resetLastTilePosition();
+		boardController.repaintBoard(boardController);
 	}
 	public void setWantMove(boolean b){
 		wantMove = b;

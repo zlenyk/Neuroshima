@@ -25,4 +25,9 @@ public class Bloker extends Unit {
 		return ImageLoader.Moloch.blokerSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.blokerNetted();
+	}
+	
 }

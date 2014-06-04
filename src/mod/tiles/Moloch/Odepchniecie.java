@@ -32,4 +32,9 @@ public class Odepchniecie extends mod.Tile {
 		return ImageLoader.Moloch.odepchniecieSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.odepchniecie();
+	}
+	
 }

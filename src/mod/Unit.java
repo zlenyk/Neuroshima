@@ -22,7 +22,7 @@ public abstract class Unit extends Tile {
 		this.owner = owner;
 		this.board = board;
 		
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		shield = new boolean[6];
 		ifWorks = new boolean[6];
 		initiative = new LinkedList<Integer>();

@@ -28,4 +28,9 @@ public class Komandos extends Unit {
 		return ImageLoader.Posterunek.komandosSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.komandosNetted();
+	}
+	
 }

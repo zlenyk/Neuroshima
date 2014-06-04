@@ -29,4 +29,9 @@ public class Obronca extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.obroncaSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.obroncaNetted();
+	}
 }

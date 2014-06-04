@@ -31,6 +31,10 @@ public class Juggernaut extends Unit{
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.juggernautSelected();
 	}
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.juggernautNetted();
+	}
 	
 	
 }

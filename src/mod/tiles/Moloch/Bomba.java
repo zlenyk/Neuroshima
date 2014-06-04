@@ -12,7 +12,7 @@ import cont.board.ImageLoader;
 
 public class Bomba extends mod.Tile {
 	public Bomba(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 	}
@@ -55,5 +55,10 @@ public Image getImage() {
 @Override
 public Image getSelectedImage() {
 	return ImageLoader.Moloch.bombaSelected();
+}
+
+@Override
+public Image getNettedImage() {
+	return ImageLoader.Moloch.bomba();
 }
 }

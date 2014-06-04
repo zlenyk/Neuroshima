@@ -28,4 +28,9 @@ public class Zabojca extends Unit {
 		return ImageLoader.Borgo.zabojcaSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.zabojcaNetted();
+	}
+	
 }

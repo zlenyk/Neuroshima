@@ -13,7 +13,7 @@ import cont.board.ImageLoader;
 public class Ruch extends mod.Tile {
 	
 	public Ruch(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 	}
@@ -44,5 +44,9 @@ public class Ruch extends mod.Tile {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Borgo.ruchSelected();
+	}
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.ruch();
 	}
 }

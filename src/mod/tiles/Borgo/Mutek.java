@@ -30,4 +30,9 @@ public class Mutek extends Unit {
 		return ImageLoader.Borgo.mutekSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.mutekNetted();
+	}
+	
 }

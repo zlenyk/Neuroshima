@@ -29,4 +29,9 @@ public class Ckm extends Unit {
 		return ImageLoader.Posterunek.ckmSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.ckmNetted();
+	}
+	
 }

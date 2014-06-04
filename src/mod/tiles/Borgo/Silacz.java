@@ -28,4 +28,9 @@ public class Silacz extends Unit {
 		return ImageLoader.Borgo.silaczSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.silaczNetted();
+	}
+	
 }

@@ -12,7 +12,7 @@ import cont.board.ImageLoader;
 
 public class Zwiadowca extends Modul{
 	public Zwiadowca(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -71,5 +71,10 @@ public class Zwiadowca extends Modul{
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Posterunek.zwiadowcaSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.zwiadowcaNetted();
 	}
 }

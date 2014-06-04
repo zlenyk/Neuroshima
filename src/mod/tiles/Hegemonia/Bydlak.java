@@ -30,4 +30,9 @@ public class Bydlak extends Unit {
 		return ImageLoader.Hegemonia.bydlakSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.bydlakNetted();
+	}
+	
 }

@@ -27,5 +27,10 @@ public class Cyborg extends Unit{
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.cyborgSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.cyborgNetted();
+	}
 		
 }

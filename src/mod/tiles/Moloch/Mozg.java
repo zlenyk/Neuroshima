@@ -13,7 +13,7 @@ import cont.board.ImageLoader;
 
 public class Mozg extends Modul {
 	public Mozg(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -74,6 +74,11 @@ public class Mozg extends Modul {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.mozgSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.mozgNetted();
 	}
 	
 }

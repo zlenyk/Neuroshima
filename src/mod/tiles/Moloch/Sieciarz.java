@@ -27,7 +27,9 @@ public class Sieciarz extends Unit {
 				board[position].neighbours[direction].getTile().stopWork();
 				board[position].neighbours[direction].getTile().working = false;
 			}
-			board[position].neighbours[direction].getTile().netted++; 
+			board[position].neighbours[direction].getTile().netted++;
+			board[position].neighbours[direction].getTile().getField().changeNetted();
+			board[position].neighbours[direction].getTile().getField().repaint();
 		
 		}
 			
@@ -40,6 +42,9 @@ public class Sieciarz extends Unit {
 				&& (!board[position].neighbours[rotation].getTile().isNetter() || !board[position].neighbours[rotation].getTile().ifWorks[(6-board[position].neighbours[(rotation)%6].getTile().getRotation()+rotation+3)%6])){
 			
 			board[position].neighbours[rotation].getTile().netted--; 
+			board[position].neighbours[rotation].getTile().getField().changeNetted();
+			board[position].neighbours[rotation].getTile().getField().repaint();
+			
 			if(board[position].neighbours[rotation].getTile().netted==0){
 				board[position].neighbours[rotation].getTile().working = true;
 				for(int i=0; i<6;i++) board[position].neighbours[rotation].getTile().work(i);
@@ -49,7 +54,10 @@ public class Sieciarz extends Unit {
 				&& board[position].neighbours[(rotation+5)%6].getTile().getOwner()!=this.owner 
 				&& (!board[position].neighbours[(rotation+5)%6].getTile().isNetter() || !board[position].neighbours[(rotation+5)%6].getTile().ifWorks[(6-board[position].neighbours[(rotation+5)%6].getTile().getRotation()+rotation+2)%6])){
 			
-			board[position].neighbours[(rotation+5)%6].getTile().netted--;
+			board[position].neighbours[rotation].getTile().netted--; 
+			board[position].neighbours[rotation].getTile().getField().changeNetted();
+			board[position].neighbours[rotation].getTile().getField().repaint();
+			
 			if(board[position].neighbours[(rotation+5)%6].getTile().netted==0){
 				board[position].neighbours[(rotation+5)%6].getTile().working = true;
 				for(int i=0; i<6;i++) board[position].neighbours[(rotation+5)%6].getTile().work(i);
@@ -112,6 +120,11 @@ public class Sieciarz extends Unit {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.sieciarzSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.sieciarzNetted();
 	}
 	
 }

@@ -55,6 +55,7 @@ public abstract class Tile {
 	public abstract void put(int position, int rotation);
 	public abstract Image getImage();
 	public abstract Image getSelectedImage();
+	public abstract Image getNettedImage();
 	public void die(){
 		if(netted<=0) stopWork();
 		board[position].changeTile(new Empty());

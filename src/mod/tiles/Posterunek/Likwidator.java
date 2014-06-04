@@ -28,4 +28,9 @@ public class Likwidator extends Unit {
 		return ImageLoader.Posterunek.likwidatorSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.likwidatorNetted();
+	}
+	
 }

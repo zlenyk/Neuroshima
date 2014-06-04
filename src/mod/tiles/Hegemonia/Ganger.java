@@ -29,4 +29,9 @@ public class Ganger extends Unit {
 		return ImageLoader.Hegemonia.gangerSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.gangerNetted();
+	}
+	
 }

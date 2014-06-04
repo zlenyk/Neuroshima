@@ -28,4 +28,9 @@ public class Silacz extends Unit {
 		return ImageLoader.Posterunek.silaczSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.silaczNetted();
+	}
+	
 }

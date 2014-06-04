@@ -111,5 +111,11 @@ public class SztabHegemonia extends mod.Unit {
 		
 		return ImageLoader.Hegemonia.sztabSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		
+		return ImageLoader.Hegemonia.sztabNetted();
+	}
 }
 

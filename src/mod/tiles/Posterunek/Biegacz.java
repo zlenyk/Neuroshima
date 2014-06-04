@@ -28,4 +28,9 @@ public class Biegacz extends Unit {
 		return ImageLoader.Posterunek.biegaczSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.biegaczNetted();
+	}
+	
 }

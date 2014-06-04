@@ -12,7 +12,7 @@ import cont.board.ImageLoader;
 
 public class Granat extends Tile {
 	public Granat(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(), getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		
@@ -42,6 +42,11 @@ public class Granat extends Tile {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Borgo.granatSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.granat();
 	}
 
 }

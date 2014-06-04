@@ -28,4 +28,9 @@ public class Klaun extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.klaunSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.klaunNetted();
+	}
 }

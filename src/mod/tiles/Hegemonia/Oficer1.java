@@ -12,7 +12,7 @@ import mod.Unit;
 
 public class Oficer1 extends Modul {
 	public Oficer1(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -73,5 +73,10 @@ public class Oficer1 extends Modul {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Hegemonia.oficer1Selected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.oficer1Netted();
 	}
 }

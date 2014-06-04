@@ -29,5 +29,10 @@ public class OpancerzonyWartownik extends Unit{
 		return ImageLoader.Moloch.opancerzonywartownikSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.opancerzonywartownikNetted();
+	}
+	
 	
 }

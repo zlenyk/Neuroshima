@@ -43,4 +43,9 @@ public class DzialkoGaussa extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.dzialkogaussaSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.dzialkogaussaNetted();
+	}
 }

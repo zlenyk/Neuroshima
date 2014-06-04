@@ -29,4 +29,9 @@ public class Nozownik extends Unit {
 		return ImageLoader.Borgo.nozownikSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.nozownikNetted();
+	}
+	
 }

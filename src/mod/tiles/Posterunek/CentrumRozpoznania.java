@@ -11,7 +11,7 @@ import mod.Player;
 
 public class CentrumRozpoznania extends Modul {
 	public CentrumRozpoznania(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -52,5 +52,10 @@ public class CentrumRozpoznania extends Modul {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Posterunek.centrumrozpoznawaniaSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.centrumrozpoznawaniaNetted();
 	}
 }

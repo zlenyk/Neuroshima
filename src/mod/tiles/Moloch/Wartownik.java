@@ -28,4 +28,9 @@ public class Wartownik extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.wartownikSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.wartownikNetted();
+	}
 }

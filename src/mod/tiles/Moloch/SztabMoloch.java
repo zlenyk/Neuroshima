@@ -100,4 +100,10 @@ public class SztabMoloch extends mod.Unit {
 		
 		return ImageLoader.Moloch.sztabSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		
+		return ImageLoader.Moloch.sztabNetted();
+	}
 }

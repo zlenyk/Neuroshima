@@ -29,4 +29,9 @@ public class UniwersalnyZolnierz extends Unit {
 		return ImageLoader.Hegemonia.uniwersalnyzolnierzSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.uniwersalnyzolnierzNetted();
+	}
+	
 }

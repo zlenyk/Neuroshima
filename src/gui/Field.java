@@ -16,14 +16,18 @@ public class Field extends JPanel{
 	public Polygon polygon;
 	Image image;
 	Image selectedImage;
+	Image nettedImage;
 	boolean selected;
+	boolean netted;
 	int rotation = 0;
-	public Field(Image img,Image selectImg) {
+	public Field(Image img,Image selectImg, Image nettedImg) {
 		super();
 		setSize(124,108);
 		image = img;
 		selectedImage = selectImg;
 		selected = false;
+		nettedImage = nettedImg;
+		netted = false;
 	}
 	public Field(Image img){
 		super();
@@ -38,6 +42,12 @@ public class Field extends JPanel{
 	}
 	public boolean isSelected(){
 		return selected;
+	}
+	public boolean isNetted(){
+		return netted;
+	}
+	public void changeNetted(){
+		netted = !netted;
 	}
 	public void rotate(){
 		rotation = (rotation + 1) % 6;
@@ -63,6 +73,9 @@ public class Field extends JPanel{
 		
 		if(selected){
 			g2d.drawImage(op.filter((BufferedImage) selectedImage, null), drawLocationX, drawLocationY, null);
+		}
+		else if(netted){
+			g2d.drawImage(op.filter((BufferedImage) nettedImage, null), drawLocationX, drawLocationY, null);
 		}
 		else{
 			g2d.drawImage(op.filter((BufferedImage) image, null), drawLocationX, drawLocationY, null);

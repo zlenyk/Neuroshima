@@ -8,7 +8,7 @@ import cont.board.ImageLoader;
 
 public class Empty extends mod.Tile {
 	public Empty(){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 	}
 
 	@Override
@@ -24,6 +24,10 @@ public class Empty extends mod.Tile {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Empty.emptySelected();
+	}
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Empty.empty();
 	}
 	@Override
 	public void put(int position, int rotation) {}

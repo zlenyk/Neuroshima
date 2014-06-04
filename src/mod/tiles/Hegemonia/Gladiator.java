@@ -34,4 +34,9 @@ public class Gladiator extends Unit {
 		return ImageLoader.Hegemonia.gladiatorSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.gladiatorNetted();
+	}
+	
 }

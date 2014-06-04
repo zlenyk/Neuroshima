@@ -29,4 +29,9 @@ public class Szturmowiec extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.szturmowiecSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.szturmowiecNetted();
+	}
 }

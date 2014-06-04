@@ -30,4 +30,9 @@ public class PancerzWspomagany extends Unit {
 		return ImageLoader.Posterunek.pancerzwspomaganySelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.pancerzwspomaganyNetted();
+	}
+	
 }

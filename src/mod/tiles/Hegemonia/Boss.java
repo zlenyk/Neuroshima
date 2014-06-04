@@ -12,7 +12,7 @@ import mod.Unit;
 
 public class Boss extends Modul {
 	public Boss(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -75,5 +75,10 @@ public class Boss extends Modul {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Hegemonia.bossSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.bossNetted();
 	}
 }

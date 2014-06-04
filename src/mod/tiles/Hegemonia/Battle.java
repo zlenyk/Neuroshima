@@ -13,7 +13,7 @@ import cont.board.ImageLoader;
 public class Battle extends Tile {
 
 	public Battle(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		
@@ -44,5 +44,10 @@ public class Battle extends Tile {
 	public Image getSelectedImage() {
 		return ImageLoader.Hegemonia.bitwaSelected();
 	}
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.bitwa();
+	}
+	
 
 }

@@ -30,4 +30,9 @@ public class SuperMutant extends Unit {
 		return ImageLoader.Borgo.supermutantSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Borgo.supermutantNetted();
+	}
+	
 }

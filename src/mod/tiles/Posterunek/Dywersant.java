@@ -11,7 +11,7 @@ import mod.Unit;
 
 public class Dywersant extends Modul {
 	public Dywersant(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 		hp = 1;
@@ -69,5 +69,10 @@ public class Dywersant extends Modul {
 	@Override
 	public Image getSelectedImage() {
 		return ImageLoader.Posterunek.dywersantSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Posterunek.dywersantNetted();
 	}
 }

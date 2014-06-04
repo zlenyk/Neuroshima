@@ -29,4 +29,9 @@ public class Biegacz extends Unit {
 		return ImageLoader.Hegemonia.biegaczSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.biegaczNetted();
+	}
+	
 }

@@ -99,4 +99,10 @@ public class SztabPosterunek extends mod.Unit {
 		
 		return ImageLoader.Posterunek.sztabSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		
+		return ImageLoader.Posterunek.sztabNetted();
+	}
 }

@@ -109,4 +109,10 @@ public class SztabBorgo extends Unit {
 		
 		return ImageLoader.Borgo.sztabSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		
+		return ImageLoader.Borgo.sztabNetted();
+	}
 }

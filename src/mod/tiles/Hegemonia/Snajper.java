@@ -13,7 +13,7 @@ import cont.board.ImageLoader;
 
 public class Snajper extends Tile {
 	public Snajper(Player owner, FieldModel board[]){
-		field = new Field(getImage(),getSelectedImage());
+		field = new Field(getImage(),getSelectedImage(),getNettedImage());
 		this.owner = owner;
 		this.board = board;
 	}
@@ -44,6 +44,11 @@ public class Snajper extends Tile {
 
 	@Override
 	public Image getSelectedImage() {
+		return ImageLoader.Hegemonia.snajperSelected();
+	}
+	
+	@Override
+	public Image getNettedImage() {
 		return ImageLoader.Hegemonia.snajper();
 	}
 }

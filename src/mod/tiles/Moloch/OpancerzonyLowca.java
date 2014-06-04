@@ -35,4 +35,9 @@ public class OpancerzonyLowca extends Unit {
 	public Image getSelectedImage() {
 		return ImageLoader.Moloch.opancerzonylowcaSelected();
 	}
+	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Moloch.opancerzonylowcaNetted();
+	}
 }

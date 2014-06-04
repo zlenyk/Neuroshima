@@ -30,4 +30,9 @@ public class Straznik extends Unit {
 		return ImageLoader.Hegemonia.straznikSelected();
 	}
 	
+	@Override
+	public Image getNettedImage() {
+		return ImageLoader.Hegemonia.straznikNetted();
+	}
+	
 }
